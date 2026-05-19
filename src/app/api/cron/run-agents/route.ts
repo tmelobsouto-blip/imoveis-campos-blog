@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from 'next/server';
 // Called 3x daily via vercel.json
 
 export const runtime = 'nodejs';
-export const maxDuration = 900; // 15 minutes max
+export const maxDuration = 800; // Vercel Pro limit (max 800s)
 
 export async function POST(request: NextRequest) {
   // Verify Vercel cron secret
