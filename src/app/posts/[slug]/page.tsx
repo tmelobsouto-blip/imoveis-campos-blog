@@ -9,16 +9,9 @@ import TagBadge from '@/components/TagBadge';
 export const revalidate = 60; // ISR
 
 export async function generateStaticParams() {
-  try {
-    const { posts } = await getPosts(100);
-    return posts.map((post) => ({
-      slug: post.slug,
-    }));
-  } catch (err) {
-    // Supabase not available - return empty params
-    console.warn('Supabase not available for static params');
-    return [];
-  }
+  // Return empty array - allow ISR to generate pages on-demand
+  // Prevents build timeout when Supabase unavailable at build time
+  return [];
 }
 
 export async function generateMetadata({
