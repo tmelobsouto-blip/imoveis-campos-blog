@@ -3,39 +3,47 @@
 @tailwind utilities;
 
 :root {
-  /* Colors (OKLCH palette) */
-  --color-base: #fafbfc;
-  --color-text: #1f2937;
-  --color-text-secondary: #6b7280;
-  --color-accent: #3b82f6;
-  --color-accent-light: #dbeafe;
-  --color-border: #e5e7eb;
+  /* Apple-Modern Color Palette */
+  --color-text: #000000;
+  --color-text-secondary: #6e6e73;
+  --color-text-tertiary: #a1a1a6;
   --color-bg: #ffffff;
-  --color-bg-secondary: #f9fafb;
+  --color-bg-secondary: #f5f5f7;
+  --color-bg-tertiary: #efefef;
+  --color-accent: #0071e3;
+  --color-accent-hover: #0077ed;
+  --color-border: #e5e5ea;
 
-  /* Spacing (4px base unit) */
+  /* Spacing (8px base = premium breathing room) */
   --space-xs: 4px;
   --space-sm: 8px;
   --space-md: 16px;
   --space-lg: 24px;
   --space-xl: 32px;
   --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
 
-  /* Typography (1.25x modular scale) */
-  --text-display: 48px;
-  --text-h1: 36px;
-  --text-h2: 30px;
+  /* Apple-Modern Typography (bold, confident) */
+  --text-display: 56px;
+  --text-h1: 56px;
+  --text-h2: 32px;
   --text-h3: 24px;
   --text-body: 16px;
   --text-sm: 14px;
+  --text-xs: 12px;
 
-  /* Line heights */
-  --lh-display: 1.2;
+  /* Line heights (premium breathing) */
+  --lh-display: 1.1;
+  --lh-h1: 1.15;
+  --lh-h2: 1.25;
   --lh-heading: 1.3;
-  --lh-body: 1.6;
+  --lh-body: 1.75;
 
-  /* Misc */
-  --transition-default: 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* Transitions (smooth, premium) */
+  --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-default: 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 400ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -50,28 +58,32 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
   background-color: var(--color-bg);
   color: var(--color-text);
   line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1 {
   font-size: var(--text-h1);
-  line-height: var(--lh-heading);
+  line-height: var(--lh-h1);
   font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 h2 {
   font-size: var(--text-h2);
-  line-height: var(--lh-heading);
-  font-weight: 700;
+  line-height: var(--lh-h2);
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 h3 {
   font-size: var(--text-h3);
   line-height: var(--lh-heading);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 p {
@@ -81,20 +93,48 @@ p {
 a {
   color: var(--color-accent);
   text-decoration: none;
-  transition: color var(--transition-default);
+  position: relative;
+  transition: color var(--transition-fast);
 }
 
 a:hover {
-  text-decoration: underline;
+  color: var(--color-accent-hover);
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-accent-hover);
+  transition: width var(--transition-fast);
+}
+
+a:hover::after {
+  width: 100%;
 }
 
 button {
   cursor: pointer;
-  transition: background-color var(--transition-default), color var(--transition-default);
+  transition: background-color var(--transition-default), opacity var(--transition-default), transform var(--transition-fast);
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
 }
 
 img {
   max-width: 100%;
   height: auto;
   display: block;
+  border-radius: 12px;
 }

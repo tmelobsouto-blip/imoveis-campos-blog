@@ -35,20 +35,21 @@ export default function NewsletterCTA() {
 
   return (
     <div className="
-      bg-gray-50
-      border border-gray-300
-      rounded-md
-      p-6
-      my-8
+      bg-gradient-to-br from-blue-50 to-blue-100
+      rounded-2xl
+      p-12
+      my-12
+      shadow-sm
+      backdrop-blur-sm
     ">
-      <h3 className="text-lg font-bold text-gray-900 mb-2">
+      <h3 className="text-3xl font-semibold text-black mb-3 leading-tight">
         Acompanhe lançamentos diários
       </h3>
-      <p className="text-gray-600 text-sm mb-4">
+      <p className="text-gray-700 text-base mb-8 max-w-md leading-relaxed">
         Receba posts sobre mercado imobiliário de Campos dos Goytacazes no seu email.
       </p>
 
-      <form onSubmit={handleSubmit} className="flex gap-2">
+      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md">
         <input
           type="email"
           placeholder="seu@email.com"
@@ -57,14 +58,19 @@ export default function NewsletterCTA() {
           disabled={status === 'loading'}
           className="
             flex-1
-            px-3 py-2
+            px-4 py-3
+            bg-white
             border border-gray-300
-            rounded-md
-            text-sm
+            rounded-xl
+            text-base
+            placeholder:text-gray-500
             focus:outline-none
             focus:ring-2
-            focus:ring-blue-500
-            disabled:bg-gray-100
+            focus:ring-blue-600
+            focus:ring-offset-0
+            disabled:opacity-50
+            transition-all
+            duration-300
           "
           required
         />
@@ -72,15 +78,17 @@ export default function NewsletterCTA() {
           type="submit"
           disabled={status === 'loading'}
           className="
-            px-4 py-2
+            px-6 py-3
             bg-blue-600
             text-white
-            text-sm
-            font-medium
-            rounded-md
+            text-base
+            font-semibold
+            rounded-xl
             hover:bg-blue-700
-            disabled:bg-gray-400
-            transition-colors
+            disabled:opacity-50
+            transition-all
+            duration-300
+            whitespace-nowrap
           "
         >
           {status === 'loading' ? 'Enviando...' : 'Inscrever'}
@@ -88,7 +96,7 @@ export default function NewsletterCTA() {
       </form>
 
       {message && (
-        <p className={`text-sm mt-2 ${status === 'success' ? 'text-green-600' : 'text-red-600'}`}>
+        <p className={`text-sm mt-4 font-medium ${status === 'success' ? 'text-green-700' : 'text-red-700'}`}>
           {message}
         </p>
       )}

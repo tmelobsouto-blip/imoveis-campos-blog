@@ -89,7 +89,7 @@ export default async function PostPage({
     .slice(0, 3);
 
   return (
-    <article className="max-w-3xl mx-auto">
+    <article className="max-w-3xl mx-auto px-6">
       <PostHeader
         title={post.title}
         author={post.author}
@@ -99,59 +99,63 @@ export default async function PostPage({
       />
 
       {/* Ad Unit */}
-      <div className="mb-8 flex justify-center">
+      <div className="mb-12 flex justify-center">
         <AdUnit slotId="post-top" format="horizontal" className="w-full" />
       </div>
 
       {/* Post Body */}
-      <div className="prose prose-sm max-w-none mb-8 text-gray-800 leading-relaxed">
+      <div className="mb-12 text-lg leading-8 text-gray-800">
         {post.body.split('\n\n').map((paragraph, idx) => (
-          <p key={idx} className="mb-4 text-gray-800">
+          <p key={idx} className="mb-8 text-gray-800">
             {paragraph}
           </p>
         ))}
       </div>
 
       {/* Disclaimer */}
-      <div className="bg-gray-50 border border-gray-300 rounded-md p-4 mb-8 text-sm text-gray-600">
+      <div className="bg-blue-50 rounded-2xl p-8 mb-12 text-base text-gray-700 border border-blue-100">
         <p>
-          <strong>Disclaimer:</strong> Este conteúdo é informativo e não constitui
+          <strong className="text-black">Disclaimer:</strong> Este conteúdo é informativo e não constitui
           recomendação de investimento. Sempre consulte profissionais qualificados
           antes de tomar decisões financeiras.
         </p>
       </div>
 
       {/* Tags */}
-      <div className="flex flex-wrap gap-2 mb-8 pb-8 border-b border-gray-300">
+      <div className="flex flex-wrap gap-3 mb-12 pb-12">
         {post.tags.map((tag) => (
           <TagBadge key={tag} tag={tag} />
         ))}
       </div>
 
       {/* Newsletter CTA */}
-      <NewsletterCTA />
+      <div className="mb-20">
+        <NewsletterCTA />
+      </div>
 
       {/* Ad Unit */}
-      <div className="mb-8 flex justify-center">
+      <div className="mb-20 flex justify-center">
         <AdUnit slotId="post-middle" format="horizontal" className="w-full" />
       </div>
 
       {/* Related Posts */}
       {relatedPosts.length > 0 && (
-        <RelatedPosts
-          posts={relatedPosts.map((p) => ({
-            title: p.title,
-            slug: p.slug,
-            excerpt: p.body.substring(0, 100),
-            tags: p.tags,
-            published_at: p.published_at,
-            author: p.author,
-          }))}
-        />
+        <div className="mb-20">
+          <RelatedPosts
+            posts={relatedPosts.map((p) => ({
+              title: p.title,
+              slug: p.slug,
+              excerpt: p.body.substring(0, 100),
+              tags: p.tags,
+              published_at: p.published_at,
+              author: p.author,
+            }))}
+          />
+        </div>
       )}
 
       {/* Ad Unit */}
-      <div className="mt-8 flex justify-center">
+      <div className="mt-20 flex justify-center">
         <AdUnit slotId="post-bottom" format="horizontal" className="w-full" />
       </div>
     </article>

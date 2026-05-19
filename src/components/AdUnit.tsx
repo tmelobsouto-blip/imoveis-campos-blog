@@ -17,26 +17,24 @@ export default function AdUnit({
 
   const adSlot = slotMap[slotId] || slotMap.default;
 
-  const placeholderBg = 'bg-gray-100';
-  const placeholderText = 'text-gray-400 text-center text-xs';
-
   return (
     <div
       className={`
         ${className}
-        ${placeholderBg}
-        ${placeholderText}
-        border border-gray-300
-        rounded-md
+        bg-gradient-to-br from-gray-50 to-gray-100
+        border border-gray-200
+        rounded-xl
         flex items-center justify-center
+        shadow-sm
         ${format === 'responsive' ? 'w-full h-64' : ''}
         ${format === 'vertical' ? 'w-64 h-96' : ''}
         ${format === 'horizontal' ? 'w-full h-24' : ''}
       `}
       data-ad-slot={adSlot}
     >
-      {/* Google AdSense script will render here */}
-      <p>Ad Unit ({format})</p>
+      <div className="text-center">
+        <p className="text-gray-400 text-xs font-medium">Publicidade</p>
+      </div>
     </div>
   );
 }

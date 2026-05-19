@@ -26,33 +26,35 @@ export default function PostCard({
 
   return (
     <article className="
-      border border-gray-300
-      rounded-md
-      p-4
-      hover:shadow-md
+      rounded-xl
+      p-8
+      hover:shadow-lg
       hover:bg-gray-50
       transition-all
       duration-300
+      group
     ">
-      <Link href={`/posts/${slug}`} className="block group">
+      <Link href={`/posts/${slug}`} className="block">
         <h3 className="
-          text-lg font-bold
-          text-gray-900
+          text-2xl font-semibold
+          text-black
           group-hover:text-blue-600
           transition-colors
-          mb-2
-          line-clamp-2
+          duration-300
+          mb-4
+          line-clamp-3
+          leading-tight
         ">
           {title}
         </h3>
       </Link>
 
-      <div className="text-sm text-gray-600 mb-3">
-        <time dateTime={publishedAt}>{formattedDate}</time>
-        {author && <span className="ml-2">• {author}</span>}
+      <div className="text-sm text-gray-500 mb-4 space-y-1">
+        <time dateTime={publishedAt} className="block">{formattedDate}</time>
+        {author && <span className="block text-gray-600">{author}</span>}
       </div>
 
-      <p className="text-gray-700 text-sm mb-3 line-clamp-2">
+      <p className="text-gray-700 text-base mb-6 line-clamp-2 leading-relaxed">
         {excerpt}
       </p>
 
@@ -61,7 +63,7 @@ export default function PostCard({
           <TagBadge key={tag} tag={tag} />
         ))}
         {tags.length > 3 && (
-          <span className="text-xs text-gray-500">+{tags.length - 3}</span>
+          <span className="text-xs text-gray-400">+{tags.length - 3}</span>
         )}
       </div>
     </article>

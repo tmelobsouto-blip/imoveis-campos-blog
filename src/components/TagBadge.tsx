@@ -6,13 +6,14 @@ export interface TagBadgeProps {
 export default function TagBadge({ tag, href }: TagBadgeProps) {
   const className = `
     inline-block
-    px-2 py-1
+    px-3 py-1.5
     bg-gray-100
     text-gray-700
     text-xs font-medium
-    rounded
+    rounded-full
     hover:bg-gray-200
     transition-colors
+    duration-300
   `.trim().replace(/\s+/g, ' ');
 
   if (href) {

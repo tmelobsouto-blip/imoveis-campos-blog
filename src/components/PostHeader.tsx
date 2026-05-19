@@ -22,21 +22,18 @@ export default function PostHeader({
   });
 
   return (
-    <header className="mb-8">
-      <h1 className="text-4xl font-bold text-gray-900 mb-4 leading-tight">
+    <header className="mb-12">
+      <h1 className="text-5xl sm:text-6xl font-bold text-black mb-6 leading-tight tracking-tight">
         {title}
       </h1>
 
-      <div className="text-sm text-gray-600 mb-6">
-        <div className="flex items-center gap-2">
-          <time dateTime={publishedAt}>{formattedDate}</time>
-          <span>•</span>
-          <span>{author}</span>
-        </div>
+      <div className="text-base text-gray-600 mb-8 space-y-2">
+        <time dateTime={publishedAt} className="block">{formattedDate}</time>
+        <span className="block text-gray-700">{author}</span>
       </div>
 
       {featuredImageUrl && (
-        <div className="relative w-full h-96 mb-8 rounded-lg overflow-hidden">
+        <div className="relative w-full h-96 sm:h-[500px] mb-12 rounded-2xl overflow-hidden shadow-lg">
           <Image
             src={featuredImageUrl}
             alt={featuredImageAlt}

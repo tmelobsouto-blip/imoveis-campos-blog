@@ -33,35 +33,37 @@ export default async function Home() {
   }
 
   return (
-    <main className="max-w-3xl mx-auto">
+    <main className="max-w-4xl mx-auto px-6">
       {/* Hero */}
-      <section className="py-12 text-center border-b border-gray-300 mb-12">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
+      <section className="py-20 sm:py-32 text-center mb-20">
+        <h1 className="text-5xl sm:text-7xl font-bold text-black mb-6 leading-tight tracking-tight">
           Blog Imóveis Campos
         </h1>
-        <p className="text-gray-600 text-lg">
+        <p className="text-xl sm:text-2xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
           Análise opinativa do mercado imobiliário de Campos dos Goytacazes, RJ
         </p>
       </section>
 
       {/* Ad Unit */}
-      <div className="mb-12 flex justify-center">
+      <div className="mb-20 flex justify-center">
         <AdUnit slotId="homepage-top" format="horizontal" className="w-full" />
       </div>
 
       {/* Newsletter CTA */}
-      <NewsletterCTA />
+      <div className="mb-24">
+        <NewsletterCTA />
+      </div>
 
-      {/* Posts Grid */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Últimos Posts</h2>
+      {/* Posts Section */}
+      <section className="mb-24">
+        <h2 className="text-4xl sm:text-5xl font-bold text-black mb-12 tracking-tight">Últimos Posts</h2>
 
         {posts.length === 0 ? (
-          <div className="text-center py-12">
-            <p className="text-gray-500">Nenhum post publicado ainda.</p>
+          <div className="text-center py-16">
+            <p className="text-gray-500 text-lg">Nenhum post publicado ainda.</p>
           </div>
         ) : (
-          <div className="space-y-6">
+          <div className="space-y-8">
             {posts.map((post) => (
               <PostCard
                 key={post.id}
@@ -78,16 +80,16 @@ export default async function Home() {
       </section>
 
       {/* Ad Unit */}
-      <div className="mb-12 flex justify-center">
+      <div className="mb-24 flex justify-center">
         <AdUnit slotId="homepage-bottom" format="horizontal" className="w-full" />
       </div>
 
       {/* Bottom CTA */}
-      <section className="text-center py-12 border-t border-gray-300">
-        <p className="text-gray-600 mb-4">
+      <section className="text-center py-16">
+        <h3 className="text-2xl font-semibold text-black mb-4">
           Quer acompanhar lançamentos em tempo real?
-        </p>
-        <p className="text-sm text-gray-500">
+        </h3>
+        <p className="text-gray-600 text-base leading-relaxed">
           Siga nossas redes sociais ou assine a newsletter acima.
         </p>
       </section>
