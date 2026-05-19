@@ -1,0 +1,44 @@
+{
+  "name": "imoveis-campos-blog",
+  "version": "0.1.0",
+  "description": "Blog local imóveis Campos dos Goytacazes, gerado por agentes IA autônomos",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint src --max-warnings 0",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "validate": "npm run lint && npm run build && npm run test",
+    "agent:scraper": "node --env-file=.env.local dist/src/agents/scraper.js",
+    "agent:analyzer": "node --env-file=.env.local dist/src/agents/analyzer.js",
+    "agent:writer": "node --env-file=.env.local dist/src/agents/writer.js",
+    "agent:publisher": "node --env-file=.env.local dist/src/agents/publisher.js",
+    "agent:run": "node --env-file=.env.local dist/src/agents/index.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "latest",
+    "@supabase/supabase-js": "latest",
+    "@tailwindcss/postcss": "^4.3.0",
+    "dotenv": "^17.4.2",
+    "firecrawl": "latest",
+    "next": "^16.2.6",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@types/jest": "latest",
+    "@types/node": "^25.9.0",
+    "@types/react": "^19.2.14",
+    "@typescript-eslint/eslint-plugin": "latest",
+    "@typescript-eslint/parser": "latest",
+    "autoprefixer": "^10.5.0",
+    "eslint": "latest",
+    "jest": "latest",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^4.3.0",
+    "typescript": "^6.0.3"
+  }
+}
