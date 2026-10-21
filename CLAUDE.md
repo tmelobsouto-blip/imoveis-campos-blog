@@ -1,76 +1,68 @@
-# Blog Imóveis Campos — Project Instructions
+# NEXO Websites
 
-## Identity
-Senior software engineer + product lead. Implementar blog autônomo imóveis Campos RJ, monetizado AdSense, gerado por agentes IA 5-10 posts/dia.
+Estúdio que cria **sites próprios de reserva direta para imóveis de temporada** e vende ao proprietário.
+Cada imóvel é um cliente em `clientes/<slug>/`. Cliente atual: **Casa Dez** (Porto de Galinhas, PE).
 
-## Rules
+## Antes de começar
+1. Leia `clientes/<slug>/README.md` do cliente em questão (status, links publicados, decisões).
+2. Para um imóvel novo, use a skill `novo-cliente`. Para orçamento/proposta, `proposta-comercial`.
+3. Dependências: `npm install` na raiz (o hook de sessão já faz isso na nuvem).
 
-### Response
-- Caveman ultra mode (settings.json)
-- Max 500 tokens per turn
-- Short only
-
-### Code
-- TypeScript (all production code)
-- No comments unless WHY is non-obvious
-- Follow existing patterns
-- Test-driven where possible
-
-### Project Structure
+## Estrutura
 ```
-src/
-├── app/              # Next.js App Router (pages, layouts)
-├── agents/           # Agent scripts
-│   ├── scraper.ts
-│   ├── analyzer.ts
-│   ├── writer.ts
-│   └── publisher.ts
-├── lib/
-│   ├── supabase.ts
-│   ├── claude.ts
-│   ├── firecrawl.ts
-│   └── db.ts
-└── pages/            # API routes
-    └── api/
-        └── publish.ts
+CLAUDE.md, README.md
+.claude/                 settings.json, hooks/session-start.sh, skills/
+docs/                    processo.md (fluxo de venda), precos.md (pacotes)
+scripts/                 ferramentas (recorte de fotos, preview, checagem, PDF)
+clientes/<slug>/
+  README.md              status, links publicados, decisões do cliente
+  dados.md               fatos do anúncio (fonte única para textos)
+  fonte/                 prints originais da galeria (não editar)
+  fotos/                 fotos recortadas (<id>.webp + <id>-thumb.webp)
+  site.html              site final
+  mockup-*.html          direções visuais apresentadas
+  proposta.html + Proposta-<Nome>.pdf + img/   proposta comercial
+  tour/                  (opcional, Premium) tour imersivo Next.js
 ```
 
-### Before Each Session
-1. Read `/docs/specs/2026-05-19-imoveis-campos-blog-design.md` (if new to project)
-2. Check `ROADMAP.md` (if exists) for current phase/blockers
-3. Run tests: `npm run test`
+## Comandos
+| Comando | O que faz |
+|---|---|
+| `npm run fotos -- clientes/<slug>/fonte clientes/<slug>/fotos` | recorta as fotos dos prints da galeria |
+| `npm run preview -- clientes/<slug>` | servidor local em http://localhost:4321 com o esqueleto do Artifact |
+| `npm run check -- clientes/<slug>` | abre cada página no celular e desktop: erros, rolagem lateral, capturas em `.screens/` |
+| `npm run telas -- clientes/<slug>/site.html clientes/<slug>/img` | captura as telas do site usadas na proposta |
+| `npm run pdf -- clientes/<slug>/proposta.html clientes/<slug>/Proposta-<Nome>.pdf` | gera o PDF A4 da proposta |
+| `npm run tour -- validate` | typecheck + testes + build do tour da Casa Dez |
+| `npm run validate` | checa os scripts e valida o tour |
 
-### Validation
-- After each feature: run `npm run validate` (TS check, lint, tests)
-- Before commit: ensure no secrets in .env files
+## Regras de conteúdo (não negociáveis)
+- **Fotos reais**: só as do anúncio ou do proprietário. Pode recortar e redimensionar. Nunca retocar, gerar com IA, usar banco de imagens ou inventar ambientes.
+- **Fatos**: só o que está em `dados.md` (prints do anúncio ou informado pelo usuário). Nada de preço, distância, comodidade ou capacidade inventados.
+- **Avaliações**: citação literal, com nome e mês. Trecho cortado vira `[…]`. Não "corrigir" o texto do hóspede.
+- **Nome da marca**: é sugestão até o proprietário aprovar. Diga isso na proposta.
+- **Airbnb**: o site soma um canal ao anúncio. Nunca sugerir desviar hóspedes ou reservas vindos do Airbnb (regra de pagamentos fora da plataforma). Taxas do Airbnb: citar a fonte e pedir confirmação no painel do anfitrião.
+- **Não oferecer**: Perfil da Empresa no Google (casas de temporada são inelegíveis) e hospedagem gratuita da Vercel (plano Hobby é só para uso não comercial). Para hospedagem sem custo, usar Cloudflare Pages ou similar que permita uso comercial.
+- **WhatsApp**: sem número real até o proprietário fornecer. Na fase de apresentação, `https://wa.me/?text=` sem número.
 
-### Git Workflow
-- Commit after each completed task (não amend)
-- Messages: feat/fix/refactor + scope
-- Push daily (or after significant progress)
+## Páginas HTML (publicadas como Artifact do claude.ai)
+- O arquivo **não** tem `<!doctype>`, `<html>`, `<head>` nem `<body>`: o Artifact adiciona o esqueleto (o mesmo de `scripts/_pagina.mjs`).
+- Abrir com `<title>` (nome curto) e `<meta name="claude:viewport-fit-sides" content="cover">`; laterais com `padding-left/right: max(20px, env(safe-area-inset-*, 0px))`.
+- Caminhos relativos à pasta do cliente: `fotos/…`, `img/…`. Nunca `/` inicial nem `../`.
+- Fontes só do Google Fonts; scripts externos só de cdnjs/jsDelivr/unpkg. Preferir JS puro.
+- Mobile primeiro (390 px), sem rolagem lateral, `prefers-reduced-motion` respeitado.
+- `window.print()`, `alert()` e downloads não funcionam dentro do Artifact; PDF é gerado com `npm run pdf`.
+- Antes de publicar: `npm run check -- clientes/<slug>` sem erros.
 
-### Skills (if applicable)
-- `/patch` → safe edit workflow for SPA (not here, HTML-only)
-- `/sp-test-driven-development` → TDD for agent logic
-- `/sp-verification-before-completion` → verify agents work before claiming done
+## Publicação
+- Publicar com `root = clientes/<slug>` e `files` = só as fotos/imagens que a página usa.
+- **Republicar sempre com o `url` do Artifact existente** (tabela no README do cliente), senão nasce um link novo.
+- Links nascem privados: o usuário compartilha pelo menu **Share** antes de enviar ao proprietário.
 
-## Success Criteria
+## Código e git
+- Textos de interface e documentação em português do Brasil. Código e comentários seguem o padrão do arquivo; comentar só o porquê não óbvio.
+- Tour imersivo: Next.js + React + TypeScript + Tailwind 4, WebGL2 próprio, testes com vitest.
+- Commits: `feat|fix|docs|chore(escopo): mensagem`. Nunca commitar `.env*`, `node_modules`, `.screens/` ou builds.
 
-**Fase 1 (MVP):** 3 posts/dia, 0 erros por 7 dias contínuos  
-**Fase 2 (Auto):** 5-10 posts/dia, <5% failure rate  
-**Fase 3 (Revenue):** RPM ≥ R$8/1k views, 1k+ pageviews/mês  
-
-## Key Decisions
-
-- **Next.js + Vercel:** Fast deploy, ISR ideal pra posts novos, free tier escalável
-- **Claude 3.5 Sonnet:** Best quality/cost para posts opinativos curtos
-- **Firecrawl:** Scraping roboto, handles JavaScript renders
-- **Supabase:** PSQL free tier, fast, serverless compatible
-
-## Risks
-
-- AdSense rejection (E-E-A-T compliance critical)
-- Scraper quebra (portals mudaram HTML)
-- Low RPM (imóvel local menor que finance)
-
-Mitigation: monitoramento 24/7, fallback manual, strong disclaimer.
+## Estilo de resposta
+Curto, direto, em português. Mostrar links e próximos passos; detalhes técnicos só quando pedidos.

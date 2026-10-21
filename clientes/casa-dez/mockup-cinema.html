@@ -1,0 +1,491 @@
+<title>Villa Maré</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Casa com 10 quartos e piscina privativa a 100 m da praia em Porto de Galinhas. Reserva direta com o anfitrião.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: filme em cenas — cada ambiente ocupa a tela, legendas como em cinema, ficha técnica e ingresso no fim */
+:root {
+  --night: #071016;
+  --night-2: #0e1c24;
+  --bone: #eef3f1;
+  --muted: #a3b5b7;
+  --line: rgb(238 243 241 / .16);
+  --pool: #6ad6e0;
+  --display: 'Bodoni Moda', 'Didot', 'Times New Roman', serif;
+  --body: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--night); }
+body { margin: 0; background: var(--night); color: var(--bone); font: 400 17px/1.6 var(--body); -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--pool); outline-offset: 3px; }
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: 50; pointer-events: none; opacity: .07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.wrap {
+  width: 100%; max-width: 1200px; margin-inline: auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+.mono { font: 500 .72rem/1.4 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--pool); }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+h2 { font-size: clamp(2.4rem, 6vw, 4.8rem); line-height: 1; }
+.section { padding-block: clamp(72px, 11vw, 140px); }
+.section-head { display: grid; gap: 14px; margin-bottom: clamp(32px, 5vw, 56px); max-width: 780px; }
+.section-head p:not(.mono) { margin: 0; color: var(--muted); max-width: 58ch; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+  min-height: 52px; padding: 0 28px; border: 1px solid var(--bone); border-radius: 0;
+  background: var(--bone); color: var(--night); text-decoration: none; cursor: pointer;
+  font: 500 .78rem/1 var(--mono); letter-spacing: .18em; text-transform: uppercase;
+  transition: background .3s, color .3s;
+}
+.btn:hover { background: transparent; color: var(--bone); }
+.btn-line { background: transparent; color: var(--bone); }
+.btn-line:hover { background: var(--bone); color: var(--night); }
+
+/* top bar */
+.bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 40;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: calc(14px + env(safe-area-inset-top, 0px)) max(20px, env(safe-area-inset-right, 0px)) 14px max(20px, env(safe-area-inset-left, 0px));
+  background: linear-gradient(to bottom, rgb(7 16 22 / .75), transparent);
+}
+.logo { font: 500 1.05rem/1 var(--display); letter-spacing: .32em; text-transform: uppercase; text-decoration: none; }
+.bar .btn { min-height: 40px; padding: 0 16px; }
+
+/* title card */
+.title-card { position: relative; min-height: 100svh; display: grid; align-items: end; overflow: hidden; }
+.title-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: settle 8s cubic-bezier(.2,.7,.2,1) both; }
+.title-card::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top, var(--night) 4%, rgb(7 16 22 / .55) 40%, rgb(7 16 22 / .15) 70%, rgb(7 16 22 / .5)); }
+.title-card .wrap { text-shadow: 0 1px 18px rgb(0 0 0 / .55); position: relative; z-index: 2; padding-block: 120px clamp(40px, 7vw, 80px); display: grid; gap: 22px; }
+.title-card h1 { font-size: clamp(3.4rem, 13vw, 11rem); line-height: .86; letter-spacing: -0.02em; animation: fade 1.6s ease .2s both; }
+.title-card h1 i { font-style: italic; color: var(--pool); }
+.title-card .sub { margin: 0; max-width: 44ch; font-size: clamp(1.05rem, 1.6vw, 1.25rem); color: var(--bone); animation: fade 1.6s ease .6s both; }
+.title-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; animation: fade 1.6s ease 1s both; }
+.title-meta .mono { color: var(--bone); }
+.title-meta .mono b { color: var(--pool); font-weight: 500; }
+
+/* scenes */
+.scene { position: relative; height: 175svh; view-timeline-name: --scene; }
+.scene .frame { position: sticky; top: 0; height: 100svh; overflow: hidden; }
+.scene .frame img { width: 100%; height: 100%; object-fit: cover; }
+.scene .frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgb(7 16 22 / .85), transparent 45%); }
+.subtitle {
+  position: absolute; z-index: 2; left: 0; right: 0; bottom: 0;
+  padding: 0 max(20px, env(safe-area-inset-right, 0px)) calc(clamp(32px, 6vw, 64px) + env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left, 0px));
+  display: grid; justify-items: center; text-align: center; gap: 12px;
+}
+.subtitle h2 { font-size: clamp(2.2rem, 5.5vw, 4.6rem); }
+.subtitle h2 i { color: var(--pool); }
+.subtitle p:not(.mono) { margin: 0; max-width: 46ch; color: var(--bone); font-size: 1.05rem; text-shadow: 0 1px 12px rgb(0 0 0 / .5); }
+@supports (animation-timeline: view()) {
+  .scene .frame img { animation: push linear both; animation-timeline: --scene; animation-range: entry 0% exit 100%; }
+}
+
+/* credits */
+.credits { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 0 64px; margin: 0; }
+.credits div { display: flex; align-items: baseline; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.credits dt { color: var(--muted); }
+.credits dt::after { content: ""; }
+.credits .dots { flex: 1; border-bottom: 1px dotted var(--line); transform: translateY(-5px); }
+.credits dd { margin: 0; font: 400 clamp(1.5rem, 3vw, 2.1rem)/1 var(--display); font-variant-numeric: lining-nums tabular-nums; }
+
+/* reviews */
+.critic { display: grid; gap: clamp(40px, 6vw, 72px); }
+.critic-score { display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 28px; }
+.critic-score strong { font: 400 clamp(4.5rem, 12vw, 9rem)/.8 var(--display); }
+.critic-score span { color: var(--muted); }
+.pull { margin: 0; display: grid; gap: 18px; max-width: 920px; }
+.pull:nth-child(odd) { justify-self: end; text-align: right; }
+.pull blockquote { margin: 0; font: italic 400 clamp(1.6rem, 3.6vw, 2.8rem)/1.15 var(--display); }
+.pull figcaption { color: var(--muted); }
+.pull figcaption b { color: var(--bone); font-weight: 500; }
+
+/* film strip */
+.strip {
+  display: grid; grid-auto-flow: column; grid-auto-columns: clamp(240px, 34vw, 420px); gap: 10px;
+  overflow-x: auto; scroll-snap-type: x mandatory; padding: 28px max(20px, env(safe-area-inset-right, 0px)) 28px max(20px, env(safe-area-inset-left, 0px));
+  background:
+    radial-gradient(circle at 50% 50%, var(--night) 4px, transparent 5px) 0 6px / 22px 16px repeat-x,
+    radial-gradient(circle at 50% 50%, var(--night) 4px, transparent 5px) 0 calc(100% - 6px) / 22px 16px repeat-x,
+    #18252c;
+  scrollbar-width: thin;
+}
+.strip button { scroll-snap-align: start; padding: 0; border: 0; background: none; cursor: zoom-in; text-align: left; color: var(--bone); }
+.strip img { width: 100%; aspect-ratio: 974 / 716; object-fit: cover; filter: saturate(.92); transition: filter .4s; }
+.strip button:hover img { filter: saturate(1.1); }
+.strip span { display: block; padding-top: 8px; }
+
+/* rooms as cast */
+.cast { columns: 2 280px; column-gap: 64px; margin: 0; padding: 0; list-style: none; }
+.cast li { break-inside: avoid; display: flex; align-items: baseline; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.cast b { font: 400 1.35rem/1.2 var(--display); }
+.cast .dots { flex: 1; border-bottom: 1px dotted var(--line); transform: translateY(-5px); min-width: 16px; }
+.cast span:last-child { color: var(--muted); text-align: right; }
+
+/* info */
+.info { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 48px; }
+.info h3 { font-size: 1.8rem; margin-bottom: 14px; }
+.info ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; color: var(--muted); }
+.info li::before { content: "— "; color: var(--pool); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 16px; padding: 18px 0; font-weight: 500; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-family: var(--mono); color: var(--pool); }
+.faq details[open] summary::after { content: "−"; }
+.faq details p { margin: 0 0 18px; color: var(--muted); }
+
+/* ticket */
+.ticket { display: grid; grid-template-columns: 1fr auto; background: var(--bone); color: var(--night); max-width: 980px; margin-inline: auto; }
+.ticket form { padding: clamp(22px, 4vw, 44px); display: grid; gap: 16px; }
+.ticket h2 { font-size: clamp(2rem, 4.5vw, 3.4rem); }
+.ticket .mono { color: #1f6f78; }
+.stub {
+  width: clamp(92px, 16vw, 170px); border-left: 2px dashed rgb(7 16 22 / .35); position: relative;
+  display: grid; place-items: center; padding: 20px 10px;
+}
+.stub::before, .stub::after { content: ""; position: absolute; left: -13px; width: 24px; height: 24px; border-radius: 50%; background: var(--night); }
+.stub::before { top: -12px; }
+.stub::after { bottom: -12px; }
+.stub p { margin: 0; writing-mode: vertical-rl; transform: rotate(180deg); font: 500 .8rem/1.2 var(--mono); letter-spacing: .3em; text-transform: uppercase; text-align: center; }
+.stub strong { font: 400 2.6rem/1 var(--display); letter-spacing: 0; }
+.fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
+label { display: grid; gap: 6px; font: 500 .72rem/1.3 var(--mono); letter-spacing: .14em; text-transform: uppercase; }
+input {
+  min-height: 50px; padding: 0 14px; border: 1px solid rgb(7 16 22 / .3); border-radius: 0; width: 100%;
+  font: 500 1rem var(--body); color: var(--night); background: #fff; color-scheme: light;
+}
+input:focus { outline: 2px solid #1f6f78; outline-offset: 0; }
+.preview { margin: 0; padding: 14px 16px; border-left: 3px solid #1f6f78; background: #e2ecea; white-space: pre-line; font-size: .92rem; }
+.error { margin: 0; color: #b42318; font-weight: 600; }
+.ticket .btn { background: var(--night); color: var(--bone); border-color: var(--night); justify-self: start; }
+.ticket .btn:hover { background: transparent; color: var(--night); }
+.note { margin: 0; font-size: .82rem; color: #4b5b60; }
+@media (max-width: 640px) {
+  .ticket { grid-template-columns: 1fr; }
+  .stub { width: auto; border-left: 0; border-top: 2px dashed rgb(7 16 22 / .35); padding: 16px; }
+  .stub::before, .stub::after { top: -13px; bottom: auto; left: auto; }
+  .stub::before { left: -12px; }
+  .stub::after { right: -12px; }
+  .stub p { writing-mode: horizontal-tb; transform: none; }
+  .pull:nth-child(odd) { justify-self: start; text-align: left; }
+}
+
+footer { padding-block: 56px calc(56px + env(safe-area-inset-bottom, 0px)); color: var(--muted); font-size: .9rem; display: flex; flex-wrap: wrap; gap: 14px 32px; justify-content: space-between; border-top: 1px solid var(--line); }
+
+/* lightbox */
+dialog { border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh; width: 100%; height: 100%; color: var(--bone); }
+dialog::backdrop { background: rgb(4 9 12 / .96); }
+.lb { height: 100%; display: grid; grid-template-rows: 1fr auto; place-items: center; padding: max(16px, env(safe-area-inset-top, 0px)) 16px max(16px, env(safe-area-inset-bottom, 0px)); }
+.lb img { max-height: 78vh; width: auto; max-width: min(1100px, 100%); }
+.lb-bar { display: flex; align-items: center; gap: 12px; padding-top: 14px; }
+.lb-bar p { margin: 0 12px; text-align: center; }
+.lb button { width: 48px; height: 48px; border: 1px solid var(--line); background: transparent; color: var(--bone); font-size: 1.2rem; cursor: pointer; }
+.lb .close { position: absolute; top: max(16px, env(safe-area-inset-top, 0px)); right: max(16px, env(safe-area-inset-right, 0px)); }
+
+@keyframes settle { from { transform: scale(1.12); } to { transform: scale(1); } }
+@keyframes push { from { transform: scale(1.02); } to { transform: scale(1.16); } }
+@keyframes fade { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+}
+</style>
+
+<nav class="bar" aria-label="Principal">
+  <a class="logo" href="#topo">Villa Maré</a>
+  <a class="btn btn-line" href="#ingresso">Reservar</a>
+</nav>
+
+<main id="topo">
+  <header class="title-card">
+    <img src="fotos/34-piscina.webp" width="974" height="716" alt="Vista aérea da casa de dois pavimentos, do anexo com guarda-sóis e da piscina, com coqueiros ao fundo." style="object-position: 30% 60%">
+    <div class="wrap">
+      <p class="mono">Porto de Galinhas · Pernambuco</p>
+      <h1>Villa<br><i>Maré</i></h1>
+      <p class="sub">Uma casa inteira para o seu grupo, a cem metros do mar. Dez quartos, piscina privativa e área gourmet climatizada.</p>
+      <div class="title-meta">
+        <a class="btn" href="#ingresso">Consultar datas</a>
+        <span class="mono"><b>4,96 ★</b> · Preferido dos hóspedes · 23 avaliações</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="scene" aria-label="Cena 1, a piscina">
+    <div class="frame">
+      <img src="fotos/41-piscina.webp" width="974" height="716" alt="Piscina com jato d’água, anexo com guarda-sóis e lateral da casa." style="object-position: 46% 50%">
+      <div class="subtitle">
+        <p class="mono">Cena 1 · Piscina</p>
+        <h2>O dia começa <i>na água</i></h2>
+        <p>Piscina privativa com jato d’água, deck com guarda-sóis e espreguiçadeiras.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene" aria-label="Cena 2, a casa">
+    <div class="frame">
+      <img src="fotos/35-piscina.webp" width="974" height="716" alt="Fachada da casa vista da piscina, com varanda superior de vidro e área coberta com rede." style="object-position: 30% 50%">
+      <div class="subtitle">
+        <p class="mono">Cena 2 · A casa</p>
+        <h2>Nova, ampla, <i>pronta</i></h2>
+        <p>Construção recente, com móveis importados dos Estados Unidos e varandas nos dois andares.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene" aria-label="Cena 3, área gourmet">
+    <div class="frame">
+      <img src="fotos/03-sala.webp" width="974" height="716" alt="Área gourmet com TV, cervejeira, geladeira e bancada com banquetas de couro." style="object-position: 62% 50%">
+      <div class="subtitle">
+        <p class="mono">Cena 3 · Área gourmet</p>
+        <h2>Mesa para <i>todo mundo</i></h2>
+        <p>Área gourmet climatizada com bar, cozinha completa e churrasqueira.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene" aria-label="Cena 4, fim de tarde">
+    <div class="frame">
+      <img src="fotos/32-exterior.webp" width="974" height="716" alt="Varanda superior com deck de madeira e chaise redonda branca voltada para a piscina." style="object-position: 70% 50%">
+      <div class="subtitle">
+        <p class="mono">Cena 4 · Fim de tarde</p>
+        <h2>A varanda é <i>sua</i></h2>
+        <p>Deck no andar de cima com vista para a piscina e o jardim.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene" aria-label="Cena 5, descanso">
+    <div class="frame">
+      <img src="fotos/19-quarto4.webp" width="974" height="716" alt="Quarto 4 com cama king, manta vermelha e criados-mudos espelhados." style="object-position: 50% 60%">
+      <div class="subtitle">
+        <p class="mono">Cena 5 · Descanso</p>
+        <h2>Dez quartos, <i>vinte camas</i></h2>
+        <p>Roupa de cama e banho incluídas. O Quarto 4 tem cama king.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" aria-labelledby="ficha">
+    <div class="section-head">
+      <p class="mono">Ficha técnica</p>
+      <h2 id="ficha">A casa em números</h2>
+    </div>
+    <dl class="credits">
+      <div><dt>Hóspedes</dt><span class="dots"></span><dd>até 26</dd></div>
+      <div><dt>Quartos</dt><span class="dots"></span><dd>10</dd></div>
+      <div><dt>Camas</dt><span class="dots"></span><dd>20</dd></div>
+      <div><dt>Banheiros</dt><span class="dots"></span><dd>11</dd></div>
+      <div><dt>Distância da praia</dt><span class="dots"></span><dd>~100 m</dd></div>
+      <div><dt>Vizinho</dt><span class="dots"></span><dd>Enotel</dd></div>
+      <div><dt>Entrada · saída</dt><span class="dots"></span><dd>12h · 12h</dd></div>
+      <div><dt>Avaliação</dt><span class="dots"></span><dd>4,96 ★</dd></div>
+    </dl>
+  </section>
+
+  <section class="section wrap" aria-labelledby="critica" style="padding-top:0">
+    <div class="section-head">
+      <p class="mono">A crítica</p>
+      <h2 id="critica" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Avaliações</h2>
+      <div class="critic-score"><strong>4,96</strong><span>Preferido dos hóspedes · Limpeza 5,0 · Exatidão 4,8 · 23 avaliações no Airbnb</span></div>
+    </div>
+    <div class="critic">
+      <figure class="pull"><blockquote>“Cada detalhe da casa superou as expectativas.”</blockquote><figcaption><b>Hugo</b> · grupo de 8 casais · outubro de 2025</figcaption></figure>
+      <figure class="pull"><blockquote>“Este lugar realmente parecia umas férias de sonho.”</blockquote><figcaption><b>Elma</b> · viagem em grupo · janeiro de 2026</figcaption></figure>
+      <figure class="pull"><blockquote>“Nas fotos a casa é sensacional mas presencialmente, a casa é realmente fantástica.”</blockquote><figcaption><b>Luis</b> · julho de 2024</figcaption></figure>
+      <figure class="pull"><blockquote>“A casa tem tudo para acomodar 26 pessoas.”</blockquote><figcaption><b>Victor</b> · março de 2024</figcaption></figure>
+    </div>
+  </section>
+
+  <section aria-labelledby="quadros" style="padding-bottom: clamp(72px, 11vw, 140px)">
+    <div class="wrap section-head">
+      <p class="mono">Todos os quadros</p>
+      <h2 id="quadros">Galeria</h2>
+    </div>
+    <div class="strip" id="strip" tabindex="0" aria-label="Galeria de fotos"></div>
+  </section>
+
+  <section class="wrap" aria-labelledby="elenco" style="padding-bottom: clamp(72px, 11vw, 140px)">
+    <div class="section-head">
+      <p class="mono">Elenco de quartos</p>
+      <h2 id="elenco">Onde cada um dorme</h2>
+    </div>
+    <ul class="cast" id="cast"></ul>
+  </section>
+
+  <section class="wrap" aria-label="Comodidades e regras" style="padding-bottom: clamp(72px, 11vw, 140px)">
+    <div class="info">
+      <div>
+        <p class="mono">Incluso</p>
+        <h3>Comodidades</h3>
+        <ul>
+          <li>Piscina privativa e churrasqueira</li>
+          <li>Área gourmet climatizada</li>
+          <li>Cozinha completa</li>
+          <li>Wi-Fi, TV e ar-condicionado</li>
+          <li>Roupa de cama e banho</li>
+          <li>Máquina de lavar e secadora</li>
+          <li>Estacionamento gratuito e entrada privada</li>
+          <li>Equipe disponível 24h para receber</li>
+          <li>Aceita pets</li>
+        </ul>
+      </div>
+      <div>
+        <p class="mono">Antes da sessão</p>
+        <h3>Bom saber</h3>
+        <div class="faq">
+          <details><summary>Horários</summary><p>Entrada a partir das 12h e saída até 12h. Entrada antecipada ou saída tardia custam meia diária cada, estendem em até 4 horas e dependem de disponibilidade.</p></details>
+          <details><summary>Energia elétrica</summary><p>Cobrada à parte, a R$ 1,03 por kWh, com depósito caução conforme o número de diárias. O acerto é feito na saída, pelo medidor da casa, junto com o hóspede.</p></details>
+          <details><summary>Som</summary><p>O volume deve seguir a legislação local. Descumprimento sujeita a multa dos órgãos competentes e do proprietário.</p></details>
+          <details><summary>Localização</summary><p>Na melhor região de Porto de Galinhas, ao lado do Enotel e a cerca de 100 m da praia. O endereço exato é enviado após a confirmação.</p></details>
+          <details><summary>Anfitrião</summary><p>Leonardo recebe hóspedes há 8 anos, tem 62 avaliações com média 4,87 e fala português e inglês.</p></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="ingresso" aria-labelledby="ingresso-titulo" style="padding-bottom: clamp(72px, 11vw, 140px)">
+    <div class="ticket">
+      <form id="booking" novalidate>
+        <p class="mono">Reserva direta · sem intermediários</p>
+        <h2 id="ingresso-titulo">Garanta suas datas</h2>
+        <div class="fields">
+          <label for="checkin">Entrada<input id="checkin" name="checkin" type="date" required></label>
+          <label for="checkout">Saída<input id="checkout" name="checkout" type="date" required></label>
+          <label for="guests">Hóspedes<input id="guests" name="guests" type="number" min="1" max="26" value="16" inputmode="numeric" required></label>
+        </div>
+        <label for="nome">Seu nome<input id="nome" name="nome" type="text" autocomplete="given-name" placeholder="Opcional"></label>
+        <p class="error" id="error" hidden></p>
+        <p class="preview" id="preview" aria-live="polite"></p>
+        <a class="btn" id="wa" href="#" target="_blank" rel="noopener">Enviar pelo WhatsApp</a>
+        <p class="note">Demonstração: o número do proprietário entra aqui. Por enquanto o botão abre o WhatsApp para você escolher o contato.</p>
+      </form>
+      <div class="stub" aria-hidden="true"><p>Até <strong>26</strong> pessoas</p></div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span class="logo">Villa Maré</span>
+  <span>Porto de Galinhas · Ipojuca · PE · Também no <a href="https://www.airbnb.com/l/4AhFnWmJ" target="_blank" rel="noopener">Airbnb</a></span>
+  <span>Nome sugerido para a marca · versão de demonstração</span>
+</footer>
+
+<dialog id="lb" aria-label="Foto ampliada">
+  <div class="lb">
+    <button class="close" type="button" data-lb="close" aria-label="Fechar">✕</button>
+    <img id="lb-img" alt="">
+    <div class="lb-bar">
+      <button type="button" data-lb="prev" aria-label="Foto anterior">‹</button>
+      <p id="lb-cap" class="mono" style="color:var(--bone)"></p>
+      <button type="button" data-lb="next" aria-label="Próxima foto">›</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+const PHOTOS = [
+  ['34-piscina', 'Vista aérea'], ['37-piscina', 'Piscina e deck'], ['41-piscina', 'Piscina com jato d’água'],
+  ['38-piscina', 'Piscina e cerca de bambu'], ['39-piscina', 'Guarda-sol e espreguiçadeiras'], ['36-piscina', 'Rente à água'],
+  ['35-piscina', 'Fachada'], ['30-exterior', 'Área coberta com rede'], ['31-exterior', 'Estar externo'],
+  ['29-exterior', 'Anexo com guarda-sóis'], ['01-sala', 'Sala aberta para a piscina'], ['02-sala', 'Sala e área gourmet'],
+  ['03-sala', 'Área gourmet'], ['07-cozinha', 'Cozinha com ilha'], ['08-cozinha', 'Bancada e banquetas'],
+  ['09-cozinha', 'Pia dupla'], ['06-sala', 'Sala de estar'], ['19-quarto4', 'Quarto 4 · cama king'],
+  ['21-quarto4', 'Estar do Quarto 4'], ['32-exterior', 'Varanda superior'],
+];
+const ROOMS = [
+  ['Quarto 1', '1 cama queen'], ['Quarto 2', '1 queen + 1 solteiro'], ['Quarto 3', '1 cama queen'],
+  ['Quarto 4', '1 cama king'], ['Quarto 5', '7 camas de solteiro'], ['Quarto 6', '1 cama queen'],
+  ['Quarto 7', '1 queen + 1 solteiro'], ['Quarto 8', '1 cama queen'], ['Quarto 9', '1 queen + 1 solteiro'],
+  ['Quarto 10', '1 beliche'],
+];
+const pad = (n) => String(n).padStart(2, '0');
+
+const strip = document.getElementById('strip');
+strip.innerHTML = PHOTOS.map(([id, cap], i) =>
+  `<button type="button" data-i="${i}" aria-label="Ampliar: ${cap}"><img src="fotos/${id}.webp" width="974" height="716" loading="lazy" alt="${cap}"><span class="mono" style="color:var(--muted)">${pad(i + 1)} · ${cap}</span></button>`).join('');
+
+document.getElementById('cast').innerHTML = ROOMS.map(([room, beds]) =>
+  `<li><b>${room}</b><span class="dots"></span><span>${beds}</span></li>`).join('');
+
+const lb = document.getElementById('lb');
+const lbImg = document.getElementById('lb-img');
+const lbCap = document.getElementById('lb-cap');
+let current = 0;
+function show(i) {
+  current = (i + PHOTOS.length) % PHOTOS.length;
+  const [id, cap] = PHOTOS[current];
+  lbImg.src = `fotos/${id}.webp`;
+  lbImg.alt = cap;
+  lbCap.textContent = `${pad(current + 1)} / ${PHOTOS.length} · ${cap}`;
+}
+strip.addEventListener('click', (e) => {
+  const b = e.target.closest('button');
+  if (!b) return;
+  show(Number(b.dataset.i));
+  lb.showModal();
+});
+lb.addEventListener('click', (e) => {
+  const action = e.target.closest('[data-lb]')?.dataset.lb;
+  if (action === 'close' || e.target === lb) lb.close();
+  if (action === 'prev') show(current - 1);
+  if (action === 'next') show(current + 1);
+});
+lb.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowLeft') show(current - 1);
+  if (e.key === 'ArrowRight') show(current + 1);
+});
+let touchX = null;
+lb.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+lb.addEventListener('touchend', (e) => {
+  if (touchX === null) return;
+  const dx = e.changedTouches[0].clientX - touchX;
+  if (Math.abs(dx) > 50) show(current + (dx < 0 ? 1 : -1));
+  touchX = null;
+});
+
+const form = document.getElementById('booking');
+const preview = document.getElementById('preview');
+const errorEl = document.getElementById('error');
+const wa = document.getElementById('wa');
+const iso = (d) => d.toISOString().slice(0, 10);
+const br = (s) => s.split('-').reverse().join('/');
+const today = new Date();
+const addDays = (n) => { const d = new Date(today); d.setDate(d.getDate() + n); return d; };
+form.checkin.min = iso(today);
+form.checkin.value = iso(addDays(30));
+form.checkout.value = iso(addDays(34));
+function update() {
+  const ci = form.checkin.value;
+  const co = form.checkout.value;
+  const guests = Math.round(Number(form.guests.value));
+  form.checkout.min = ci;
+  const nights = Math.round((Date.parse(co) - Date.parse(ci)) / 864e5);
+  let problem = '';
+  if (!ci || !co) problem = 'Escolha as datas de entrada e saída.';
+  else if (!(nights >= 1)) problem = 'A saída precisa ser depois da entrada.';
+  else if (!(guests >= 1 && guests <= 26)) problem = 'A casa recebe de 1 a 26 hóspedes.';
+  errorEl.hidden = !problem;
+  errorEl.textContent = problem;
+  wa.style.opacity = problem ? '.5' : '';
+  if (problem) { wa.removeAttribute('href'); return; }
+  const name = form.nome.value.trim();
+  const msg = `Olá${name ? `, aqui é ${name}` : ''}! Vi o site da Villa Maré e quero consultar disponibilidade:\n` +
+    `• Entrada: ${br(ci)} (a partir das 12h)\n• Saída: ${br(co)} (até 12h)\n• ${nights} ${nights > 1 ? 'noites' : 'noite'} · ${guests} ${guests > 1 ? 'hóspedes' : 'hóspede'}`;
+  preview.textContent = msg;
+  wa.href = `https://wa.me/?text=${encodeURIComponent(msg)}`;
+}
+form.addEventListener('input', update);
+form.addEventListener('submit', (e) => e.preventDefault());
+update();
+</script>

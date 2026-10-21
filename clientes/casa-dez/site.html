@@ -1,0 +1,512 @@
+<title>Casa Dez</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Casa Dez: dez quartos a cem metros do mar em Porto de Galinhas, para até 26 hóspedes. Piscina privativa, área gourmet climatizada e reserva direta com o anfitrião.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..400&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout: capa de cinema em tela cheia; depois, brochura boutique em grade assimétrica de 12 colunas com muito respiro */
+:root {
+  --paper: #f3f3f0;
+  --white: #fbfbf9;
+  --ink: #1c1d1f;
+  --stone: #63635c;
+  --line: #d6d6cf;
+  --porcelana: #233f8c;
+  --porcelana-soft: #e3e8f4;
+  --night: #0b1116;
+  --bone: #f3f3f0;
+  --display: 'Newsreader', 'Iowan Old Style', Georgia, serif;
+  --body: 'Jost', 'Futura', system-ui, -apple-system, sans-serif;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 300 17px/1.7 var(--body); -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+:focus-visible { outline: 1px solid var(--porcelana); outline-offset: 4px; }
+
+.wrap {
+  width: 100%; max-width: 1280px; margin-inline: auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+.grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(12px, 2vw, 28px); row-gap: 40px; }
+.eyebrow { display: flex; align-items: center; gap: 12px; margin: 0 0 18px; font: 400 .72rem/1 var(--body); letter-spacing: .26em; text-transform: uppercase; color: var(--stone); }
+.eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--porcelana); }
+h1, h2, h3 { font-family: var(--display); font-weight: 300; margin: 0; letter-spacing: -0.015em; text-wrap: balance; }
+h2 { font-size: clamp(2.2rem, 4.6vw, 3.8rem); line-height: 1.05; }
+h3 { font-size: 1.7rem; line-height: 1.15; }
+.section { padding-block: clamp(80px, 12vw, 160px); }
+.caption { margin: 12px 0 0; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--stone); }
+.link { display: inline-flex; align-items: center; gap: 12px; padding-bottom: 6px; border-bottom: 1px solid currentColor; text-decoration: none; color: var(--porcelana); font-weight: 400; letter-spacing: .08em; }
+.link:hover { gap: 18px; }
+.link, .link:hover { transition: gap .3s ease; }
+
+/* header */
+.head {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 20; padding-top: env(safe-area-inset-top, 0px);
+  color: var(--bone); background: transparent; border-bottom: 1px solid transparent;
+  transition: background .4s ease, color .4s ease, border-color .4s ease;
+}
+.head[data-solid="true"] {
+  color: var(--ink); background: rgb(243 243 240 / .94); border-bottom-color: var(--line);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+}
+.head .wrap { display: flex; align-items: center; gap: 32px; min-height: 72px; }
+.mark { font: 500 .95rem/1 var(--body); letter-spacing: .42em; text-transform: uppercase; text-decoration: none; margin-right: auto; }
+.head nav { display: flex; gap: 28px; font-size: .88rem; letter-spacing: .06em; }
+.head nav a { text-decoration: none; color: inherit; opacity: .78; }
+.head nav a:hover { opacity: 1; }
+.head .btn { background: transparent; color: inherit; border-color: currentColor; }
+.head .btn:hover { background: var(--bone); color: var(--ink); border-color: var(--bone); }
+.head[data-solid="true"] .btn { background: var(--ink); color: var(--white); border-color: var(--ink); }
+.head[data-solid="true"] .btn:hover { background: transparent; color: var(--ink); }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px;
+  background: var(--ink); color: var(--white); border: 1px solid var(--ink); text-decoration: none; cursor: pointer;
+  font: 400 .82rem/1 var(--body); letter-spacing: .16em; text-transform: uppercase; transition: background .3s, color .3s;
+}
+.btn:hover { background: transparent; color: var(--ink); }
+
+/* cover */
+.cover { position: relative; min-height: 100svh; display: grid; align-items: end; overflow: hidden; background: var(--night); color: var(--bone); }
+.cover img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: 30% 60%; animation: settle 9s cubic-bezier(.2,.7,.2,1) both; }
+.cover::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top, rgb(11 17 22 / .9) 0%, rgb(11 17 22 / .5) 38%, rgb(11 17 22 / .12) 66%, rgb(11 17 22 / .55) 100%); }
+.cover .wrap { position: relative; z-index: 2; padding-block: 150px clamp(48px, 8vw, 96px); display: grid; gap: 18px; text-shadow: 0 1px 20px rgb(0 0 0 / .45); }
+.cover .eyebrow { color: rgb(243 243 240 / .88); margin: 0; }
+.cover .eyebrow::before { background: var(--bone); }
+.cover h1 { font-size: clamp(4.4rem, 16vw, 13.5rem); line-height: .92; padding-top: .04em; letter-spacing: -0.035em; animation: fade 1.6s ease .2s both; }
+.cover .tagline { margin: 0; font: italic 300 clamp(1.6rem, 3.6vw, 2.8rem)/1.1 var(--display); animation: fade 1.6s ease .5s both; }
+.cover-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; margin-top: 14px; animation: fade 1.6s ease .9s both; }
+.cover-meta .rating { font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; }
+.btn-light { background: var(--bone); color: var(--ink); border-color: var(--bone); }
+.btn-light:hover { background: transparent; color: var(--bone); }
+.cue { position: absolute; z-index: 2; right: max(20px, env(safe-area-inset-right, 0px)); bottom: clamp(48px, 8vw, 96px); display: grid; justify-items: center; gap: 12px; font-size: .7rem; letter-spacing: .3em; text-transform: uppercase; color: rgb(243 243 240 / .8); writing-mode: vertical-rl; text-decoration: none; }
+.cue::after { content: ""; width: 1px; height: 56px; background: linear-gradient(var(--bone) 50%, transparent 50%) 0 0 / 1px 200%; animation: cue 2.4s linear infinite; }
+
+[id] { scroll-margin-top: 96px; }
+
+/* intro */
+.hero { padding-top: clamp(80px, 12vw, 150px); align-items: end; }
+.hero-text { grid-column: 1 / span 5; padding-bottom: clamp(0px, 4vw, 48px); }
+.hero-title { font-size: clamp(2.6rem, 5.4vw, 4.8rem); line-height: 1; margin-bottom: 28px; }
+.hero-title em { font-style: italic; color: var(--porcelana); }
+.hero-text p { margin: 0 0 32px; max-width: 38ch; color: var(--stone); font-size: 1.08rem; }
+.hero-text dl { display: flex; flex-wrap: wrap; gap: 24px 36px; margin: 0 0 36px; }
+.hero-text dt { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--stone); }
+.hero-text dd { margin: 0; font: 300 2rem/1.1 var(--display); }
+.hero-media { grid-column: 7 / span 6; position: relative; }
+.hero-media .main { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 30% 50%; }
+.hero-media .inset {
+  position: absolute; left: clamp(-120px, -9vw, -40px); bottom: clamp(-60px, -5vw, -30px); width: 46%;
+  aspect-ratio: 1; object-fit: cover; border: 10px solid var(--paper);
+}
+
+/* statement */
+.statement { padding-top: clamp(120px, 14vw, 200px); }
+.statement p { grid-column: 3 / span 8; margin: 0; font: 300 clamp(1.6rem, 3.2vw, 2.6rem)/1.3 var(--display); letter-spacing: -0.01em; text-wrap: pretty; }
+.statement p em { color: var(--porcelana); }
+
+/* spaces */
+.space { align-items: center; }
+.space + .space { margin-top: clamp(80px, 10vw, 140px); }
+.space .img-big { grid-column: 1 / span 8; }
+.space .txt { grid-column: 10 / span 3; }
+.space.flip .img-big { grid-column: 5 / span 8; grid-row: 1; }
+.space.flip .txt { grid-column: 1 / span 3; grid-row: 1; }
+.space img { width: 100%; aspect-ratio: 974 / 716; object-fit: cover; }
+.space .txt p { margin: 16px 0 0; color: var(--stone); }
+.pair { align-items: start; }
+.pair figure { margin: 0; }
+.pair figure:first-child { grid-column: 1 / span 5; }
+.pair figure:last-child { grid-column: 7 / span 6; margin-top: clamp(40px, 8vw, 120px); }
+.pair img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.pair figure:last-child img { aspect-ratio: 974 / 716; }
+
+/* rooms */
+.rooms-head { grid-column: 1 / span 4; }
+.rooms-head p { color: var(--stone); margin: 18px 0 0; }
+.rooms-table { grid-column: 6 / span 7; width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.rooms-table td { padding: 18px 8px; border-top: 1px solid var(--line); vertical-align: baseline; }
+.rooms-table tr:last-child td { border-bottom: 1px solid var(--line); }
+.rooms-table td:first-child { width: 3.2em; padding-left: 0; color: var(--porcelana); font: 400 .8rem var(--body); letter-spacing: .1em; }
+.rooms-table td:nth-child(2) { font: 300 1.5rem/1.1 var(--display); white-space: nowrap; }
+.rooms-table td:last-child { text-align: right; color: var(--stone); padding-right: 0; }
+
+/* amenities */
+.amen { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 40px 28px; }
+.amen h3 { font-size: 1.35rem; padding-bottom: 14px; border-bottom: 1px solid var(--ink); margin-bottom: 14px; }
+.amen ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; color: var(--stone); }
+
+/* reviews */
+.reviews { background: var(--porcelana); color: var(--white); }
+.reviews .eyebrow { color: rgb(251 251 249 / .75); }
+.reviews .eyebrow::before { background: var(--white); }
+.score { grid-column: 1 / span 4; display: grid; gap: 10px; align-content: start; }
+.score strong { font: 300 clamp(4.4rem, 9vw, 7.5rem)/.9 var(--display); }
+.score span { color: rgb(251 251 249 / .8); font-size: .95rem; }
+.carousel { grid-column: 6 / span 7; display: grid; gap: 28px; }
+.carousel blockquote { margin: 0; min-height: 7.5em; font: italic 300 clamp(1.5rem, 2.8vw, 2.3rem)/1.3 var(--display); }
+.carousel .meta { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
+.carousel .who { margin-right: auto; font-size: .9rem; letter-spacing: .08em; }
+.carousel button { width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgb(251 251 249 / .5); background: transparent; color: var(--white); cursor: pointer; font-size: 1.1rem; }
+.carousel button:hover { background: var(--white); color: var(--porcelana); }
+.carousel .count { font-size: .82rem; letter-spacing: .14em; font-variant-numeric: tabular-nums; }
+
+/* place */
+.place > div:first-child { grid-column: 1 / span 5; }
+.place > div:last-child { grid-column: 7 / span 6; }
+.place p { color: var(--stone); margin: 18px 0 0; }
+.facts { margin: 22px 0 0; display: grid; gap: 0; }
+.facts div { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-top: 1px solid var(--line); }
+.facts dt { color: var(--stone); }
+.facts dd { margin: 0; text-align: right; }
+.place .link { margin-top: 28px; }
+
+/* booking */
+.book { background: var(--white); }
+.book-head { grid-column: 1 / span 5; }
+.book-head p { color: var(--stone); margin: 18px 0 0; }
+.book form { grid-column: 7 / span 6; display: grid; gap: 18px; }
+.fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; }
+label { display: grid; gap: 8px; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--stone); }
+input {
+  min-height: 52px; padding: 0 2px; border: 0; border-bottom: 1px solid var(--ink); border-radius: 0; background: transparent; width: 100%;
+  font: 300 1.25rem var(--display); color: var(--ink);
+}
+input:focus { outline: none; border-bottom-color: var(--porcelana); box-shadow: 0 1px 0 var(--porcelana); }
+.preview { margin: 6px 0 0; padding: 18px 20px; background: var(--porcelana-soft); white-space: pre-line; font-size: .95rem; color: var(--ink); }
+.error { margin: 0; color: #a3271b; }
+.note { margin: 0; font-size: .82rem; color: var(--stone); }
+.book .btn { justify-self: start; }
+
+footer { padding-block: 56px calc(56px + env(safe-area-inset-bottom, 0px)); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 32px; color: var(--stone); font-size: .88rem; border-top: 1px solid var(--line); }
+
+/* lightbox (fotos clicáveis) */
+.zoomable { cursor: zoom-in; }
+dialog { border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh; width: 100%; height: 100%; }
+dialog::backdrop { background: rgb(243 243 240 / .97); }
+.lb { height: 100%; display: grid; grid-template-rows: 1fr auto; place-items: center; padding: max(16px, env(safe-area-inset-top, 0px)) 16px max(16px, env(safe-area-inset-bottom, 0px)); }
+.lb img { max-height: 80vh; width: auto; max-width: min(1100px, 100%); }
+.lb-bar { display: flex; align-items: center; gap: 12px; padding-top: 14px; color: var(--ink); }
+.lb-bar p { margin: 0 12px; text-align: center; font-size: .82rem; letter-spacing: .14em; text-transform: uppercase; }
+.lb button { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--line); background: var(--white); color: var(--ink); cursor: pointer; font-size: 1.1rem; }
+.lb .close { position: absolute; top: max(16px, env(safe-area-inset-top, 0px)); right: max(16px, env(safe-area-inset-right, 0px)); }
+
+@media (max-width: 900px) {
+  .head nav { display: none; }
+  .hero-text, .hero-media, .statement p, .space .img-big, .space .txt, .space.flip .img-big, .space.flip .txt,
+  .pair figure:first-child, .pair figure:last-child, .rooms-head, .rooms-table, .score, .carousel,
+  .place > div:first-child, .place > div:last-child, .book-head, .book form { grid-column: 1 / -1; grid-row: auto; }
+  .hero-media { margin-bottom: 40px; }
+  .hero-media .inset { left: auto; right: -6px; width: 42%; }
+  .pair figure:last-child { margin-top: 0; }
+  .space.flip .txt { order: 2; }
+}
+
+@keyframes settle { from { transform: scale(1.12); } to { transform: scale(1); } }
+@keyframes fade { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes cue { to { background-position: 0 -112px; } }
+@media (max-width: 900px) { .cue { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+}
+</style>
+
+<header class="head">
+  <div class="wrap">
+    <a class="mark" href="#casa">Casa Dez</a>
+    <nav aria-label="Seções">
+      <a href="#a-casa">A casa</a>
+      <a href="#quartos">Quartos</a>
+      <a href="#hospedes">Avaliações</a>
+      <a href="#local">Localização</a>
+    </nav>
+    <a class="btn" href="#reservar">Reservar</a>
+  </div>
+</header>
+
+<main id="casa">
+  <header class="cover">
+    <img src="fotos/34-piscina.webp" width="974" height="716" alt="Vista aérea da casa de dois pavimentos, do anexo com guarda-sóis e da piscina, com coqueiros ao fundo.">
+    <div class="wrap">
+      <p class="eyebrow">Porto de Galinhas · Pernambuco</p>
+      <h1>Casa Dez</h1>
+      <p class="tagline">Dez quartos. Cem metros do mar.</p>
+      <div class="cover-meta">
+        <a class="btn btn-light" href="#reservar">Consultar datas</a>
+        <span class="rating">4,96 ★ · Preferido dos hóspedes · 23 avaliações</span>
+      </div>
+    </div>
+    <a class="cue" href="#a-casa">Conheça</a>
+  </header>
+
+  <section class="wrap grid hero" id="a-casa" aria-labelledby="a-casa-t">
+    <div class="hero-text">
+      <p class="eyebrow">A casa</p>
+      <h2 class="hero-title" id="a-casa-t">Uma casa inteira para até <em>26 pessoas.</em></h2>
+      <p>Na melhor região de Porto de Galinhas, ao lado do Enotel e a cerca de cem metros da praia.</p>
+      <dl>
+        <div><dt>Quartos</dt><dd>10</dd></div>
+        <div><dt>Camas</dt><dd>20</dd></div>
+        <div><dt>Banheiros</dt><dd>11</dd></div>
+      </dl>
+      <a class="link" href="#reservar">Consultar datas <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="hero-media">
+      <img class="main zoomable" data-photo="35-piscina" src="fotos/35-piscina.webp" width="974" height="716" alt="Fachada da casa vista da piscina, com varanda superior de vidro e jato d’água.">
+      <img class="inset zoomable" data-photo="36-piscina" src="fotos/36-piscina.webp" width="974" height="716" alt="Vista rente à água da piscina com a casa ao fundo." style="object-position: 40% 50%">
+    </div>
+  </section>
+
+  <section class="wrap grid statement" aria-label="Sobre a casa">
+    <p>Recém-construída, com móveis importados dos Estados Unidos, piscina privativa, churrasqueira e área gourmet climatizada. <em>Espaço para o grupo todo, privacidade de casa.</em></p>
+  </section>
+
+  <section class="section wrap" id="espacos" aria-labelledby="espacos-t">
+    <h2 id="espacos-t" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Os espaços</h2>
+    <div class="grid space">
+      <figure class="img-big" style="margin:0"><img class="zoomable" data-photo="41-piscina" src="fotos/41-piscina.webp" width="974" height="716" loading="lazy" alt="Piscina com jato d’água, anexo com guarda-sóis e coqueiros."></figure>
+      <div class="txt">
+        <p class="eyebrow">Lazer</p>
+        <h3>A piscina</h3>
+        <p>Privativa, com jato d’água, deck com guarda-sóis e espreguiçadeiras de fibra.</p>
+      </div>
+    </div>
+    <div class="grid space flip">
+      <figure class="img-big" style="margin:0"><img class="zoomable" data-photo="02-sala" src="fotos/02-sala.webp" width="974" height="716" loading="lazy" alt="Sala com sofás de fibra integrada à área gourmet com bancada e banquetas de couro."></figure>
+      <div class="txt">
+        <p class="eyebrow">Convívio</p>
+        <h3>Área gourmet</h3>
+        <p>Climatizada e integrada à sala, com bar, mesa para o grupo e cozinha completa.</p>
+      </div>
+    </div>
+    <div class="grid pair space">
+      <figure><img class="zoomable" data-photo="32-exterior" src="fotos/32-exterior.webp" width="974" height="716" loading="lazy" alt="Varanda superior com chaise redonda branca." style="object-position: 72% 50%"><p class="caption">Varanda superior</p></figure>
+      <figure><img class="zoomable" data-photo="06-sala" src="fotos/06-sala.webp" width="974" height="716" loading="lazy" alt="Sala de estar com sofás brancos, lustre de conchas e mesa de jantar."><p class="caption">Sala de estar</p></figure>
+    </div>
+    <div class="grid pair space">
+      <figure><img class="zoomable" data-photo="19-quarto4" src="fotos/19-quarto4.webp" width="974" height="716" loading="lazy" alt="Quarto 4 com cama king e manta vermelha." style="object-position: 52% 60%"><p class="caption">Quarto 4 · cama king</p></figure>
+      <figure><img class="zoomable" data-photo="30-exterior" src="fotos/30-exterior.webp" width="974" height="716" loading="lazy" alt="Área coberta térrea com rede, chaise de fibra e jardim."><p class="caption">Área coberta com rede</p></figure>
+    </div>
+  </section>
+
+  <section class="wrap grid" id="quartos" aria-labelledby="quartos-t" style="padding-bottom: clamp(80px, 12vw, 160px)">
+    <div class="rooms-head">
+      <p class="eyebrow">Acomodação</p>
+      <h2 id="quartos-t">Os dez quartos</h2>
+      <p>Vinte camas para famílias grandes e grupos de amigos. Roupa de cama e banho incluídas.</p>
+    </div>
+    <table class="rooms-table">
+      <caption style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Camas por quarto</caption>
+      <tbody id="rooms"></tbody>
+    </table>
+  </section>
+
+  <section class="wrap grid" aria-labelledby="comodidades-t" style="padding-bottom: clamp(80px, 12vw, 160px)">
+    <div style="grid-column: 1 / -1">
+      <p class="eyebrow">Comodidades</p>
+      <h2 id="comodidades-t">Tudo o que a casa oferece</h2>
+    </div>
+    <div class="amen">
+      <div><h3>Lazer</h3><ul><li>Piscina privativa</li><li>Churrasqueira</li><li>Área gourmet climatizada</li><li>Vista para o jardim</li><li>Acesso à praia</li></ul></div>
+      <div><h3>Conforto</h3><ul><li>Ar-condicionado</li><li>Wi-Fi</li><li>TV</li><li>Roupa de cama e banho</li><li>Água quente</li></ul></div>
+      <div><h3>Praticidade</h3><ul><li>Cozinha completa</li><li>Máquina de lavar e secadora</li><li>Estacionamento gratuito</li><li>Entrada privada</li><li>Equipe 24h para receber</li><li>Aceita pets</li></ul></div>
+      <div><h3>Segurança</h3><ul><li>Detector de fumaça</li><li>Detector de monóxido de carbono</li><li>Extintor de incêndio</li><li>Kit de primeiros socorros</li></ul></div>
+    </div>
+  </section>
+
+  <section class="reviews section" id="hospedes" aria-labelledby="hospedes-t">
+    <div class="wrap grid">
+      <div class="score">
+        <p class="eyebrow">Hóspedes</p>
+        <h2 id="hospedes-t" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Avaliações</h2>
+        <strong>4,96</strong>
+        <span>Preferido dos hóspedes no Airbnb<br>Limpeza 5,0 · Exatidão do anúncio 4,8<br>23 avaliações</span>
+      </div>
+      <div class="carousel" aria-roledescription="carrossel">
+        <blockquote id="q-text" aria-live="polite"></blockquote>
+        <div class="meta">
+          <span class="who" id="q-who"></span>
+          <span class="count" id="q-count"></span>
+          <button type="button" id="q-prev" aria-label="Avaliação anterior">←</button>
+          <button type="button" id="q-next" aria-label="Próxima avaliação">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap grid place" id="local" aria-labelledby="local-t">
+    <div>
+      <p class="eyebrow">Localização</p>
+      <h2 id="local-t">Na melhor região de Porto de Galinhas</h2>
+      <p>Ao lado do Enotel, a cerca de cem metros da praia, em uma região tranquila de Ipojuca. O endereço exato é enviado após a confirmação.</p>
+      <a class="link" href="https://www.google.com/maps/search/?api=1&amp;query=Enotel+Porto+de+Galinhas" target="_blank" rel="noopener">Ver a região no mapa <span aria-hidden="true">↗</span></a>
+    </div>
+    <div>
+      <p class="eyebrow">Bom saber</p>
+      <dl class="facts">
+        <div><dt>Entrada</dt><dd>a partir das 12h</dd></div>
+        <div><dt>Saída</dt><dd>até 12h</dd></div>
+        <div><dt>Entrada antecipada ou saída tardia</dt><dd>meia diária, até 4h a mais</dd></div>
+        <div><dt>Energia elétrica</dt><dd>à parte, R$ 1,03/kWh, com caução</dd></div>
+        <div><dt>Som</dt><dd>conforme a legislação local</dd></div>
+        <div><dt>Anfitrião</dt><dd>Leonardo · 8 anos recebendo hóspedes</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="book section" id="reservar" aria-labelledby="reservar-t">
+    <div class="wrap grid">
+      <div class="book-head">
+        <p class="eyebrow">Reserva direta</p>
+        <h2 id="reservar-t">Consulte suas datas</h2>
+        <p>Sem intermediários: a mensagem segue pronta para o WhatsApp do anfitrião.</p>
+      </div>
+      <form id="booking" novalidate>
+        <div class="fields">
+          <label for="checkin">Entrada<input id="checkin" name="checkin" type="date" required></label>
+          <label for="checkout">Saída<input id="checkout" name="checkout" type="date" required></label>
+          <label for="guests">Hóspedes<input id="guests" name="guests" type="number" min="1" max="26" value="16" inputmode="numeric" required></label>
+        </div>
+        <label for="nome">Seu nome<input id="nome" name="nome" type="text" autocomplete="given-name" placeholder="Opcional"></label>
+        <p class="error" id="error" hidden></p>
+        <p class="preview" id="preview" aria-live="polite"></p>
+        <a class="btn" id="wa" href="#" target="_blank" rel="noopener">Enviar pelo WhatsApp</a>
+        <p class="note">Versão de apresentação: na publicação, o botão abre a conversa direto com o anfitrião.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span class="mark">Casa Dez</span>
+  <span>Porto de Galinhas · Ipojuca · PE · Também no <a href="https://www.airbnb.com/l/4AhFnWmJ" target="_blank" rel="noopener">Airbnb</a></span>
+  <span>Versão de apresentação</span>
+</footer>
+
+<dialog id="lb" aria-label="Foto ampliada">
+  <div class="lb">
+    <button class="close" type="button" data-lb="close" aria-label="Fechar">✕</button>
+    <img id="lb-img" alt="">
+    <div class="lb-bar">
+      <button type="button" data-lb="prev" aria-label="Foto anterior">‹</button>
+      <p id="lb-cap"></p>
+      <button type="button" data-lb="next" aria-label="Próxima foto">›</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+const ROOMS = [
+  ['Quarto 1', '1 cama queen'], ['Quarto 2', '1 cama queen e 1 de solteiro'], ['Quarto 3', '1 cama queen'],
+  ['Quarto 4', '1 cama king'], ['Quarto 5', '7 camas de solteiro'], ['Quarto 6', '1 cama queen'],
+  ['Quarto 7', '1 cama queen e 1 de solteiro'], ['Quarto 8', '1 cama queen'], ['Quarto 9', '1 cama queen e 1 de solteiro'],
+  ['Quarto 10', '1 beliche'],
+];
+const REVIEWS = [
+  ['Hugo', 'outubro de 2025', 'Cada detalhe da casa superou as expectativas — estrutura impecável, conforto, limpeza e um ambiente acolhedor que tornou o fim de semana um dos mais bonitos que já vivemos juntos.'],
+  ['Elma', 'janeiro de 2026', 'Este lugar realmente parecia umas férias de sonho. […] A casa é linda, espaçosa, extremamente confortável e exatamente como descrita.'],
+  ['Luis', 'julho de 2024', 'A casa é um espetáculo, lugar extremamente confortável e perfeito para lazer/descanso.'],
+  ['Victor', 'março de 2024', 'A casa tem tudo para acomodar 26 pessoas. Camas confortaveis, espaço interno impecável, otimo piscina e cozinha completa.'],
+  ['Tito', 'maio de 2023', 'Excelente casa, o caseiro Manoel fez toda a diferença. Muito prestativo e educado.'],
+  ['Clodoaldo', 'março de 2025', 'Melhor do que Imaginava, Recomendo!'],
+];
+const pad = (n) => String(n).padStart(2, '0');
+
+document.getElementById('rooms').innerHTML = ROOMS.map(([name, beds], i) =>
+  `<tr><td>${pad(i + 1)}</td><td>${name}</td><td>${beds}</td></tr>`).join('');
+
+let q = 0;
+function showQuote(i) {
+  q = (i + REVIEWS.length) % REVIEWS.length;
+  const [who, when, text] = REVIEWS[q];
+  document.getElementById('q-text').textContent = `“${text}”`;
+  document.getElementById('q-who').textContent = `${who} · ${when} · ★★★★★`;
+  document.getElementById('q-count').textContent = `${pad(q + 1)} / ${pad(REVIEWS.length)}`;
+}
+document.getElementById('q-prev').addEventListener('click', () => showQuote(q - 1));
+document.getElementById('q-next').addEventListener('click', () => showQuote(q + 1));
+showQuote(0);
+
+const head = document.querySelector('.head');
+const cover = document.querySelector('.cover');
+new IntersectionObserver(([entry]) => { head.dataset.solid = String(!entry.isIntersecting); }, { rootMargin: '-88px 0px 0px 0px' }).observe(cover);
+
+const zoomables = [...document.querySelectorAll('.zoomable')];
+const lb = document.getElementById('lb');
+const lbImg = document.getElementById('lb-img');
+const lbCap = document.getElementById('lb-cap');
+let current = 0;
+function show(i) {
+  current = (i + zoomables.length) % zoomables.length;
+  const el = zoomables[current];
+  lbImg.src = el.src;
+  lbImg.alt = el.alt;
+  lbCap.textContent = el.alt;
+}
+zoomables.forEach((el, i) => {
+  el.tabIndex = 0;
+  el.setAttribute('role', 'button');
+  const open = () => { show(i); lb.showModal(); };
+  el.addEventListener('click', open);
+  el.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+});
+lb.addEventListener('click', (e) => {
+  const action = e.target.closest('[data-lb]')?.dataset.lb;
+  if (action === 'close' || e.target === lb) lb.close();
+  if (action === 'prev') show(current - 1);
+  if (action === 'next') show(current + 1);
+});
+lb.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowLeft') show(current - 1);
+  if (e.key === 'ArrowRight') show(current + 1);
+});
+let touchX = null;
+lb.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+lb.addEventListener('touchend', (e) => {
+  if (touchX === null) return;
+  const dx = e.changedTouches[0].clientX - touchX;
+  if (Math.abs(dx) > 50) show(current + (dx < 0 ? 1 : -1));
+  touchX = null;
+});
+
+const form = document.getElementById('booking');
+const preview = document.getElementById('preview');
+const errorEl = document.getElementById('error');
+const wa = document.getElementById('wa');
+const iso = (d) => d.toISOString().slice(0, 10);
+const br = (s) => s.split('-').reverse().join('/');
+const today = new Date();
+const addDays = (n) => { const d = new Date(today); d.setDate(d.getDate() + n); return d; };
+form.checkin.min = iso(today);
+form.checkin.value = iso(addDays(30));
+form.checkout.value = iso(addDays(34));
+function update() {
+  const ci = form.checkin.value;
+  const co = form.checkout.value;
+  const guests = Math.round(Number(form.guests.value));
+  form.checkout.min = ci;
+  const nights = Math.round((Date.parse(co) - Date.parse(ci)) / 864e5);
+  let problem = '';
+  if (!ci || !co) problem = 'Escolha as datas de entrada e saída.';
+  else if (!(nights >= 1)) problem = 'A saída precisa ser depois da entrada.';
+  else if (!(guests >= 1 && guests <= 26)) problem = 'A casa recebe de 1 a 26 hóspedes.';
+  errorEl.hidden = !problem;
+  errorEl.textContent = problem;
+  wa.style.opacity = problem ? '.5' : '';
+  if (problem) { wa.removeAttribute('href'); return; }
+  const name = form.nome.value.trim();
+  const msg = `Olá${name ? `, aqui é ${name}` : ''}! Vi o site da Casa Dez e quero consultar disponibilidade:\n` +
+    `• Entrada: ${br(ci)} (a partir das 12h)\n• Saída: ${br(co)} (até 12h)\n• ${nights} ${nights > 1 ? 'noites' : 'noite'} · ${guests} ${guests > 1 ? 'hóspedes' : 'hóspede'}`;
+  preview.textContent = msg;
+  wa.href = `https://wa.me/?text=${encodeURIComponent(msg)}`;
+}
+form.addEventListener('input', update);
+form.addEventListener('submit', (e) => e.preventDefault());
+update();
+</script>
