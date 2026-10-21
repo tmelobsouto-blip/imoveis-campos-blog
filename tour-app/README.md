@@ -12,6 +12,7 @@ cd tour-app
 npm install
 npm run dev          # http://localhost:3000
 npm run validate     # typecheck + testes + build estático (out/)
+npm run artifact     # bundle sem servidor (artifact-dist/) p/ publicar como Artifact claude.ai
 ```
 
 Link do anúncio no botão final "Ver disponibilidade": copie `.env.example` para `.env.local` e preencha

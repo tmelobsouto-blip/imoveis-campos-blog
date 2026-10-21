@@ -11,7 +11,8 @@
     "photos": "node scripts/prepare-photos.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "validate": "npm run typecheck && npm run test && npm run build"
+    "validate": "npm run typecheck && npm run test && npm run build",
+    "artifact": "node scripts/build-artifact.ts"
   },
   "dependencies": {
     "geist": "^1.8.1",
@@ -24,6 +25,7 @@
     "@types/node": "^26.6.5",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
+    "esbuild": "^0.27.7",
     "postcss": "^8.5.31",
     "sharp": "^0.35.5",
     "tailwindcss": "^4.3.3",

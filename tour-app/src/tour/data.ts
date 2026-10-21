@@ -37,8 +37,8 @@ export interface Shot {
 export const LISTING_TOTAL = 46;
 export const IMAGE_ASPECT = 974 / 716;
 
-export const photoSrc = (id: string) => `/photos/${id}.webp`;
-export const thumbSrc = (id: string) => `/photos/${id}-thumb.webp`;
+export const photoSrc = (id: string) => `photos/${id}.webp`;
+export const thumbSrc = (id: string) => `photos/${id}-thumb.webp`;
 
 // Order and transition kinds are justified photo by photo in STORYBOARD.md.
 export const SHOTS: Shot[] = [
