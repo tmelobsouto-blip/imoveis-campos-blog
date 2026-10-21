@@ -7,7 +7,7 @@ anúncio, apresenta mockups ao proprietário e vende o site pronto, com reserva 
 
 | Cliente | Local | Status | Site | Proposta |
 |---|---|---|---|---|
-| [Casa Dez](clientes/casa-dez/README.md) | Porto de Galinhas, PE | Proposta pronta para envio | [abrir](https://claude.ai/artifact/1bxubUsoibxT8Ryf4bV7ST) | [abrir](https://claude.ai/artifact/WWk2trjf8wFUPzNMj28UW1) |
+| [Casa Dez](clientes/casa-dez/README.md) | Porto de Galinhas, PE | Proposta pronta; enviar ao anfitrião | [abrir](https://claude.ai/artifact/1bxubUsoibxT8Ryf4bV7ST) | [abrir](https://claude.ai/artifact/WWk2trjf8wFUPzNMj28UW1) |
 
 ## Como trabalhar
 

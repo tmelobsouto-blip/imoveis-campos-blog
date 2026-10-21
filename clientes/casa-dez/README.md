@@ -1,7 +1,7 @@
 # Casa Dez — Porto de Galinhas, PE
 
-**Status:** proposta pronta para envio ao anfitrião (Leonardo). Falta preencher `[Seu nome]`, `[Seu WhatsApp]`
-e `[Seu e-mail]` em `proposta.html` e regenerar o PDF.
+**Status:** proposta pronta para envio ao anfitrião (Leonardo), com os dados do Tiago Souto. Mensagens de
+envio em [mensagens.md](mensagens.md). Falta compartilhar os links como públicos (menu Share).
 
 - Anúncio: https://www.airbnb.com/l/4AhFnWmJ
 - Fatos usados nos textos: [dados.md](dados.md)
