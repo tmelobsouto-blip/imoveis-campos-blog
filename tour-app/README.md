@@ -15,7 +15,7 @@ npm run validate     # typecheck + testes + build estático (out/)
 ```
 
 Link do anúncio no botão final "Ver disponibilidade": copie `.env.example` para `.env.local` e preencha
-`NEXT_PUBLIC_LISTING_URL`. Vazio = botão oculto.
+`NEXT_PUBLIC_LISTING_URL`. Padrão: link do anúncio no Airbnb (`src/tour/config.ts`).
 
 ## Deploy (Vercel)
 
