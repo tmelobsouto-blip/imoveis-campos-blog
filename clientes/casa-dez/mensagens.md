@@ -1,6 +1,8 @@
 # Mensagens para o anfitrião — Casa Dez
 
-Links (compartilhar como públicos no menu **Share** antes de enviar):
+Links atuais (claude.ai; compartilhar como públicos no menu **Share** antes de enviar). Quando o domínio
+próprio estiver no ar, troque por `https://<domínio>/casa-dez/` e `https://<domínio>/casa-dez/proposta/`
+(ver `docs/publicacao.md`).
 - Site: https://claude.ai/artifact/1bxubUsoibxT8Ryf4bV7ST
 - Proposta: https://claude.ai/artifact/WWk2trjf8wFUPzNMj28UW1
 - PDF: `Proposta-Casa-Dez.pdf` (anexar)

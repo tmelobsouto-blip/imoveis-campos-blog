@@ -22,5 +22,6 @@ Os scripts de navegador usam o Chromium em `/opt/pw-browsers/chromium` (nuvem), 
 Chrome instalado.
 
 - Fluxo de venda, do primeiro contato à publicação: [docs/processo.md](docs/processo.md)
+- Endereço próprio (Cloudflare Pages + domínio): [docs/publicacao.md](docs/publicacao.md) — `npm run build:web`
 - Pacotes e preços: [docs/precos.md](docs/precos.md)
 - Regras para o Claude: [CLAUDE.md](CLAUDE.md) e skills em `.claude/skills/`

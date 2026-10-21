@@ -12,8 +12,10 @@ Cada imóvel é um cliente em `clientes/<slug>/`. Cliente atual: **Casa Dez** (P
 ```
 CLAUDE.md, README.md
 .claude/                 settings.json, hooks/session-start.sh, skills/
-docs/                    processo.md (fluxo de venda), precos.md (pacotes)
-scripts/                 ferramentas (recorte de fotos, preview, checagem, PDF)
+docs/                    processo.md (fluxo de venda), precos.md (pacotes), publicacao.md (domínio próprio)
+scripts/                 ferramentas (recorte de fotos, preview, checagem, PDF, build do site)
+web/                     página da NEXO (raiz do domínio), 404 e favicon
+dist/                    gerado por npm run build:web (não vai para o git)
 clientes/<slug>/
   README.md              status, links publicados, decisões do cliente
   dados.md               fatos do anúncio (fonte única para textos)
@@ -33,6 +35,7 @@ clientes/<slug>/
 | `npm run check -- clientes/<slug>` | abre cada página no celular e desktop: erros, rolagem lateral, capturas em `.screens/` |
 | `npm run telas -- clientes/<slug>/site.html clientes/<slug>/img` | captura as telas do site usadas na proposta |
 | `npm run pdf -- clientes/<slug>/proposta.html clientes/<slug>/Proposta-<Nome>.pdf` | gera o PDF A4 da proposta |
+| `npm run build:web` | monta `dist/` para o domínio próprio: `/`, `/<slug>/`, `/<slug>/proposta/`, mockups e PDF |
 | `npm run tour -- validate` | typecheck + testes + build do tour da Casa Dez |
 | `npm run validate` | checa os scripts e valida o tour |
 
@@ -55,6 +58,11 @@ clientes/<slug>/
 - Antes de publicar: `npm run check -- clientes/<slug>` sem erros.
 
 ## Publicação
+Dois canais:
+- **Domínio próprio (para enviar ao proprietário)**: `npm run build:web` → Cloudflare Pages
+  (`docs/publicacao.md`). Links `claude.ai/artifact` listados no README do cliente viram caminhos do domínio;
+  páginas de clientes saem com `noindex`.
+- **Artifact do claude.ai (prévia)**:
 - Publicar com `root = clientes/<slug>` e `files` = só as fotos/imagens que a página usa.
 - **Republicar sempre com o `url` do Artifact existente** (tabela no README do cliente), senão nasce um link novo.
 - Links nascem privados: o usuário compartilha pelo menu **Share** antes de enviar ao proprietário.

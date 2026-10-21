@@ -10,8 +10,9 @@
     "check": "node scripts/checar-paginas.mjs",
     "telas": "node scripts/capturar-telas.mjs",
     "pdf": "node scripts/gerar-pdf.mjs",
+    "build:web": "node scripts/build-web.mjs",
     "tour": "npm --prefix clientes/casa-dez/tour run",
-    "validate": "node --check scripts/recortar-galeria.mjs && node --check scripts/preview.mjs && node --check scripts/checar-paginas.mjs && node --check scripts/capturar-telas.mjs && node --check scripts/gerar-pdf.mjs && npm run tour -- validate"
+    "validate": "node --check scripts/recortar-galeria.mjs && node --check scripts/preview.mjs && node --check scripts/checar-paginas.mjs && node --check scripts/capturar-telas.mjs && node --check scripts/gerar-pdf.mjs && node --check scripts/build-web.mjs && npm run tour -- validate"
   },
   "devDependencies": {
     "playwright-core": "^1.64.1",

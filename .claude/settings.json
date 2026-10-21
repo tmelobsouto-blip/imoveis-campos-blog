@@ -8,6 +8,7 @@
       "Bash(npm run check:*)",
       "Bash(npm run telas:*)",
       "Bash(npm run pdf:*)",
+      "Bash(npm run build:web)",
       "Bash(npm run tour:*)",
       "Bash(npm run validate)",
       "Bash(git status:*)",

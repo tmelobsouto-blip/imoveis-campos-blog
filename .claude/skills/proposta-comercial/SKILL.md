@@ -38,6 +38,7 @@ npm run pdf -- clientes/<slug>/proposta.html clientes/<slug>/Proposta-<Nome>.pdf
 O PDF deve ficar com 4 ou 5 páginas, sem bloco cortado no meio (confira com `pdfinfo` ou `pypdf`).
 
 ## Publicar
-Artifact com `root: clientes/<slug>` e `files` = `img/*.jpg` usados. Se a proposta já tem link, passe o
+Para enviar ao proprietário, prefira o domínio próprio: `npm run build:web` e push (Cloudflare Pages,
+ver `docs/publicacao.md`); os links ficam `/<slug>/` e `/<slug>/proposta/`. Para prévia, Artifact com `root: clientes/<slug>` e `files` = `img/*.jpg` usados. Se a proposta já tem link, passe o
 `url` do README do cliente. Envie o PDF ao usuário (`SendUserFile`) e lembre de compartilhar os links pelo
 menu Share.

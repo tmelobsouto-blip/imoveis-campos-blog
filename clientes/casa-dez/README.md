@@ -21,6 +21,10 @@ Republicar sempre com o `url` abaixo, `root = clientes/casa-dez` e só as fotos 
 
 Todos são privados até o usuário compartilhar pelo menu Share.
 
+No domínio próprio (`npm run build:web`, ver [docs/publicacao.md](../../docs/publicacao.md)):
+`/casa-dez/` (site), `/casa-dez/proposta/`, `/casa-dez/Proposta-Casa-Dez.pdf`, `/casa-dez/mockup-tropical/`,
+`/casa-dez/mockup-cinema/`.
+
 ## Decisões
 - Objetivo: reserva direta pelo WhatsApp; Airbnb aparece como prova social (nota e avaliações).
 - Público: famílias e grupos; casais que buscam luxo. Apresentação no celular e no notebook.
