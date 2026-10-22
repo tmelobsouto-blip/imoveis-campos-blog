@@ -1,7 +1,7 @@
 # NEXO Websites
 
 Estúdio que cria **sites próprios de reserva direta para imóveis de temporada** e vende ao proprietário.
-Cada imóvel é um cliente em `clientes/<slug>/`. Cliente atual: **Casa Dez** (Porto de Galinhas, PE).
+Cada imóvel é um cliente em `clientes/<slug>/`. Clientes: **Casa Dez** e **Casa das Praias** (Porto de Galinhas, PE).
 
 ## Antes de começar
 1. Leia `clientes/<slug>/README.md` do cliente em questão (status, links publicados, decisões).
@@ -19,13 +19,14 @@ dist/                    gerado por npm run build:web (não vai para o git)
 clientes/<slug>/
   README.md              status, links publicados, decisões do cliente
   dados.md               fatos do anúncio (fonte única para textos)
-  fonte/                 prints originais da galeria (não editar)
+  fonte/                 prints originais da galeria (não editar); recorte.json se a galeria não tem moldura branca
   fotos/                 fotos recortadas (<id>.webp + <id>-thumb.webp)
   site.html              site final
   mockup-*.html          direções visuais apresentadas
   proposta.html + Proposta-<Nome>.pdf + img/   proposta comercial
   tour/                  (opcional, Premium) tour imersivo Next.js
   site-v2/               (Casa Dez) versão React + shadcn/ui; build em site-v2/dist/
+  site/                  (Casa das Praias) site final em React + shadcn/ui no lugar de site.html; build em site/dist/
 ```
 
 ## Comandos
@@ -39,7 +40,8 @@ clientes/<slug>/
 | `npm run build:web` | monta `dist/` para o domínio próprio: `/`, `/<slug>/`, `/<slug>/proposta/`, mockups e PDF |
 | `npm run tour -- validate` | typecheck + testes + build do tour da Casa Dez |
 | `npm run site-v2 -- build` | gera `clientes/casa-dez/site-v2/dist/` (página + app.js + app.css + fotos usadas) |
-| `npm run validate` | checa os scripts, valida o tour e faz o typecheck do site-v2 |
+| `npm --prefix clientes/<slug>/site run build` | mesmo build para o site React de um cliente (`site/dist/`) |
+| `npm run validate` | checa os scripts, valida o tour e faz o typecheck dos sites React |
 
 ## Regras de conteúdo (não negociáveis)
 - **Fotos reais**: só as do anúncio ou do proprietário. Pode recortar e redimensionar. Nunca retocar, gerar com IA, usar banco de imagens ou inventar ambientes.

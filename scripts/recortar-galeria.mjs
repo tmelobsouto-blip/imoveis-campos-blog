@@ -1,6 +1,10 @@
 // Recorta a foto de cada captura de tela da galeria (Airbnb etc.) e gera WebP + miniatura.
 // Uso: npm run fotos -- clientes/<cliente>/fonte clientes/<cliente>/fotos
-import { mkdir, readdir } from 'node:fs/promises';
+// Galerias sem moldura branca (ex.: TemporadaLivre) usam fonte/recorte.json:
+//   { "caixa": { left, top, width, height },             mesma caixa para todos os prints
+//     "extras": { "<id>": [{ id, left, top, width, height }] } }   recortes a mais de um print
+import { mkdir, readdir, readFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import { extname, join, basename } from 'node:path';
 import sharp from 'sharp';
 
@@ -43,12 +47,29 @@ async function findFrame(file) {
   return { left, top, width: right - left + 1, height: bottom - top + 1 };
 }
 
+async function save(img, id, note = '') {
+  await img.clone().webp({ quality: 92, smartSubsample: true }).toFile(join(out, `${id}.webp`));
+  await img.clone().resize({ width: 240 }).webp({ quality: 70 }).toFile(join(out, `${id}-thumb.webp`));
+  const meta = await sharp(join(out, `${id}.webp`)).metadata();
+  console.log(`${id}: ${meta.width}×${meta.height}${note}`);
+}
+
 await mkdir(out, { recursive: true });
 const files = (await readdir(src)).filter((f) => /\.(jpe?g|png|webp)$/i.test(f)).sort();
+const config = existsSync(join(src, 'recorte.json'))
+  ? JSON.parse(await readFile(join(src, 'recorte.json'), 'utf8'))
+  : {};
 
 for (const f of files) {
   const file = join(src, f);
   const id = basename(f, extname(f));
+  for (const { id: extra, ...box } of config.extras?.[id] ?? []) {
+    await save(sharp(file).extract(box), extra);
+  }
+  if (config.caixa) {
+    await save(sharp(file).extract(config.caixa), id);
+    continue;
+  }
   const frame = await findFrame(file);
   let img = sharp(file);
   if (frame) {
@@ -61,8 +82,5 @@ for (const f of files) {
       height: frame.height - inset * 2,
     });
   }
-  await img.clone().webp({ quality: 92, smartSubsample: true }).toFile(join(out, `${id}.webp`));
-  await img.clone().resize({ width: 240 }).webp({ quality: 70 }).toFile(join(out, `${id}-thumb.webp`));
-  const meta = await sharp(join(out, `${id}.webp`)).metadata();
-  console.log(`${id}: ${meta.width}×${meta.height}${frame ? '' : ' (sem moldura)'}`);
+  await save(img, id, frame ? '' : ' (sem moldura)');
 }
