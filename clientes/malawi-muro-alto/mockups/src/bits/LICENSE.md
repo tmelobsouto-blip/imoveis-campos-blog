@@ -4,6 +4,9 @@ Copiados de github.com/DavidHDev/react-bits (variante TypeScript + Tailwind, `sr
 19/10/2026), usados como parte deste site. A licença abaixo vale para os arquivos desta pasta: uso comercial em
 sites é permitido; vender ou redistribuir os componentes em si, não.
 
+Alterações: `Masonry.tsx` usa ícones do `lucide-react` no lugar do Hugeicons e marca cada foto com
+`data-gallery-item` (teste de navegador).
+
 ---
 
 MIT + Commons Clause License Condition v1.0

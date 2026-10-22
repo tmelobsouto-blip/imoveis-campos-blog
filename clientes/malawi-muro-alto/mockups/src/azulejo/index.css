@@ -1,0 +1,47 @@
+@import "../shared/base.css";
+
+/* Azulejo e madeira: o teto de azulejo azul e branco e as vigas da sala de jantar (fotos 21 e 24), em papel creme. */
+:root {
+  --sans: "Albert Sans", "Segoe UI", system-ui, sans-serif;
+  --display: "Gloock", "Iowan Old Style", Georgia, serif;
+  --radius: 0.5rem;
+  --background: #f6f1e7;
+  --foreground: #1e2433;
+  --card: #fffdf8;
+  --card-foreground: #1e2433;
+  --popover: #fffdf8;
+  --popover-foreground: #1e2433;
+  --primary: #1f3f8f;
+  --primary-foreground: #ffffff;
+  --secondary: #ece4d4;
+  --secondary-foreground: #1e2433;
+  --muted: #ece4d4;
+  --muted-foreground: #5c6170;
+  --accent: #e6ebf6;
+  --accent-foreground: #1f3f8f;
+  --destructive: #b42318;
+  --border: #ddd3c1;
+  --input: #cfc4b0;
+  --ring: #1f3f8f;
+  --cobalt: #1f3f8f;
+  --wood: #9a5f34;
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-cobalt: var(--cobalt);
+  --color-wood: var(--wood);
+}
+
+@layer base {
+  h1, h2, h3 {
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Faixa de azulejo desenhada em CSS (ornamento, não foto): losango e flor em cobalto sobre branco. */
+@utility azulejo {
+  background-color: #fbfaf6;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%231f3f8f' stroke-width='2'%3E%3Crect x='1' y='1' width='54' height='54'/%3E%3Cpath d='M28 6 50 28 28 50 6 28Z'/%3E%3Ccircle cx='28' cy='28' r='7'/%3E%3C/g%3E%3Cg fill='%231f3f8f'%3E%3Ccircle cx='28' cy='28' r='3'/%3E%3Cpath d='M0 0h9L0 9ZM56 0h-9l9 9ZM0 56h9l-9-9ZM56 56h-9l9-9Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 56px 56px;
+}
