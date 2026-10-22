@@ -14,8 +14,11 @@ Como este site foi construído, pedido a pedido. Status, links publicados e deci
 
 - Entrevista (`AskUserQuestion`): perfis Famílias com crianças, Grupos de amigos e Casais e descanso;
   material pelos prints do texto; nome "Casa em Porto de Galinhas" nos três.
-- Skills: `novo-cliente`, `karpathy-guidelines`, `frontend-design`, `artifact-design`; ferramenta advisor
-  antes de começar e na revisão final. Sem biblioteca nova (HTML e JS puro), então sem Context7 nem shadcn.
+- Skills: `novo-cliente` (roteiro) e `karpathy-guidelines` (lembrete do hook). As páginas seguem as
+  convenções de `frontend-design` e `artifact-design` já usadas nos outros mockups, sem carregar as skills de
+  novo. Ferramenta advisor antes de começar e na revisão final (que corrigiu o título "Perto das praias,
+  longe do agito" do mockup casais: o anúncio diz "5ª quadra ou +"). Sem biblioteca nova (HTML e JS puro),
+  então sem Context7 nem shadcn.
 - Fotos:
   - Prints de tablet (2304 × 1440) com avisos por cima de algumas fotos: "62 pessoas interessadas" (02 a 16)
     e "Nova guia fechada" (12, 14, 15, 16). O `recorte.json` passou a aceitar `caixas` por foto; essas saem
