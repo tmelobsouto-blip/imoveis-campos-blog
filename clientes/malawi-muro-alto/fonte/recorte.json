@@ -1,0 +1,256 @@
+{
+  "caixa": {
+    "left": 92,
+    "top": 276,
+    "width": 2120,
+    "height": 1068
+  },
+  "_caixas": "aviso '51 pessoas interessadas' no canto inferior direito (x>1830, y>1250) cortado por baixo; a 55 não tem o aviso",
+  "caixas": {
+    "05-piscina": {
+      "left": 92,
+      "top": 276,
+      "width": 2120,
+      "height": 970
+    },
+    "07-bar": {
+      "left": 92,
+      "top": 276,
+      "width": 2120,
+      "height": 970
+    },
+    "08-bar-piscina": {
+      "left": 92,
+      "top": 276,
+      "width": 2120,
+      "height": 970
+    },
+    "14-varanda": {
+      "left": 92,
+      "top": 276,
+      "width": 2120,
+      "height": 970
+    },
+    "16-sala": {
+      "left": 92,
+      "top": 276,
+      "width": 2120,
+      "height": 970
+    },
+    "21-jantar-sala": {
+      "left": 92,
+      "top": 276,
+      "width": 2120,
+      "height": 970
+    },
+    "24-jantar-cozinha": {
+      "left": 92,
+      "top": 276,
+      "width": 2120,
+      "height": 970
+    },
+    "32-suite": {
+      "left": 92,
+      "top": 276,
+      "width": 2120,
+      "height": 970
+    },
+    "52-casa-noite": {
+      "left": 92,
+      "top": 276,
+      "width": 2120,
+      "height": 970
+    }
+  },
+  "_extras": "marca d'água no centro (x 990-1310, y entre 680 e 950 conforme a foto); recortes à esquerda (x<952), à direita (x>1340) ou em faixa acima/abaixo dela",
+  "extras": {
+    "05-piscina": [
+      {
+        "id": "05a-piscina",
+        "left": 92,
+        "top": 276,
+        "width": 860,
+        "height": 1068
+      },
+      {
+        "id": "05b-piscina",
+        "left": 1340,
+        "top": 276,
+        "width": 872,
+        "height": 970
+      }
+    ],
+    "07-bar": [
+      {
+        "id": "07a-bar",
+        "left": 92,
+        "top": 276,
+        "width": 860,
+        "height": 1068
+      },
+      {
+        "id": "07b-bar",
+        "left": 1340,
+        "top": 276,
+        "width": 872,
+        "height": 970
+      }
+    ],
+    "08-bar-piscina": [
+      {
+        "id": "08a-bar-piscina",
+        "left": 92,
+        "top": 276,
+        "width": 860,
+        "height": 1068
+      },
+      {
+        "id": "08b-bar-piscina",
+        "left": 1340,
+        "top": 276,
+        "width": 872,
+        "height": 970
+      },
+      {
+        "id": "08c-bar-piscina",
+        "left": 92,
+        "top": 276,
+        "width": 2120,
+        "height": 570
+      }
+    ],
+    "14-varanda": [
+      {
+        "id": "14a-varanda",
+        "left": 92,
+        "top": 276,
+        "width": 860,
+        "height": 1068
+      },
+      {
+        "id": "14b-varanda",
+        "left": 1340,
+        "top": 276,
+        "width": 872,
+        "height": 970
+      },
+      {
+        "id": "14c-varanda",
+        "left": 92,
+        "top": 815,
+        "width": 2120,
+        "height": 429
+      }
+    ],
+    "16-sala": [
+      {
+        "id": "16a-sala",
+        "left": 92,
+        "top": 276,
+        "width": 860,
+        "height": 1068
+      },
+      {
+        "id": "16c-sala",
+        "left": 92,
+        "top": 276,
+        "width": 2120,
+        "height": 500
+      }
+    ],
+    "21-jantar-sala": [
+      {
+        "id": "21b-jantar-sala",
+        "left": 92,
+        "top": 276,
+        "width": 860,
+        "height": 1068
+      },
+      {
+        "id": "21a-jantar-sala",
+        "left": 1340,
+        "top": 276,
+        "width": 872,
+        "height": 970
+      },
+      {
+        "id": "21c-jantar-sala",
+        "left": 92,
+        "top": 810,
+        "width": 2120,
+        "height": 434
+      }
+    ],
+    "24-jantar-cozinha": [
+      {
+        "id": "24a-jantar-cozinha",
+        "left": 1340,
+        "top": 276,
+        "width": 872,
+        "height": 970
+      },
+      {
+        "id": "24b-jantar-cozinha",
+        "left": 92,
+        "top": 276,
+        "width": 860,
+        "height": 1068
+      }
+    ],
+    "32-suite": [
+      {
+        "id": "32a-suite",
+        "left": 92,
+        "top": 276,
+        "width": 860,
+        "height": 1068
+      },
+      {
+        "id": "32b-suite",
+        "left": 1340,
+        "top": 276,
+        "width": 872,
+        "height": 970
+      }
+    ],
+    "52-casa-noite": [
+      {
+        "id": "52a-casa-noite",
+        "left": 92,
+        "top": 276,
+        "width": 860,
+        "height": 1068
+      },
+      {
+        "id": "52b-casa-noite",
+        "left": 1340,
+        "top": 276,
+        "width": 872,
+        "height": 970
+      }
+    ],
+    "55-piscina-noite": [
+      {
+        "id": "55a-piscina-noite",
+        "left": 92,
+        "top": 276,
+        "width": 860,
+        "height": 1068
+      },
+      {
+        "id": "55b-piscina-noite",
+        "left": 1340,
+        "top": 276,
+        "width": 872,
+        "height": 1068
+      },
+      {
+        "id": "55c-piscina-noite",
+        "left": 92,
+        "top": 880,
+        "width": 2120,
+        "height": 464
+      }
+    ]
+  }
+}
