@@ -43,3 +43,5 @@ Context7 funciona pelo conector do claude.ai). O Mobbin MCP exige plano pago.
   shadcn.
 - [Casa 6 Suítes](../clientes/porto-6-suites/historico.md): fotos com marca d'água, 3 mockups com nomes
   genéricos, site final React e proposta com a tabela nova.
+- [Casa em Porto de Galinhas](../clientes/porto-coqueiral/historico.md): prints de tablet com avisos por cima
+  (caixas por foto), 3 mockups, um por perfil de hóspede (famílias, amigos, casais).

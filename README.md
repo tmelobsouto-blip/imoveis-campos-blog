@@ -9,6 +9,7 @@ anúncio, apresenta mockups ao proprietário e vende o site pronto, com reserva 
 |---|---|---|---|---|
 | [Casa Dez](clientes/casa-dez/README.md) | Porto de Galinhas, PE | Proposta pronta; enviar ao anfitrião | [abrir](https://claude.ai/artifact/1bxubUsoibxT8Ryf4bV7ST) | [abrir](https://claude.ai/artifact/WWk2trjf8wFUPzNMj28UW1) |
 | [Casa 6 Suítes](clientes/porto-6-suites/README.md) (nome provisório) | Porto de Galinhas, PE | Site e proposta prontos; enviar ao anunciante | [abrir](https://claude.ai/artifact/K7rTYKmJeCZcpCxTnURmXb) | [abrir](https://claude.ai/artifact/6trukqhmp4BTq1L2kcavrQ) |
+| [Casa em Porto de Galinhas](clientes/porto-coqueiral/README.md) (nome provisório) | Porto de Galinhas, PE | 3 mockups por perfil; escolher a direção | [famílias](https://claude.ai/artifact/WeyRNhzmnsq8gnto2smbyc) · [amigos](https://claude.ai/artifact/MT9FVVzU3btQGh9rhDdM9k) · [casais](https://claude.ai/artifact/SSkB3qDDkDcFsX5iHrchMW) | — |
 
 ## Como trabalhar
 
@@ -24,7 +25,8 @@ Chrome instalado.
 
 - Fluxo de venda, do primeiro contato à publicação, skills e MCPs: [docs/processo.md](docs/processo.md)
 - Como cada site foi feito: [Casa Dez](clientes/casa-dez/historico.md) ·
-  [Casa 6 Suítes](clientes/porto-6-suites/historico.md)
+  [Casa 6 Suítes](clientes/porto-6-suites/historico.md) ·
+  [Casa em Porto de Galinhas](clientes/porto-coqueiral/historico.md)
 - Endereço próprio (Cloudflare Pages + domínio): [docs/publicacao.md](docs/publicacao.md) — `npm run build:web`
 - Pacotes e preços: [docs/precos.md](docs/precos.md)
 - Regras para o Claude: [CLAUDE.md](CLAUDE.md) e skills em `.claude/skills/`

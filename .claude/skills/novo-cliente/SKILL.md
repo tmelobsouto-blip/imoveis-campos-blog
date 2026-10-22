@@ -33,7 +33,8 @@ npm run fotos -- clientes/<slug>/fonte clientes/<slug>/fotos
 Confira se todas saíram com o mesmo tamanho e sem borda branca. Se um print não tiver moldura, o script
 usa a imagem inteira e avisa "(sem moldura)". Galerias com fundo escuro, barra "n/N" ou setas por cima da foto
 (ex.: TemporadaLivre) levam `fonte/recorte.json` com a caixa fixa e, se preciso, recortes extras de colagens;
-modelo em `clientes/porto-6-suites/fonte/recorte.json`. Marca d'água da plataforma fica (removê-la é retoque):
+modelo em `clientes/porto-6-suites/fonte/recorte.json`. Prints com aviso ou placa por cima de algumas fotos
+ganham uma caixa própria em `caixas` (modelo em `clientes/porto-coqueiral/fonte/recorte.json`). Marca d'água da plataforma fica (removê-la é retoque):
 anote no README para pedir as originais.
 
 ## 4. Dados

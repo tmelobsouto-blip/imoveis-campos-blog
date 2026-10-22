@@ -1,7 +1,8 @@
 # NEXO Websites
 
 Estúdio que cria **sites próprios de reserva direta para imóveis de temporada** e vende ao proprietário.
-Cada imóvel é um cliente em `clientes/<slug>/`. Clientes: **Casa Dez** e **Casa 6 Suítes** (nome sugerido, pasta `porto-6-suites`), ambos em Porto de Galinhas, PE.
+Cada imóvel é um cliente em `clientes/<slug>/`. Clientes: **Casa Dez**, **Casa 6 Suítes** (nome sugerido, pasta `porto-6-suites`) e **Casa em Porto de Galinhas**
+(nome sugerido, pasta `porto-coqueiral`), todos em Porto de Galinhas, PE.
 Como cada site foi feito: `clientes/<slug>/historico.md`; fluxo geral, skills e MCPs: `docs/processo.md`.
 
 ## Antes de começar
