@@ -1,0 +1,602 @@
+<title>Casa em Porto de Galinhas</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Casa com 5 suítes para até 17 pessoas, piscina privativa com cascata e churrasqueira, no Loteamento Porto Coqueiral, em Porto de Galinhas. Aceita pets. Reserva direta pelo WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Fredoka:wght@500;600;700&family=Lexend:wght@400;500;600&display=swap">
+<style>
+/* Layout: caderno de férias — papel quadriculado, fotos coladas com fita, anotações à mão,
+   suítes com ícones de cama e uma reserva que conta adultos, crianças e o pet. */
+:root {
+  --papel: #fffaf0;
+  --quadro: #e4eef8;
+  --tinta: #1b2a5c;
+  --muted: #56617f;
+  --piscina: #0b9fd8;
+  --piscina-escura: #07709f;
+  --sol: #ffc327;
+  --tomate: #ec5a2a;
+  --line: #e6dfcf;
+  --white: #ffffff;
+  --display: 'Fredoka', 'Arial Rounded MT Bold', 'Trebuchet MS', sans-serif;
+  --body: 'Lexend', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mao: 'Caveat', 'Comic Sans MS', cursive;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--papel); }
+body { margin: 0; background: var(--papel); color: var(--tinta); font: 400 16.5px/1.65 var(--body); -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--piscina); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; margin: 0; text-wrap: balance; letter-spacing: -0.01em; line-height: 1.02; }
+h2 { font-size: clamp(2.1rem, 5.4vw, 3.4rem); }
+p { margin: 0; }
+
+.wrap {
+  width: 100%; max-width: 1160px; margin-inline: auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+.band { padding-block: clamp(64px, 10vw, 112px); }
+.band-blue { background: #eaf6fc; }
+.eyebrow { font: 600 .8rem/1.3 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--piscina-escura); }
+.lead { color: var(--muted); max-width: 56ch; font-size: 1.06rem; }
+.head { display: grid; gap: 14px; margin-bottom: clamp(32px, 5vw, 52px); }
+.mao { font: 600 1.45rem/1.1 var(--mao); color: var(--tomate); }
+/* Marca-texto amarelo, como sublinhado de caderno. */
+.marca { background: linear-gradient(transparent 58%, var(--sol) 58%, var(--sol) 92%, transparent 92%); padding-inline: .06em; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 52px; padding: 0 26px; border-radius: 16px; border: 2px solid var(--tinta);
+  background: var(--tomate); color: var(--white); text-decoration: none; cursor: pointer;
+  font: 600 1rem/1 var(--body); box-shadow: 4px 4px 0 var(--tinta); transition: transform .15s, box-shadow .15s;
+}
+.btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--tinta); }
+.btn:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--tinta); }
+.btn-ghost { background: var(--white); color: var(--tinta); }
+
+/* topo */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; background: rgb(255 250 240 / .94); backdrop-filter: blur(8px); border-bottom: 2px solid var(--tinta); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 31; background: var(--papel); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 64px; }
+.logo { display: flex; align-items: center; gap: 10px; font: 700 1.02rem/1.05 var(--display); text-decoration: none; }
+.logo i { flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--sol); border: 2px solid var(--tinta); }
+.top nav { display: none; gap: 24px; font-weight: 500; font-size: .95rem; }
+.top nav a { text-decoration: none; }
+.top nav a:hover { color: var(--piscina-escura); }
+.top .btn { min-height: 42px; padding: 0 16px; font-size: .92rem; box-shadow: 3px 3px 0 var(--tinta); }
+@media (min-width: 940px) { .top nav { display: flex; } .logo { font-size: 1.15rem; } }
+
+/* capa */
+.hero {
+  overflow: hidden;
+  background-color: var(--papel);
+  background-image: linear-gradient(var(--quadro) 1px, transparent 1px), linear-gradient(90deg, var(--quadro) 1px, transparent 1px);
+  background-size: 28px 28px;
+  border-bottom: 2px solid var(--tinta);
+}
+.hero .wrap { display: grid; gap: 40px; padding-block: clamp(36px, 6vw, 80px) clamp(48px, 7vw, 96px); }
+.hero .copy { display: grid; gap: 20px; align-content: center; }
+.hero h1 { font-size: clamp(3rem, 11vw, 5.6rem); }
+.hero .copy > p:not(.eyebrow):not(.mao) { font-size: clamp(1.08rem, 1.7vw, 1.22rem); max-width: 36ch; }
+.stickers { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.stickers li { padding: 6px 14px; border-radius: 999px; background: var(--white); border: 2px solid var(--tinta); font-weight: 600; font-size: .9rem; }
+.stickers li:nth-child(4) { background: var(--sol); }
+.actions { display: flex; flex-wrap: wrap; gap: 14px; }
+
+.collage { position: relative; width: min(100%, 540px); aspect-ratio: 1 / 1.27; justify-self: center; }
+.polaroid { position: absolute; margin: 0; background: var(--white); padding: 8px 8px 40px; box-shadow: 0 18px 32px -18px rgb(27 42 92 / .55); }
+.polaroid img { width: 100%; object-fit: cover; }
+.polaroid figcaption { position: absolute; left: 12px; right: 12px; bottom: 6px; font: 600 1.3rem/1.1 var(--mao); color: var(--tinta); }
+/* Fita adesiva por cima de cada foto. */
+.polaroid::before { content: ""; position: absolute; z-index: 1; top: -12px; left: 50%; width: 88px; height: 24px; background: rgb(255 205 70 / .72); transform: translateX(-50%) rotate(-5deg); }
+.p1 { width: 56%; left: 1%; top: 3%; transform: rotate(-4deg); }
+.p1 img { aspect-ratio: 860 / 970; }
+.p2 { width: 49%; right: 1%; top: 0; transform: rotate(4.5deg); }
+.p2 img { aspect-ratio: 890 / 1068; }
+.p3 { width: 80%; left: 10%; bottom: 1%; transform: rotate(-1.5deg); z-index: 2; }
+.p3 img { aspect-ratio: 16 / 7; object-position: 22% 50%; }
+.p3::before { background: rgb(11 159 216 / .45); }
+@media (min-width: 960px) {
+  .hero .wrap { grid-template-columns: 1fr 1fr; align-items: center; }
+  .collage { justify-self: end; }
+}
+
+/* um dia de férias */
+.day { display: grid; grid-auto-flow: column; grid-auto-columns: min(78%, 300px); gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 6px 4px 14px; scrollbar-width: thin; }
+.day figure { margin: 0; scroll-snap-align: start; display: grid; gap: 12px; align-content: start; }
+.day .foto { position: relative; border: 2px solid var(--tinta); border-radius: 18px; overflow: hidden; box-shadow: 4px 4px 0 var(--tinta); }
+.day img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.day .hora { position: absolute; top: 10px; left: 10px; padding: 2px 12px; border-radius: 999px; background: var(--white); border: 2px solid var(--tinta); font: 600 1.35rem/1.2 var(--mao); }
+.day b { font: 700 1.3rem/1.1 var(--display); }
+.day span { color: var(--muted); font-size: .95rem; }
+@media (min-width: 1000px) { .day { grid-auto-flow: row; grid-template-columns: repeat(4, minmax(0, 1fr)); overflow: visible; } }
+
+/* suítes */
+.suites { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+.suites li { display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; align-items: center; padding: 18px; background: var(--white); border: 2px solid var(--tinta); border-radius: 18px; }
+.num { grid-row: span 2; width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; background: var(--piscina); color: var(--white); font: 700 1.6rem/1 var(--display); border: 2px solid var(--tinta); }
+.camas { display: flex; align-items: flex-end; gap: 8px; height: 44px; color: var(--tinta); }
+.camas svg { height: 100%; width: auto; }
+.suites p { font-size: .95rem; color: var(--muted); }
+.suites p b { color: var(--tinta); font-weight: 600; }
+@media (min-width: 900px) {
+  .suites { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .suites li { grid-template-columns: 1fr; justify-items: start; align-content: start; gap: 14px; }
+  .num { grid-row: auto; }
+}
+.total { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px 22px; font-weight: 600; }
+.total span { display: inline-flex; align-items: center; gap: 8px; }
+.total span::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: var(--tomate); }
+
+/* facilita a vida */
+.easy { display: grid; gap: 40px; }
+.check { list-style: none; padding: 0; margin: 0; display: grid; gap: 2px; }
+.check li { display: flex; gap: 14px; align-items: baseline; padding: 12px 0; border-bottom: 1.5px dashed var(--line); }
+.check li::before { content: "✓"; flex: none; font: 700 1.5rem/1 var(--mao); color: var(--piscina-escura); transform: rotate(-8deg); }
+.pet { align-self: start; display: grid; gap: 14px; justify-items: start; padding: clamp(24px, 4vw, 36px); background: var(--sol); border: 2px solid var(--tinta); border-radius: 26px; box-shadow: 6px 6px 0 var(--tinta); transform: rotate(-1deg); }
+.pet svg { width: 64px; height: 64px; }
+.pet h3 { font-size: clamp(1.8rem, 4vw, 2.4rem); }
+@media (min-width: 900px) { .easy { grid-template-columns: 1.2fr .8fr; gap: 64px; } }
+
+/* avaliações */
+.score { display: flex; align-items: center; gap: 16px; }
+.score strong { font: 700 3.4rem/1 var(--display); color: var(--piscina-escura); }
+.score span { color: var(--muted); }
+.reviews { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: 22px; }
+.reviews figure { position: relative; margin: 0; padding: 30px 24px 24px; background: var(--white); border: 2px solid var(--tinta); border-radius: 20px; display: grid; gap: 14px; align-content: start; }
+.reviews figure::before { content: ""; position: absolute; top: -12px; left: 28px; width: 70px; height: 22px; background: rgb(236 90 42 / .5); transform: rotate(-4deg); }
+.reviews blockquote { margin: 0; }
+.reviews figcaption { font-weight: 600; }
+.reviews figcaption span { display: block; font-weight: 400; color: var(--muted); font-size: .9rem; }
+
+/* onde fica */
+.route { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.route li { display: grid; grid-template-columns: 92px 1fr; gap: 16px; align-items: center; padding: 14px 18px; background: var(--white); border: 2px solid var(--tinta); border-radius: 16px; }
+.route b { font: 700 1.5rem/1 var(--display); color: var(--piscina-escura); }
+@media (min-width: 800px) {
+  .route { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .route li { grid-template-columns: 1fr; gap: 10px; align-content: start; padding: 20px; }
+  .route b { font-size: 2.2rem; }
+}
+.place { margin-top: 18px; color: var(--muted); }
+
+/* galeria */
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.grid button { padding: 0; border: 2px solid var(--tinta); background: none; cursor: zoom-in; border-radius: 14px; overflow: hidden; }
+.grid img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; transition: transform .4s; }
+.grid button:hover img { transform: scale(1.05); }
+.grid.fechada button:nth-child(n + 9) { display: none; }
+.more { margin-top: 22px; }
+@media (min-width: 700px) { .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+/* bom saber */
+.faq { max-width: 820px; }
+.faq details { border-bottom: 2px dashed var(--line); }
+.faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 16px; padding: 18px 0; font-weight: 600; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font: 700 1.4rem/1 var(--display); color: var(--tomate); }
+.faq details[open] summary::after { content: "−"; }
+.faq details p { margin: 0 0 18px; color: var(--muted); }
+
+/* reserva */
+.book { background: var(--piscina); color: var(--white); border-top: 2px solid var(--tinta); }
+.book .wrap { display: grid; gap: 32px; }
+.book .eyebrow { color: #d9f2ff; }
+.book .copy { display: grid; gap: 14px; align-content: start; }
+.book .copy p:not(.eyebrow):not(.mao) { color: rgb(255 255 255 / .94); max-width: 40ch; }
+.book .mao { color: var(--sol); }
+.card { background: var(--white); color: var(--tinta); border: 2px solid var(--tinta); border-radius: 24px; padding: clamp(20px, 4vw, 34px); display: grid; gap: 18px; box-shadow: 8px 8px 0 var(--tinta); }
+.fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; }
+/* Campo de data tem largura mínima própria no Chrome: dois lado a lado só a partir de ~340 px. */
+.datas { grid-template-columns: repeat(auto-fit, minmax(165px, 1fr)); }
+label, .label { display: grid; gap: 6px; font-weight: 600; font-size: .9rem; }
+input[type="date"], input[type="text"], input[type="number"] {
+  min-height: 50px; padding: 0 14px; border: 2px solid var(--tinta); border-radius: 12px; width: 100%; min-width: 0;
+  font: 500 1rem var(--body); color: var(--tinta); background: var(--white);
+}
+.stepper { display: grid; grid-template-columns: 48px 1fr 48px; border: 2px solid var(--tinta); border-radius: 12px; overflow: hidden; }
+.stepper button { border: 0; background: var(--papel); color: var(--tinta); font: 700 1.4rem/1 var(--display); cursor: pointer; }
+.stepper button:hover { background: var(--sol); }
+.stepper input { border: 0; border-inline: 2px solid var(--tinta); border-radius: 0; text-align: center; min-height: 48px; -moz-appearance: textfield; appearance: textfield; }
+.stepper input::-webkit-inner-spin-button, .stepper input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.pet-check { display: flex; align-items: center; gap: 12px; font-weight: 600; cursor: pointer; }
+.pet-check input { width: 24px; height: 24px; accent-color: var(--tomate); }
+/* 17 lugares: cada bolinha é uma pessoa. */
+.lugares { display: grid; gap: 8px; }
+.lugares ol { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(17, minmax(0, 1fr)); gap: 4px; }
+.lugares li { aspect-ratio: 1; border-radius: 50%; border: 2px solid var(--tinta); background: var(--white); transition: background .2s; }
+.lugares li.adulto { background: var(--tinta); }
+.lugares li.crianca { background: var(--tomate); }
+.lugares p { font-size: .9rem; color: var(--muted); }
+.preview { padding: 14px 16px; border-radius: 12px; background: #eaf6fc; white-space: pre-line; font-size: .94rem; }
+.error { color: #b42318; font-weight: 600; }
+.note { font-size: .85rem; color: var(--muted); }
+@media (min-width: 900px) { .book .wrap { grid-template-columns: .8fr 1.2fr; align-items: start; gap: 56px; } }
+
+footer { background: var(--tinta); color: rgb(255 255 255 / .85); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: space-between; padding-block: 44px calc(44px + env(safe-area-inset-bottom, 0px)); font-size: .92rem; }
+footer .logo { color: var(--white); }
+
+dialog { border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh; width: 100%; height: 100%; color: var(--white); }
+dialog::backdrop { background: rgb(14 22 50 / .95); }
+.lb { height: 100%; display: grid; grid-template-rows: 1fr auto; place-items: center; padding: max(16px, env(safe-area-inset-top, 0px)) 16px max(16px, env(safe-area-inset-bottom, 0px)); }
+.lb img { max-height: 78vh; width: auto; max-width: min(1100px, 100%); border-radius: 12px; border: 3px solid var(--white); }
+.lb-bar { display: flex; align-items: center; gap: 12px; padding-top: 14px; }
+.lb-bar p { margin: 0 12px; text-align: center; font-weight: 500; }
+.lb button { width: 48px; height: 48px; border-radius: 50%; border: 2px solid rgb(255 255 255 / .5); background: transparent; color: var(--white); font-size: 1.2rem; cursor: pointer; }
+.lb .close { position: absolute; top: max(16px, env(safe-area-inset-top, 0px)); right: max(16px, env(safe-area-inset-right, 0px)); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="casal" viewBox="0 0 34 44"><rect x="2" y="2" width="30" height="40" rx="5" fill="#fff" stroke="currentColor" stroke-width="2.5"/><rect x="6" y="6" width="10" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><rect x="18" y="6" width="10" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2 18h30v19a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5z" fill="#0b9fd8" stroke="currentColor" stroke-width="2.5"/></symbol>
+  <symbol id="solteiro" viewBox="0 0 22 44"><rect x="2" y="2" width="18" height="40" rx="4" fill="#fff" stroke="currentColor" stroke-width="2.5"/><rect x="5" y="6" width="12" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2 18h18v20a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4z" fill="#ffc327" stroke="currentColor" stroke-width="2.5"/></symbol>
+  <symbol id="bicama" viewBox="0 0 30 44"><rect x="9" y="2" width="19" height="36" rx="4" fill="#fff" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3"/><rect x="2" y="6" width="18" height="36" rx="4" fill="#fff" stroke="currentColor" stroke-width="2.5"/><path d="M2 20h18v18a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4z" fill="#ec5a2a" stroke="currentColor" stroke-width="2.5"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#topo"><i aria-hidden="true"></i>Casa em Porto de Galinhas</a>
+    <nav aria-label="Seções">
+      <a href="#dia">A casa</a>
+      <a href="#suites">Suítes</a>
+      <a href="#avaliacoes">Avaliações</a>
+      <a href="#fotos">Fotos</a>
+      <a href="#bom-saber">Bom saber</a>
+    </nav>
+    <a class="btn" href="#reserva">Reservar</a>
+  </div>
+</header>
+
+<main id="topo">
+  <section class="hero" aria-labelledby="titulo">
+    <div class="wrap">
+      <div class="copy">
+        <p class="eyebrow">Porto de Galinhas · Pernambuco</p>
+        <h1 id="titulo">Casa em <span class="marca">Porto de Galinhas</span></h1>
+        <p>Piscina privativa com cascata, 5 suítes e lugar para até 17 pessoas. E o cachorro pode vir junto: a casa aceita pets.</p>
+        <ul class="stickers" aria-label="Destaques">
+          <li>17 pessoas</li><li>5 suítes</li><li>7 banheiros</li><li>Aceita pets</li><li>Piscina privativa</li>
+        </ul>
+        <div class="actions">
+          <a class="btn" href="#reserva">Consultar datas</a>
+          <a class="btn btn-ghost" href="#fotos">Ver as fotos</a>
+        </div>
+        <p class="mao">Nota 4,8 de 5 em 12 avaliações</p>
+      </div>
+      <div class="collage">
+        <figure class="polaroid p1">
+          <img src="fotos/04a-piscina.webp" width="860" height="970" alt="Cascata caindo na piscina, ao lado do muro revestido de madeira.">
+          <figcaption>a cascata da piscina</figcaption>
+        </figure>
+        <figure class="polaroid p2">
+          <img src="fotos/33a-terraco-balanco.webp" width="890" height="1068" alt="Balanço suspenso em forma de ovo no terraço coberto, ao lado do gramado.">
+          <figcaption>o balanço do terraço</figcaption>
+        </figure>
+        <figure class="polaroid p3">
+          <img src="fotos/17a-sala.webp" width="1600" height="398" alt="Sala de estar com sofá azul, almofadas amarelas e laranja e poltronas de madeira.">
+          <figcaption>a sala do sofá azul</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="dia" aria-labelledby="dia-titulo">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Um dia de férias</p>
+        <h2 id="dia-titulo">Da piscina à rede, sem pegar o carro</h2>
+        <p class="lead">Piscina de manhã, churrasco no almoço, rede à tarde e piscina iluminada à noite. Tudo no quintal da casa.</p>
+      </div>
+      <div class="day" tabindex="0" aria-label="Um dia na casa, em fotos">
+        <figure>
+          <div class="foto"><img src="fotos/12c-piscina.webp" width="940" height="970" loading="lazy" alt="Piscina azul com a cascata na parede de pedra clara e o muro de madeira."><span class="hora">9h</span></div>
+          <figcaption><b>Piscina</b><br><span>Privativa, com cascata e gramado em volta.</span></figcaption>
+        </figure>
+        <figure>
+          <div class="foto"><img src="fotos/12b-piscina.webp" width="880" height="970" loading="lazy" alt="Churrasqueira de tijolos com azulejos estampados, guarda-sóis azuis e mesas brancas no gramado, à beira da piscina."><span class="hora">12h</span></div>
+          <figcaption><b>Churrasco</b><br><span>Churrasqueira com pia, bancada e utensílios.</span></figcaption>
+        </figure>
+        <figure>
+          <div class="foto"><img src="fotos/35a-terraco.webp" width="880" height="1068" loading="lazy" alt="Poltronas de fibra com almofadas amarelas no terraço coberto." style="object-position: 40% 70%"><span class="hora">15h</span></div>
+          <figcaption><b>Rede</b><br><span>Terraço coberto com redes e poltronas.</span></figcaption>
+        </figure>
+        <figure>
+          <div class="foto"><img src="fotos/23c-piscina-noite.webp" width="880" height="1068" loading="lazy" alt="Terraço com rede e poltronas amarelas e a piscina iluminada à noite."><span class="hora">20h</span></div>
+          <figcaption><b>Piscina iluminada</b><br><span>À noite, piscina e jardim ficam acesos.</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-blue" id="suites" aria-labelledby="suites-titulo">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Quem dorme onde</p>
+        <h2 id="suites-titulo">Cada família na sua suíte</h2>
+        <p class="lead">Os 5 quartos são suítes, com banheiro. E ainda tem 2 lavabos: 7 banheiros na casa toda.</p>
+      </div>
+      <ul class="suites">
+        <li><span class="num">1</span><span class="camas"><svg viewBox="0 0 34 44" aria-hidden="true"><use href="#casal"/></svg><svg viewBox="0 0 22 44" aria-hidden="true"><use href="#solteiro"/></svg><svg viewBox="0 0 30 44" aria-hidden="true"><use href="#bicama"/></svg></span><p><b>1 casal</b>, 1 solteiro e 1 bicama</p></li>
+        <li><span class="num">2</span><span class="camas"><svg viewBox="0 0 34 44" aria-hidden="true"><use href="#casal"/></svg><svg viewBox="0 0 22 44" aria-hidden="true"><use href="#solteiro"/></svg><svg viewBox="0 0 22 44" aria-hidden="true"><use href="#solteiro"/></svg></span><p><b>1 casal</b> e 2 solteiro</p></li>
+        <li><span class="num">3</span><span class="camas"><svg viewBox="0 0 34 44" aria-hidden="true"><use href="#casal"/></svg><svg viewBox="0 0 22 44" aria-hidden="true"><use href="#solteiro"/></svg><svg viewBox="0 0 22 44" aria-hidden="true"><use href="#solteiro"/></svg></span><p><b>1 casal</b> e 2 solteiro</p></li>
+        <li><span class="num">4</span><span class="camas"><svg viewBox="0 0 34 44" aria-hidden="true"><use href="#casal"/></svg><svg viewBox="0 0 30 44" aria-hidden="true"><use href="#bicama"/></svg></span><p><b>1 casal</b> e 1 bicama</p></li>
+        <li><span class="num">5</span><span class="camas"><svg viewBox="0 0 34 44" aria-hidden="true"><use href="#casal"/></svg></span><p><b>1 casal</b></p></li>
+      </ul>
+      <p class="total"><span>5 camas de casal</span><span>7 de solteiro (2 são bicamas)</span><span>até 17 pessoas</span></p>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="facil-titulo">
+    <div class="wrap easy">
+      <div>
+        <div class="head" style="margin-bottom:20px">
+          <p class="eyebrow">Para a família toda</p>
+          <h2 id="facil-titulo">O que facilita a vida</h2>
+        </div>
+        <ul class="check">
+          <li>Máquina de lavar e ferro de passar</li>
+          <li>Cozinha com fogão, geladeira, micro-ondas e liquidificador</li>
+          <li>Utensílios de cozinha e de churrasqueira</li>
+          <li>Roupa de cama</li>
+          <li>Wi-Fi e TV</li>
+          <li>5 ar-condicionados e 3 ventiladores</li>
+          <li>3 vagas cobertas na garagem</li>
+        </ul>
+      </div>
+      <aside class="pet" aria-label="Pets">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><g fill="#1b2a5c"><ellipse cx="32" cy="42" rx="14" ry="12"/><ellipse cx="14" cy="28" rx="6" ry="8"/><ellipse cx="25" cy="16" rx="6" ry="8"/><ellipse cx="39" cy="16" rx="6" ry="8"/><ellipse cx="50" cy="28" rx="6" ry="8"/></g></svg>
+        <h3>O pet vem junto</h3>
+        <p>A casa aceita animais. Uma hóspede contou que o espaço é adequado “para família com crianças e animais de estimação”.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="band band-blue" id="avaliacoes" aria-labelledby="avaliacoes-titulo">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Avaliações</p>
+        <h2 id="avaliacoes-titulo">Quem já veio com a família</h2>
+        <p class="score"><strong>4,8</strong><span>de 5, em 12 avaliações</span></p>
+      </div>
+      <div class="reviews">
+        <figure>
+          <blockquote><p>“Imóvel muito bom. Fácil localização. Casa de amplo conforto e acomodação. Atendeu nossas expectativas. Espaço adequado para família com crianças e animais de estimação. […] Sr. Paiva muito atencioso e prestativo.”</p></blockquote>
+          <figcaption>Regina Ferreira<span>Fevereiro de 2026</span></figcaption>
+        </figure>
+        <figure>
+          <blockquote><p>“Casa super fiel às descrições e fotos do anúncio! Piscina limpa e com áreas para crianças. Casa ampla e todos os quartos são suítes. Local seguro e muito tranquilo. Quando voltarmos à Porto de Galinhas, com certeza será nossa hospedagem novamente!”</p></blockquote>
+          <figcaption>Elizandra<span>Dezembro de 2022</span></figcaption>
+        </figure>
+        <figure>
+          <blockquote><p>“Muito boa minha estadia na casa do Seu Paiva !!!As fotos retratam exatamente como ela é!! Otima estrutura, muito espaçosa e limpa, com tudo que necessitamos. Um elogio especial para a piscina novinha, perfeita para crianças e adultos!! Voltaremos em breve”</p></blockquote>
+          <figcaption>Henrique Dias<span>Janeiro de 2022</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="onde" aria-labelledby="onde-titulo">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Onde fica</p>
+        <h2 id="onde-titulo">5 minutos de carro até a praia</h2>
+        <p class="lead">No Loteamento Porto Coqueiral, a 1.800 metros do centro de Porto de Galinhas.</p>
+      </div>
+      <ul class="route">
+        <li><b>3 min</b><span>Centro de Porto de Galinhas</span></li>
+        <li><b>5 min</b><span>Praias de Porto de Galinhas e Maracaípe</span></li>
+        <li><b>7 min</b><span>Praia de Serrambi</span></li>
+        <li><b>12 min</b><span>Praias de Muro Alto e Cupe</span></li>
+      </ul>
+      <p class="place">Tempos de carro, segundo o anúncio. A localização exata vem pelo WhatsApp.</p>
+    </div>
+  </section>
+
+  <section class="band band-blue" id="fotos" aria-labelledby="fotos-titulo">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Galeria</p>
+        <h2 id="fotos-titulo">Fotos da casa</h2>
+      </div>
+      <div class="grid fechada" id="grid"></div>
+      <button class="btn btn-ghost more" id="more" type="button">Ver todas as fotos</button>
+    </div>
+  </section>
+
+  <section class="band" id="bom-saber" aria-labelledby="faq-titulo">
+    <div class="wrap faq">
+      <div class="head"><p class="eyebrow">Bom saber</p><h2 id="faq-titulo">Perguntas da família</h2></div>
+      <details><summary>Quantas pessoas a casa recebe?</summary><p>Até 17 pessoas, em 5 suítes: 5 camas de casal e 7 de solteiro, duas delas bicamas.</p></details>
+      <details><summary>Posso levar meu pet?</summary><p>Pode. A casa aceita animais.</p></details>
+      <details><summary>A piscina é só da casa?</summary><p>É. A piscina é privativa, com cascata, e à noite fica iluminada.</p></details>
+      <details><summary>Tem lugar para os carros?</summary><p>Tem 3 vagas cobertas.</p></details>
+      <details><summary>Pode fazer festa?</summary><p>Não. A casa não permite festas.</p></details>
+      <details><summary>Onde fica?</summary><p>No Loteamento Porto Coqueiral, em Porto de Galinhas, a 1.800 m do centro. Peça a localização exata ao anfitrião pelo WhatsApp.</p></details>
+    </div>
+  </section>
+
+  <section class="band book" id="reserva" aria-labelledby="reserva-titulo">
+    <div class="wrap">
+      <div class="copy">
+        <p class="eyebrow">Reserva direta</p>
+        <h2 id="reserva-titulo">Conte quem vem e consulte as datas</h2>
+        <p>A mensagem sai pronta para o WhatsApp, com as datas, adultos, crianças e o pet.</p>
+        <p class="mao">cabem 17 — cada bolinha é uma pessoa</p>
+      </div>
+      <form class="card" id="booking" novalidate>
+        <div class="fields datas">
+          <label for="checkin">Entrada<input id="checkin" name="checkin" type="date" required></label>
+          <label for="checkout">Saída<input id="checkout" name="checkout" type="date" required></label>
+        </div>
+        <div class="fields">
+          <div class="label"><span id="adultos-label">Adultos</span>
+            <div class="stepper"><button type="button" data-step="adultos:-1" aria-label="Menos um adulto">−</button><input id="adultos" name="adultos" type="number" min="1" max="17" value="4" inputmode="numeric" aria-labelledby="adultos-label"><button type="button" data-step="adultos:1" aria-label="Mais um adulto">+</button></div>
+          </div>
+          <div class="label"><span id="criancas-label">Crianças</span>
+            <div class="stepper"><button type="button" data-step="criancas:-1" aria-label="Menos uma criança">−</button><input id="criancas" name="criancas" type="number" min="0" max="16" value="2" inputmode="numeric" aria-labelledby="criancas-label"><button type="button" data-step="criancas:1" aria-label="Mais uma criança">+</button></div>
+          </div>
+        </div>
+        <div class="lugares">
+          <ol id="lugares" aria-hidden="true"></ol>
+          <p id="lotacao" aria-live="polite"></p>
+        </div>
+        <label class="pet-check" for="pet"><input id="pet" name="pet" type="checkbox">Vamos levar pet</label>
+        <label for="nome">Seu nome<input id="nome" name="nome" type="text" autocomplete="given-name" placeholder="Opcional"></label>
+        <p class="error" id="error" hidden></p>
+        <p class="preview" id="preview" aria-live="polite"></p>
+        <a class="btn" id="wa" href="#" target="_blank" rel="noopener">Enviar pelo WhatsApp</a>
+        <p class="note">Versão de apresentação: o número do anfitrião entra aqui. Por enquanto o botão abre o WhatsApp para você escolher o contato.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="logo">Casa em Porto de Galinhas</span>
+    <span>Loteamento Porto Coqueiral · Porto de Galinhas · Pernambuco</span>
+    <span>Nome provisório · versão de apresentação · Site por NEXO Websites</span>
+  </div>
+</footer>
+
+<dialog id="lb" aria-label="Foto ampliada">
+  <div class="lb">
+    <button class="close" type="button" data-lb="close" aria-label="Fechar">✕</button>
+    <img id="lb-img" alt="">
+    <div class="lb-bar">
+      <button type="button" data-lb="prev" aria-label="Foto anterior">‹</button>
+      <p id="lb-cap"></p>
+      <button type="button" data-lb="next" aria-label="Próxima foto">›</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+const NAME = 'Casa em Porto de Galinhas';
+const MAX_GUESTS = 17;
+// [arquivo, legenda, altura] — todas as fotos têm 1600 px de largura.
+const PHOTOS = [
+  ['04-piscina', 'Piscina com cascata e terraço com rede', 732], ['12-piscina', 'Piscina, guarda-sóis e churrasqueira', 732],
+  ['10-lazer', 'Área de lazer com gramado', 732], ['30-piscina', 'Piscina e terraço vistos de cima', 806],
+  ['17-sala', 'Sala de estar', 806], ['33-terraco-balanco', 'Terraço com balanço', 806],
+  ['34-churrasqueira', 'Churrasqueira', 806], ['23-piscina-noite', 'Piscina, terraço e churrasqueira à noite', 806],
+  ['02-piscina', 'Piscina com cascata e muro de madeira', 732], ['03-cascata', 'Cascata e piscina', 732],
+  ['05-piscina', 'Piscina, terraço e churrasqueira ao fundo', 732], ['06-piscina', 'Piscina e gramado', 732],
+  ['07-piscina', 'Piscina e casa vistas de cima', 732], ['08-lazer', 'Área de lazer e casa vista de cima', 732],
+  ['09-piscina', 'Piscina, balanço e churrasqueira ao fundo', 732], ['11-terraco-piscina', 'Terraço com poltronas e a piscina', 732],
+  ['31-terraco-redes', 'Terraço com duas redes', 806], ['35-terraco', 'Terraço', 806], ['36-terraco', 'Terraço com poltronas', 806],
+  ['14-sala', 'Sala de estar e jantar', 732], ['15-sala', 'Sala de estar e jantar', 732], ['16-sala', 'Sala de jantar e TV', 732],
+  ['18-sala-estar', 'Sala de estar', 806], ['19-sala-jantar', 'Sala de jantar', 806], ['20-sala-tv', 'TV da sala', 806],
+  ['32-fachada', 'Frente da casa de dia', 806], ['22-fachada-noite', 'Frente da casa à noite', 881],
+  ['26-churrasqueira-noite', 'Churrasqueira à noite', 806],
+];
+
+const grid = document.getElementById('grid');
+grid.innerHTML = PHOTOS.map(([id, cap, h], i) =>
+  `<button type="button" data-i="${i}" aria-label="Ampliar: ${cap}"><img src="fotos/${id}.webp" width="1600" height="${h}" loading="lazy" alt="${cap}"></button>`).join('');
+const more = document.getElementById('more');
+more.textContent = `Ver todas as ${PHOTOS.length} fotos`;
+more.addEventListener('click', () => { grid.classList.remove('fechada'); more.remove(); });
+
+const lb = document.getElementById('lb');
+const lbImg = document.getElementById('lb-img');
+const lbCap = document.getElementById('lb-cap');
+let current = 0;
+function show(i) {
+  current = (i + PHOTOS.length) % PHOTOS.length;
+  const [id, cap] = PHOTOS[current];
+  lbImg.src = `fotos/${id}.webp`;
+  lbImg.alt = cap;
+  lbCap.textContent = `${current + 1} de ${PHOTOS.length} · ${cap}`;
+}
+grid.addEventListener('click', (e) => {
+  const b = e.target.closest('button');
+  if (!b) return;
+  show(Number(b.dataset.i));
+  lb.showModal();
+});
+lb.addEventListener('click', (e) => {
+  const action = e.target.closest('[data-lb]')?.dataset.lb;
+  if (action === 'close' || e.target === lb) lb.close();
+  if (action === 'prev') show(current - 1);
+  if (action === 'next') show(current + 1);
+});
+lb.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowLeft') show(current - 1);
+  if (e.key === 'ArrowRight') show(current + 1);
+});
+let touchX = null;
+lb.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+lb.addEventListener('touchend', (e) => {
+  if (touchX === null) return;
+  const dx = e.changedTouches[0].clientX - touchX;
+  if (Math.abs(dx) > 50) show(current + (dx < 0 ? 1 : -1));
+  touchX = null;
+});
+
+const form = document.getElementById('booking');
+const preview = document.getElementById('preview');
+const errorEl = document.getElementById('error');
+const wa = document.getElementById('wa');
+const seats = document.getElementById('lugares');
+const lotacao = document.getElementById('lotacao');
+seats.innerHTML = '<li></li>'.repeat(MAX_GUESTS);
+const iso = (d) => d.toISOString().slice(0, 10);
+const br = (s) => s.split('-').reverse().join('/');
+const today = new Date();
+const addDays = (n) => { const d = new Date(today); d.setDate(d.getDate() + n); return d; };
+const plural = (n, um, varios) => `${n} ${n === 1 ? um : varios}`;
+form.checkin.min = iso(today);
+form.checkin.value = iso(addDays(30));
+form.checkout.value = iso(addDays(35));
+
+form.addEventListener('click', (e) => {
+  const step = e.target.closest('[data-step]')?.dataset.step;
+  if (!step) return;
+  const [field, delta] = step.split(':');
+  const input = form[field];
+  const next = Math.round(Number(input.value) || 0) + Number(delta);
+  input.value = Math.min(Number(input.max), Math.max(Number(input.min), next));
+  update();
+});
+
+function update() {
+  const ci = form.checkin.value;
+  const co = form.checkout.value;
+  const adults = Math.round(Number(form.adultos.value));
+  const kids = Math.round(Number(form.criancas.value));
+  const total = adults + kids;
+  form.checkout.min = ci;
+  [...seats.children].forEach((li, i) => { li.className = i < adults ? 'adulto' : i < total ? 'crianca' : ''; });
+  lotacao.textContent = `${plural(adults, 'adulto', 'adultos')} e ${plural(kids, 'criança', 'crianças')}: ${total} de ${MAX_GUESTS} lugares.`;
+  const nights = Math.round((Date.parse(co) - Date.parse(ci)) / 864e5);
+  let problem = '';
+  if (!ci || !co) problem = 'Escolha as datas de entrada e saída.';
+  else if (!(nights >= 1)) problem = 'A saída precisa ser depois da entrada.';
+  else if (!(adults >= 1)) problem = 'Conte pelo menos 1 adulto.';
+  else if (!(kids >= 0) || total > MAX_GUESTS) problem = `A casa recebe até ${MAX_GUESTS} pessoas, somando adultos e crianças.`;
+  errorEl.hidden = !problem;
+  errorEl.textContent = problem;
+  wa.style.opacity = problem ? '.5' : '';
+  if (problem) { wa.removeAttribute('href'); return; }
+  const name = form.nome.value.trim();
+  const msg = `Olá${name ? `, aqui é ${name}` : ''}! Vi o site da ${NAME} e quero consultar disponibilidade:\n` +
+    `• Entrada: ${br(ci)}\n• Saída: ${br(co)}\n• ${plural(nights, 'noite', 'noites')}\n` +
+    `• ${plural(adults, 'adulto', 'adultos')}${kids ? ` e ${plural(kids, 'criança', 'crianças')}` : ''}` +
+    (form.pet.checked ? '\n• Vamos levar pet' : '');
+  preview.textContent = msg;
+  wa.href = `https://wa.me/?text=${encodeURIComponent(msg)}`;
+}
+form.addEventListener('input', update);
+form.addEventListener('submit', (e) => e.preventDefault());
+update();
+</script>

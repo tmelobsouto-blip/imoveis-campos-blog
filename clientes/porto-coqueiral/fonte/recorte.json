@@ -1,0 +1,243 @@
+{
+  "caixa": {
+    "left": 92,
+    "top": 276,
+    "width": 2120,
+    "height": 1068
+  },
+  "_caixas": "popup '62 pessoas' (y≥1250) e aviso 'Nova guia fechada' (y≥1305) cortados por baixo; 22 sem a placa com telefone",
+  "caixas": {
+    "02-piscina": {
+      "left": 92,
+      "top": 276,
+      "width": 2120,
+      "height": 970
+    },
+    "03-cascata": {
+      "left": 92,
+      "top": 276,
+      "width": 2120,
+      "height": 970
+    },
+    "04-piscina": {
+      "left": 92,
+      "top": 276,
+      "width": 2120,
+      "height": 970
+    },
+    "05-piscina": {
+      "left": 92,
+      "top": 276,
+      "width": 2120,
+      "height": 970
+    },
+    "06-piscina": {
+      "left": 92,
+      "top": 276,
+      "width": 2120,
+      "height": 970
+    },
+    "07-piscina": {
+      "left": 92,
+      "top": 276,
+      "width": 2120,
+      "height": 970
+    },
+    "08-lazer": {
+      "left": 92,
+      "top": 276,
+      "width": 2120,
+      "height": 970
+    },
+    "09-piscina": {
+      "left": 92,
+      "top": 276,
+      "width": 2120,
+      "height": 970
+    },
+    "10-lazer": {
+      "left": 92,
+      "top": 276,
+      "width": 2120,
+      "height": 970
+    },
+    "11-terraco-piscina": {
+      "left": 92,
+      "top": 276,
+      "width": 2120,
+      "height": 970
+    },
+    "12-piscina": {
+      "left": 92,
+      "top": 276,
+      "width": 2120,
+      "height": 970
+    },
+    "14-sala": {
+      "left": 92,
+      "top": 276,
+      "width": 2120,
+      "height": 970
+    },
+    "15-sala": {
+      "left": 92,
+      "top": 276,
+      "width": 2120,
+      "height": 970
+    },
+    "16-sala": {
+      "left": 92,
+      "top": 276,
+      "width": 2120,
+      "height": 970
+    },
+    "22-fachada-noite": {
+      "left": 92,
+      "top": 276,
+      "width": 1940,
+      "height": 1068
+    }
+  },
+  "_marca": "marca d'água perto do centro (x ≈ 900–1320 da foto recortada; altura varia por foto); extras ficam fora dela",
+  "extras": {
+    "04-piscina": [
+      {
+        "id": "04a-piscina",
+        "left": 92,
+        "top": 276,
+        "width": 860,
+        "height": 970
+      }
+    ],
+    "12-piscina": [
+      {
+        "id": "12b-piscina",
+        "left": 92,
+        "top": 276,
+        "width": 880,
+        "height": 970
+      },
+      {
+        "id": "12c-piscina",
+        "left": 1272,
+        "top": 276,
+        "width": 940,
+        "height": 970
+      },
+      {
+        "id": "12d-piscina",
+        "left": 92,
+        "top": 276,
+        "width": 2120,
+        "height": 480
+      }
+    ],
+    "17-sala": [
+      {
+        "id": "17a-sala",
+        "left": 92,
+        "top": 816,
+        "width": 2120,
+        "height": 528
+      }
+    ],
+    "18-sala-estar": [
+      {
+        "id": "18a-sala-estar",
+        "left": 92,
+        "top": 801,
+        "width": 2120,
+        "height": 543
+      },
+      {
+        "id": "18b-sala-estar",
+        "left": 92,
+        "top": 276,
+        "width": 870,
+        "height": 1068
+      }
+    ],
+    "23-piscina-noite": [
+      {
+        "id": "23a-piscina-noite",
+        "left": 1432,
+        "top": 276,
+        "width": 780,
+        "height": 1068
+      },
+      {
+        "id": "23b-piscina-noite",
+        "left": 92,
+        "top": 906,
+        "width": 2120,
+        "height": 438
+      },
+      {
+        "id": "23c-piscina-noite",
+        "left": 92,
+        "top": 276,
+        "width": 880,
+        "height": 1068
+      }
+    ],
+    "26-churrasqueira-noite": [
+      {
+        "id": "26a-churrasqueira-noite",
+        "left": 92,
+        "top": 276,
+        "width": 880,
+        "height": 1068
+      }
+    ],
+    "31-terraco-redes": [
+      {
+        "id": "31b-terraco-redes",
+        "left": 92,
+        "top": 276,
+        "width": 880,
+        "height": 1068
+      }
+    ],
+    "33-terraco-balanco": [
+      {
+        "id": "33a-terraco-balanco",
+        "left": 1322,
+        "top": 276,
+        "width": 890,
+        "height": 1068
+      }
+    ],
+    "34-churrasqueira": [
+      {
+        "id": "34a-churrasqueira",
+        "left": 92,
+        "top": 276,
+        "width": 2120,
+        "height": 570
+      }
+    ],
+    "35-terraco": [
+      {
+        "id": "35a-terraco",
+        "left": 92,
+        "top": 276,
+        "width": 880,
+        "height": 1068
+      },
+      {
+        "id": "35b-terraco",
+        "left": 92,
+        "top": 276,
+        "width": 2120,
+        "height": 565
+      },
+      {
+        "id": "35c-terraco",
+        "left": 1312,
+        "top": 276,
+        "width": 900,
+        "height": 1068
+      }
+    ]
+  }
+}

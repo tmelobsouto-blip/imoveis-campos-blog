@@ -2,6 +2,7 @@
 // Uso: npm run fotos -- clientes/<cliente>/fonte clientes/<cliente>/fotos
 // Galerias sem moldura branca (ex.: TemporadaLivre) usam fonte/recorte.json:
 //   { "caixa": { left, top, width, height },             mesma caixa para todos os prints
+//     "caixas": { "<id>": { left, top, width, height } },  caixa própria de um print (ex.: aviso por cima)
 //     "extras": { "<id>": [{ id, left, top, width, height }] } }   recortes a mais de um print
 import { mkdir, readdir, readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
@@ -47,8 +48,9 @@ async function findFrame(file) {
   return { left, top, width: right - left + 1, height: bottom - top + 1 };
 }
 
+// Prints de tablet passam de 2000 px; 1600 basta para a capa no desktop e alivia a página.
 async function save(img, id, note = '') {
-  await img.clone().webp({ quality: 92, smartSubsample: true }).toFile(join(out, `${id}.webp`));
+  await img.clone().resize({ width: 1600, withoutEnlargement: true }).webp({ quality: 92, smartSubsample: true }).toFile(join(out, `${id}.webp`));
   await img.clone().resize({ width: 240 }).webp({ quality: 70 }).toFile(join(out, `${id}-thumb.webp`));
   const meta = await sharp(join(out, `${id}.webp`)).metadata();
   console.log(`${id}: ${meta.width}×${meta.height}${note}`);
@@ -66,8 +68,9 @@ for (const f of files) {
   for (const { id: extra, ...box } of config.extras?.[id] ?? []) {
     await save(sharp(file).extract(box), extra);
   }
-  if (config.caixa) {
-    await save(sharp(file).extract(config.caixa), id);
+  const box = config.caixas?.[id] ?? config.caixa;
+  if (box) {
+    await save(sharp(file).extract(box), id);
     continue;
   }
   const frame = await findFrame(file);
