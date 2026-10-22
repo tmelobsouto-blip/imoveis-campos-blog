@@ -97,6 +97,20 @@ estrutura de um condomínio de praia.
 - Fontes novas por estilo (nenhuma repetida dos outros clientes), escolhidas no plano.
 - Mockups ficam fora do `build:web` por enquanto (são demonstração; o domínio entra com o site final).
 
+- **Prints**: estão nos uploads da conversa (`/root/.claude/uploads/6e48843a-6146-52ea-b9a1-0716e48569cd/`):
+  texto `3bcf8664` (título e resumo + card da foto 56), `3e1835d4` (descrição), `470e38f5` e `2ed01dda`
+  (comodidades e avaliação), `f72f1eb4` (localização e anunciante); galeria `82e7641c` (55), `87e867e1` (52),
+  `24f6b058` (32), `64d44707` (24), `f32d87c5` (21), `aa36eaa7` (16), `0217a1f9` (14), `e8ebac60` (5),
+  `5a15931c` (7), `c2680f32` (8). O primeiro passo do plano copia tudo para `fonte/` e `fonte/anuncio/`.
+- **Suítes e capacidade**: o site usa os campos do anúncio — "5 quartos, 5 suítes", "10 pessoas",
+  "6 banheiros" — e a lista de camas da descrição. O "dependência" do card da foto 56 vai para o `dados.md`
+  como **(confirmar)** com o anunciante e não aparece no site.
+- **Marca d'água**: as fotos inteiras (com a marca) ficam na galeria, como nos outros clientes; capas e
+  destaques usam só recortes limpos. Foto sem recorte limpo não vira destaque, mas continua na galeria.
+- **Efeitos pesados**: com `prefers-reduced-motion`, todos os efeitos param e o conteúdo aparece pronto. O
+  fundo em WebGL (LightRays) só liga com tela de 768 px ou mais e WebGL disponível; no resto, gradiente
+  parado no lugar. Teste: Playwright com `reducedMotion: 'reduce'` e com tela de 390 px.
+
 ## Fica para o construtor
 - Recortes exatos das fotos e a ordem da galeria.
 - Textos de cada página (sempre dentro do `dados.md`).
@@ -104,6 +118,7 @@ estrutura de um condomínio de praia.
   o escolhido não couber (peso, licença, dependência), registrando o motivo.
 
 ## Como verificar
+- Com "reduzir movimento" emulado e no celular de 390 px: nenhum canvas WebGL, texto e fotos visíveis.
 - `typecheck` e build sem erro; `npm run check` em cada `mockups/dist/<estilo>` sem erros nem rolagem lateral.
 - Capturas de página inteira no celular e no computador, revisadas uma a uma.
 - Clique real: galeria abre e passa fotos, reserva gera a mensagem certa e trava em 10 hóspedes, menu do
