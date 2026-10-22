@@ -1,8 +1,0 @@
-{
-  "caixa": { "left": 64, "top": 844, "width": 1300, "height": 746 },
-  "extras": {
-    "11-suite-serrambi": [{ "id": "11a-suite-serrambi", "left": 731, "top": 846, "width": 624, "height": 397 }],
-    "12-suite-maracaipe": [{ "id": "12a-suite-maracaipe", "left": 582, "top": 846, "width": 775, "height": 475 }],
-    "13-suite-porto": [{ "id": "13a-suite-porto", "left": 62, "top": 846, "width": 627, "height": 384 }]
-  }
-}

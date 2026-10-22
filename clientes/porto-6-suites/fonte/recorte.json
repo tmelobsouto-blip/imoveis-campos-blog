@@ -1,0 +1,19 @@
+{
+  "caixa": { "left": 64, "top": 844, "width": 1300, "height": 746 },
+  "_marca": "marca d'água no centro: x 530–770 da foto recortada; extras ficam fora dela",
+  "extras": {
+    "01-piscina": [{ "id": "01a-piscina", "left": 64, "top": 844, "width": 525, "height": 746 }, { "id": "01b-piscina", "left": 64, "top": 1236, "width": 1300, "height": 354 }],
+    "02-piscina": [{ "id": "02a-piscina", "left": 64, "top": 844, "width": 525, "height": 746 }, { "id": "02b-piscina", "left": 64, "top": 1236, "width": 1300, "height": 354 }],
+    "03-varanda": [{ "id": "03a-varanda", "left": 64, "top": 1236, "width": 1300, "height": 354 }],
+    "05-varanda": [{ "id": "05a-varanda", "left": 64, "top": 844, "width": 1300, "height": 418 }],
+    "06-varanda": [{ "id": "06a-varanda", "left": 64, "top": 844, "width": 1300, "height": 358 }, { "id": "06b-varanda", "left": 64, "top": 844, "width": 525, "height": 746 }],
+    "07-piscina": [{ "id": "07a-piscina", "left": 64, "top": 1236, "width": 1300, "height": 354 }, { "id": "07b-piscina", "left": 839, "top": 844, "width": 525, "height": 746 }],
+    "08-churrasqueira": [{ "id": "08a-churrasqueira", "left": 394, "top": 844, "width": 640, "height": 300 }, { "id": "08b-churrasqueira", "left": 839, "top": 844, "width": 525, "height": 746 }],
+    "09-fachada": [{ "id": "09a-fachada", "left": 839, "top": 844, "width": 525, "height": 746 }, { "id": "09b-fachada", "left": 64, "top": 844, "width": 1300, "height": 358 }],
+    "14-quarto": [{ "id": "14a-quarto", "left": 839, "top": 1174, "width": 525, "height": 416 }],
+    "15-quarto": [{ "id": "15a-quarto", "left": 64, "top": 1296, "width": 1300, "height": 294 }],
+    "11-suite-serrambi": [{ "id": "11a-suite-serrambi", "left": 840, "top": 846, "width": 515, "height": 397 }],
+    "12-suite-maracaipe": [{ "id": "12a-suite-maracaipe", "left": 840, "top": 846, "width": 517, "height": 475 }],
+    "13-suite-porto": [{ "id": "13a-suite-porto", "left": 62, "top": 846, "width": 526, "height": 384 }]
+  }
+}

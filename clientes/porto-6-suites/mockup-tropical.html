@@ -1,0 +1,461 @@
+<title>Casa de Praia PG</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Casa de praia com 6 suítes para 21 pessoas, piscina e duas churrasqueiras, em condomínio fechado na 2ª quadra da praia em Porto de Galinhas. Reserva direta pelo WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap">
+<style>
+/* Layout: varanda de barro — capa verde-coqueiro com a argola de barro balançando sobre a foto em arco,
+   um dia na casa em fotos grandes, suítes com moldura em arco, reserva sobre o barro. */
+:root {
+  --folha: #1f3d2b;
+  --folha-2: #2b5239;
+  --broto: #eef4ec;
+  --barro: #b8643a;
+  --barro-escuro: #8c4422;
+  --tinta: #18261d;
+  --muted: #536257;
+  --line: #d6e0d6;
+  --white: #ffffff;
+  --display: 'Bricolage Grotesque', 'Arial Rounded MT Bold', 'Trebuchet MS', sans-serif;
+  --body: 'Nunito Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--white); }
+body { margin: 0; background: var(--white); color: var(--tinta); font: 400 17px/1.65 var(--body); -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--barro); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 800; margin: 0; text-wrap: balance; letter-spacing: -0.02em; line-height: 1; }
+h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); }
+p { margin: 0; }
+
+.wrap {
+  width: 100%; max-width: 1180px; margin-inline: auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+.band { padding-block: clamp(64px, 10vw, 120px); }
+.band-green { background: var(--broto); }
+.eyebrow { font: 700 .78rem/1.3 var(--body); letter-spacing: .16em; text-transform: uppercase; color: var(--barro-escuro); }
+.lead { color: var(--muted); max-width: 58ch; font-size: 1.08rem; }
+.head { display: grid; gap: 14px; margin-bottom: clamp(32px, 5vw, 52px); }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 52px; padding: 0 26px; border-radius: 999px; border: 2px solid var(--barro);
+  background: var(--barro); color: var(--white); text-decoration: none; cursor: pointer;
+  font: 700 1rem/1 var(--body); transition: background .25s, color .25s, border-color .25s;
+}
+.btn:hover { background: var(--barro-escuro); border-color: var(--barro-escuro); }
+.btn-ghost { background: transparent; color: var(--white); border-color: rgb(255 255 255 / .6); }
+.btn-ghost:hover { background: var(--white); color: var(--folha); border-color: var(--white); }
+
+/* topo */
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; background: var(--folha); color: var(--white);
+  border-bottom: 1px solid rgb(255 255 255 / .1);
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 31; background: var(--folha); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
+.logo { font: 800 1.25rem/1 var(--display); letter-spacing: -0.02em; text-decoration: none; }
+.top nav { display: none; gap: 26px; font-weight: 600; font-size: .95rem; }
+.top nav a { text-decoration: none; opacity: .85; }
+.top nav a:hover { opacity: 1; }
+.top .btn { min-height: 42px; padding: 0 18px; font-size: .92rem; }
+@media (min-width: 900px) { .top nav { display: flex; } }
+
+/* capa */
+.hero { background: var(--folha); color: var(--white); overflow: hidden; }
+.hero .wrap { display: grid; gap: 40px; padding-block: clamp(40px, 7vw, 88px) clamp(56px, 8vw, 104px); }
+.hero h1 { font-size: clamp(3.4rem, 12vw, 7.4rem); line-height: .88; }
+.hero h1 span { color: #f0a77c; }
+.hero .copy { display: grid; gap: 22px; align-content: center; }
+.hero .copy > p:not(.eyebrow) { font-size: clamp(1.1rem, 1.8vw, 1.3rem); max-width: 34ch; color: rgb(255 255 255 / .92); }
+.hero .eyebrow { color: #f0a77c; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.chips li { padding: 6px 14px; border-radius: 999px; border: 1px solid rgb(255 255 255 / .28); font-size: .9rem; font-weight: 600; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.arch-wrap { position: relative; justify-self: center; width: min(100%, 460px); padding-top: 70px; }
+.arch { border-radius: 999px 999px 18px 18px; overflow: hidden; aspect-ratio: 525 / 746; border: 8px solid var(--folha-2); }
+.arch img { width: 100%; height: 100%; object-fit: cover; }
+/* Argola de barro, como as peças penduradas no teto da varanda. */
+.argola { position: absolute; top: 0; left: 8%; z-index: 2; width: clamp(110px, 26%, 140px); display: grid; justify-items: center; transform-origin: 50% 0; animation: balanco 5s ease-in-out infinite; }
+.argola::before { content: ""; width: 2px; height: 34px; background: rgb(255 255 255 / .55); }
+.argola i { display: block; width: 100%; aspect-ratio: 1; border-radius: 50%; border: clamp(20px, 7vw, 28px) solid var(--barro); box-shadow: inset 0 0 0 2px rgb(0 0 0 / .08), 0 14px 30px -10px rgb(0 0 0 / .45); background: transparent; }
+.argola b { display: block; width: 18%; height: 28px; margin-top: -4px; border-radius: 0 0 40% 40%; background: var(--barro-escuro); }
+@media (min-width: 900px) {
+  .hero .wrap { grid-template-columns: 1.1fr .9fr; align-items: center; }
+  .arch-wrap { justify-self: end; }
+}
+
+/* um dia na casa */
+.day { display: grid; grid-auto-flow: column; grid-auto-columns: clamp(250px, 30vw, 340px); gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; scrollbar-width: thin; }
+.day figure { margin: 0; scroll-snap-align: start; display: grid; gap: 12px; }
+.day img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 18px; }
+.day figcaption { display: grid; gap: 4px; }
+.day small { font: 700 .78rem/1.2 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--barro-escuro); }
+.day b { font: 800 1.35rem/1.1 var(--display); }
+.day span { color: var(--muted); font-size: .96rem; }
+.panorama { margin: clamp(40px, 6vw, 64px) 0 0; display: grid; gap: 10px; }
+@media (min-width: 1000px) { .day { grid-auto-flow: row; grid-template-columns: repeat(4, minmax(0, 1fr)); overflow: visible; } }
+.panorama img { width: 100%; aspect-ratio: 1300 / 418; object-fit: cover; border-radius: 22px; }
+.panorama p { color: var(--muted); font-size: .95rem; }
+
+/* suítes */
+.suites { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 24px; list-style: none; padding: 0; margin: 0; }
+.suites figure { margin: 0; display: grid; gap: 12px; }
+.suites img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 999px 999px 16px 16px; }
+.suites b { font: 800 1.45rem/1.1 var(--display); }
+.suites small { display: block; color: var(--muted); font-size: .92rem; }
+.beds { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 10px; }
+.beds span { padding: 10px 16px; border-radius: 14px; background: var(--white); border: 1px solid var(--line); font-weight: 600; }
+.beds-note { margin-top: 16px; color: var(--muted); max-width: 70ch; }
+
+/* grupo */
+.group { display: grid; gap: 36px; }
+.group ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; }
+.group li { display: flex; gap: 14px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); font-weight: 600; }
+.group li::before { content: ""; flex: none; width: 18px; height: 18px; border-radius: 50%; border: 5px solid var(--barro); }
+.group img { width: 100%; border-radius: 22px; aspect-ratio: 640 / 300; object-fit: cover; }
+.group figure { margin: 0; display: grid; gap: 10px; }
+.group figcaption { color: var(--muted); font-size: .95rem; }
+@media (min-width: 900px) { .group { grid-template-columns: 1fr 1.1fr; align-items: center; gap: 64px; } }
+
+/* galeria */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr)); gap: 10px; }
+.grid button { padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: 14px; overflow: hidden; }
+.grid img { width: 100%; aspect-ratio: 1300 / 746; object-fit: cover; transition: transform .4s; }
+.grid button:hover img { transform: scale(1.04); }
+
+/* comodidades e regras */
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 32px; }
+.cols h3 { font-size: 1.4rem; margin-bottom: 12px; }
+.cols ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; color: var(--muted); }
+.cols li::before { content: "● "; color: var(--barro); font-size: .7em; vertical-align: .15em; }
+.faq { margin-top: clamp(48px, 7vw, 80px); max-width: 820px; }
+.faq h2 { margin-bottom: 18px; }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 16px; padding: 18px 0; font-weight: 700; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; color: var(--barro); font-weight: 800; }
+.faq details[open] summary::after { content: "−"; }
+.faq details p { margin: 0 0 18px; color: var(--muted); }
+
+/* reserva */
+.book { background: var(--barro); color: var(--white); }
+.book .wrap { display: grid; gap: 32px; }
+.book h2 { color: var(--white); }
+.book .eyebrow { color: #ffe1cf; }
+.book .copy { display: grid; gap: 14px; align-content: start; }
+.book .copy p:not(.eyebrow) { color: rgb(255 255 255 / .92); max-width: 40ch; }
+.card { background: var(--white); color: var(--tinta); border-radius: 24px; padding: clamp(20px, 4vw, 36px); display: grid; gap: 16px; box-shadow: 0 30px 60px -30px rgb(60 20 5 / .5); }
+.fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
+label { display: grid; gap: 6px; font-weight: 700; font-size: .9rem; }
+input {
+  min-height: 50px; padding: 0 14px; border: 1.5px solid var(--line); border-radius: 12px; width: 100%;
+  font: 600 1rem var(--body); color: var(--tinta); background: var(--white);
+}
+input:focus { outline: 3px solid rgb(184 100 58 / .35); border-color: var(--barro); }
+.preview { padding: 14px 16px; border-radius: 12px; background: var(--broto); white-space: pre-line; font-size: .94rem; }
+.error { color: #b42318; font-weight: 700; }
+.card .btn { background: var(--folha); border-color: var(--folha); }
+.card .btn:hover { background: var(--folha-2); border-color: var(--folha-2); }
+.note { font-size: .85rem; color: var(--muted); }
+@media (min-width: 900px) { .book .wrap { grid-template-columns: .8fr 1.2fr; align-items: start; gap: 56px; } }
+
+footer { background: var(--folha); color: rgb(255 255 255 / .82); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: space-between; padding-block: 44px calc(44px + env(safe-area-inset-bottom, 0px)); font-size: .92rem; }
+footer .logo { color: var(--white); }
+
+dialog { border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh; width: 100%; height: 100%; color: var(--white); }
+dialog::backdrop { background: rgb(15 30 21 / .95); }
+.lb { height: 100%; display: grid; grid-template-rows: 1fr auto; place-items: center; padding: max(16px, env(safe-area-inset-top, 0px)) 16px max(16px, env(safe-area-inset-bottom, 0px)); }
+.lb img { max-height: 78vh; width: auto; max-width: min(1100px, 100%); border-radius: 12px; }
+.lb-bar { display: flex; align-items: center; gap: 12px; padding-top: 14px; }
+.lb-bar p { margin: 0 12px; text-align: center; font-weight: 600; }
+.lb button { width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgb(255 255 255 / .3); background: transparent; color: var(--white); font-size: 1.2rem; cursor: pointer; }
+.lb .close { position: absolute; top: max(16px, env(safe-area-inset-top, 0px)); right: max(16px, env(safe-area-inset-right, 0px)); }
+
+@keyframes balanco { 0%, 100% { transform: rotate(-4deg); } 50% { transform: rotate(4deg); } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#topo">Casa de Praia PG</a>
+    <nav aria-label="Seções">
+      <a href="#dia">A casa</a>
+      <a href="#suites">Suítes</a>
+      <a href="#grupo">Lazer</a>
+      <a href="#fotos">Fotos</a>
+      <a href="#bom-saber">Bom saber</a>
+    </nav>
+    <a class="btn" href="#reserva">Reservar</a>
+  </div>
+</header>
+
+<main id="topo">
+  <section class="hero" aria-labelledby="titulo">
+    <div class="wrap">
+      <div class="copy">
+        <p class="eyebrow">Porto de Galinhas · Pernambuco</p>
+        <h1 id="titulo">Casa de Praia <span>PG</span></h1>
+        <p>Seis suítes, piscina e duas churrasqueiras para até 21 pessoas, num condomínio fechado na 2ª quadra da praia.</p>
+        <ul class="chips" aria-label="Destaques">
+          <li>21 pessoas</li><li>6 suítes</li><li>8 banheiros</li><li>Aceita pets</li><li>Festas permitidas</li>
+        </ul>
+        <div class="actions">
+          <a class="btn" href="#reserva">Consultar datas</a>
+          <a class="btn btn-ghost" href="#fotos">Ver as fotos</a>
+        </div>
+      </div>
+      <div class="arch-wrap">
+        <span class="argola" aria-hidden="true"><i></i><b></b></span>
+        <div class="arch">
+          <img src="fotos/07b-piscina.webp" width="525" height="746" alt="Piscina de pastilhas azuis em frente à varanda coberta da casa, com mesas de madeira." style="object-position: 50% 55%">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="dia" aria-labelledby="dia-titulo">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Um dia na casa</p>
+        <h2 id="dia-titulo">Da piscina ao churrasco, sem sair de casa</h2>
+        <p class="lead">Varandas cobertas de frente para a piscina, mesas grandes de madeira e peças de barro penduradas no teto.</p>
+      </div>
+      <div class="day" tabindex="0" aria-label="Um dia na casa, em fotos">
+        <figure>
+          <img src="fotos/02a-piscina.webp" width="525" height="746" loading="lazy" alt="Piscina de pastilhas azuis com degraus, vista do andar de cima." style="object-position: 50% 55%">
+          <figcaption><small>Manhã</small><b>Piscina</b><span>Pastilhas azuis, degraus largos e deck de pedra.</span></figcaption>
+        </figure>
+        <figure>
+          <img src="fotos/03a-varanda.webp" width="1300" height="354" loading="lazy" alt="Mesa redonda com fruteira e cadeiras de fibra na varanda, de frente para a piscina." style="object-position: 16% 50%">
+          <figcaption><small>Almoço</small><b>Varanda</b><span>Mesa redonda de frente para a água.</span></figcaption>
+        </figure>
+        <figure>
+          <img src="fotos/08b-churrasqueira.webp" width="525" height="746" loading="lazy" alt="Mesa de madeira maciça com cocos verdes, ao lado do jardim com coqueiros." style="object-position: 40% 50%">
+          <figcaption><small>Tarde</small><b>Churrasco</b><span>2 churrasqueiras, uma no terraço gourmet.</span></figcaption>
+        </figure>
+        <figure>
+          <img src="fotos/09a-fachada.webp" width="525" height="746" loading="lazy" alt="Fachada da casa ao entardecer, com faixas de tijolo aparente, plantas e cerca branca.">
+          <figcaption><small>Noite</small><b>Casa cheia</b><span>Sala ampla para mais de 20 pessoas.</span></figcaption>
+        </figure>
+      </div>
+      <figure class="panorama">
+        <img src="fotos/05a-varanda.webp" width="1300" height="418" loading="lazy" alt="Duas peças de barro em forma de argola penduradas no teto da varanda, com coqueiros ao fundo.">
+        <figcaption>As argolas de barro da varanda.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="band band-green" id="suites" aria-labelledby="suites-titulo">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Onde dormir</p>
+        <h2 id="suites-titulo">Seis suítes, cada porta com nome de praia</h2>
+        <p class="lead">Todas com ar-condicionado split, ventilador, TV e camas box. Algumas das placas:</p>
+      </div>
+      <ul class="suites">
+        <li><figure><img src="fotos/14a-quarto.webp" width="525" height="416" loading="lazy" alt="Suíte com duas camas de colcha preta e branca, janela e porta verde."><figcaption><b>Praia do Cupe</b></figcaption></figure></li>
+        <li><figure><img src="fotos/11a-suite-serrambi.webp" width="515" height="397" loading="lazy" alt="Suíte com duas camas de colcha rosa estampada."><figcaption><b>Praia de Serrambi</b></figcaption></figure></li>
+        <li><figure><img src="fotos/12a-suite-maracaipe.webp" width="517" height="475" loading="lazy" alt="Suíte com camas de colcha verde, janela, ventilador e ar-condicionado split."><figcaption><b>Maracaípe</b></figcaption></figure></li>
+        <li><figure><img src="fotos/13a-suite-porto.webp" width="526" height="384" loading="lazy" alt="Suíte com duas camas de colcha vermelha e branca e armários brancos."><figcaption><b>Porto de Galinhas</b></figcaption></figure></li>
+      </ul>
+      <div class="beds"><span>3 suítes · 2 camas de casal cada</span><span>3 suítes · 1 casal + 1 solteiro</span><span>2 colchões</span><span>8 banheiros</span></div>
+      <p class="beds-note">Uma das suítes fica no térreo, para pessoas com dificuldades de mobilidade. Há ainda 1 suíte com ventilador para secretária. Chuveiro quente e roupa de cama.</p>
+    </div>
+  </section>
+
+  <section class="band" id="grupo" aria-labelledby="grupo-titulo">
+    <div class="wrap group">
+      <div>
+        <div class="head" style="margin-bottom:24px">
+          <p class="eyebrow">Para o grupo todo</p>
+          <h2 id="grupo-titulo">Lugar para a família inteira</h2>
+        </div>
+        <ul>
+          <li>Sala ampla para mais de 20 pessoas</li>
+          <li>2 churrasqueiras, 1 no terraço gourmet</li>
+          <li>Piscina com deck e gramado</li>
+          <li>Festas permitidas</li>
+          <li>Aceita animais</li>
+          <li>6 cadeiras de praia</li>
+        </ul>
+      </div>
+      <figure>
+        <img src="fotos/08a-churrasqueira.webp" width="640" height="300" loading="lazy" alt="Churrasqueira de tijolos aparentes ao lado da bancada de granito, com coqueiros ao fundo.">
+        <figcaption>A churrasqueira de tijolos, ao lado da mesa de madeira.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="band band-green" id="fotos" aria-labelledby="fotos-titulo">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Galeria</p>
+        <h2 id="fotos-titulo">Todas as fotos</h2>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section class="band" id="bom-saber" aria-labelledby="comodidades-titulo">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Comodidades</p>
+        <h2 id="comodidades-titulo">O que a casa tem</h2>
+      </div>
+      <div class="cols">
+        <div><h3>Lazer</h3><ul><li>Piscina</li><li>2 churrasqueiras</li><li>Utensílios para churrasqueira</li><li>Sala para mais de 20 pessoas</li><li>6 cadeiras de praia</li></ul></div>
+        <div><h3>Suítes</h3><ul><li>Ar-condicionado split</li><li>Ventilador e TV</li><li>Camas box</li><li>Chuveiro quente</li><li>Roupa de cama</li></ul></div>
+        <div><h3>Cozinha</h3><ul><li>2 geladeiras</li><li>Freezer vertical e gelágua</li><li>Micro-ondas, fogão e liquidificador</li><li>Pratos, talheres e travessas</li></ul></div>
+        <div><h3>Casa</h3><ul><li>Wi-Fi</li><li>Máquina de lavar e tanque</li><li>Condomínio fechado</li><li>2ª quadra da praia</li><li>Voltagem 220 V</li></ul></div>
+      </div>
+      <div class="faq">
+        <h2>Bom saber</h2>
+        <details><summary>Quantas pessoas a casa recebe?</summary><p>21 pessoas em cama: 3 suítes com 2 camas de casal cada e 3 suítes com 1 cama de casal e 1 de solteiro. A casa tem ainda 2 colchões.</p></details>
+        <details><summary>Pode fazer festa?</summary><p>Pode. O anúncio permite festas, e a sala acomoda mais de 20 pessoas.</p></details>
+        <details><summary>Posso levar meu pet?</summary><p>Pode. A casa aceita animais.</p></details>
+        <details><summary>Tem suíte no térreo?</summary><p>Tem. Uma das suítes fica no térreo, para pessoas com dificuldades de mobilidade.</p></details>
+        <details><summary>Onde fica?</summary><p>Num condomínio fechado na 2ª quadra da praia, em Porto de Galinhas. Peça a localização exata ao anfitrião pelo WhatsApp.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="band book" id="reserva" aria-labelledby="reserva-titulo">
+    <div class="wrap">
+      <div class="copy">
+        <p class="eyebrow">Reserva direta</p>
+        <h2 id="reserva-titulo">Escolha as datas e fale com o anfitrião</h2>
+        <p>A mensagem sai pronta para o WhatsApp, com as datas e o número de hóspedes.</p>
+      </div>
+      <form class="card" id="booking" novalidate>
+        <div class="fields">
+          <label for="checkin">Entrada<input id="checkin" name="checkin" type="date" required></label>
+          <label for="checkout">Saída<input id="checkout" name="checkout" type="date" required></label>
+          <label for="guests">Hóspedes<input id="guests" name="guests" type="number" min="1" max="21" value="15" inputmode="numeric" required></label>
+        </div>
+        <label for="nome">Seu nome<input id="nome" name="nome" type="text" autocomplete="given-name" placeholder="Opcional"></label>
+        <p class="error" id="error" hidden></p>
+        <p class="preview" id="preview" aria-live="polite"></p>
+        <a class="btn" id="wa" href="#" target="_blank" rel="noopener">Enviar pelo WhatsApp</a>
+        <p class="note">Versão de apresentação: o número do anfitrião entra aqui. Por enquanto o botão abre o WhatsApp para você escolher o contato.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="logo">Casa de Praia PG</span>
+    <span>Porto de Galinhas · Pernambuco</span>
+    <span>Nome provisório · versão de apresentação · Site por NEXO Websites</span>
+  </div>
+</footer>
+
+<dialog id="lb" aria-label="Foto ampliada">
+  <div class="lb">
+    <button class="close" type="button" data-lb="close" aria-label="Fechar">✕</button>
+    <img id="lb-img" alt="">
+    <div class="lb-bar">
+      <button type="button" data-lb="prev" aria-label="Foto anterior">‹</button>
+      <p id="lb-cap"></p>
+      <button type="button" data-lb="next" aria-label="Próxima foto">›</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+const NAME = 'Casa de Praia PG';
+const MAX_GUESTS = 21;
+const PHOTOS = [
+  ['01-piscina', 'Piscina vista do andar de cima'], ['02-piscina', 'Piscina e espreguiçadeiras'], ['07-piscina', 'Piscina e fundos da casa'],
+  ['03-varanda', 'Varanda com peças de barro'], ['05-varanda', 'Mesa redonda na varanda'], ['06-varanda', 'Varanda com poltronas de fibra'],
+  ['04-varanda', 'Varanda com mesa de madeira'], ['08-churrasqueira', 'Churrasqueira e mesa de madeira'], ['09-fachada', 'Fachada ao entardecer'],
+  ['15-quarto', 'Suíte Praia do Cupe'], ['14-quarto', 'Suíte Praia do Cupe, entrada'], ['10-suite-cupe', 'Suíte Praia do Cupe'],
+  ['11-suite-serrambi', 'Suíte Praia de Serrambi'], ['12-suite-maracaipe', 'Suíte Maracaípe'], ['13-suite-porto', 'Suíte Porto de Galinhas e banheiro'],
+];
+
+const grid = document.getElementById('grid');
+grid.innerHTML = PHOTOS.map(([id, cap], i) =>
+  `<button type="button" data-i="${i}" aria-label="Ampliar: ${cap}"><img src="fotos/${id}.webp" width="1300" height="746" loading="lazy" alt="${cap}"></button>`).join('');
+
+const lb = document.getElementById('lb');
+const lbImg = document.getElementById('lb-img');
+const lbCap = document.getElementById('lb-cap');
+let current = 0;
+function show(i) {
+  current = (i + PHOTOS.length) % PHOTOS.length;
+  const [id, cap] = PHOTOS[current];
+  lbImg.src = `fotos/${id}.webp`;
+  lbImg.alt = cap;
+  lbCap.textContent = `${current + 1} de ${PHOTOS.length} · ${cap}`;
+}
+grid.addEventListener('click', (e) => {
+  const b = e.target.closest('button');
+  if (!b) return;
+  show(Number(b.dataset.i));
+  lb.showModal();
+});
+lb.addEventListener('click', (e) => {
+  const action = e.target.closest('[data-lb]')?.dataset.lb;
+  if (action === 'close' || e.target === lb) lb.close();
+  if (action === 'prev') show(current - 1);
+  if (action === 'next') show(current + 1);
+});
+lb.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowLeft') show(current - 1);
+  if (e.key === 'ArrowRight') show(current + 1);
+});
+let touchX = null;
+lb.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+lb.addEventListener('touchend', (e) => {
+  if (touchX === null) return;
+  const dx = e.changedTouches[0].clientX - touchX;
+  if (Math.abs(dx) > 50) show(current + (dx < 0 ? 1 : -1));
+  touchX = null;
+});
+
+const form = document.getElementById('booking');
+const preview = document.getElementById('preview');
+const errorEl = document.getElementById('error');
+const wa = document.getElementById('wa');
+const iso = (d) => d.toISOString().slice(0, 10);
+const br = (s) => s.split('-').reverse().join('/');
+const today = new Date();
+const addDays = (n) => { const d = new Date(today); d.setDate(d.getDate() + n); return d; };
+form.checkin.min = iso(today);
+form.checkin.value = iso(addDays(30));
+form.checkout.value = iso(addDays(34));
+function update() {
+  const ci = form.checkin.value;
+  const co = form.checkout.value;
+  const guests = Math.round(Number(form.guests.value));
+  form.checkout.min = ci;
+  const nights = Math.round((Date.parse(co) - Date.parse(ci)) / 864e5);
+  let problem = '';
+  if (!ci || !co) problem = 'Escolha as datas de entrada e saída.';
+  else if (!(nights >= 1)) problem = 'A saída precisa ser depois da entrada.';
+  else if (!(guests >= 1 && guests <= MAX_GUESTS)) problem = `A casa recebe de 1 a ${MAX_GUESTS} hóspedes.`;
+  errorEl.hidden = !problem;
+  errorEl.textContent = problem;
+  wa.style.opacity = problem ? '.5' : '';
+  if (problem) { wa.removeAttribute('href'); return; }
+  const name = form.nome.value.trim();
+  const msg = `Olá${name ? `, aqui é ${name}` : ''}! Vi o site da ${NAME} e quero consultar disponibilidade:\n` +
+    `• Entrada: ${br(ci)}\n• Saída: ${br(co)}\n• ${nights} ${nights > 1 ? 'noites' : 'noite'} · ${guests} ${guests > 1 ? 'hóspedes' : 'hóspede'}`;
+  preview.textContent = msg;
+  wa.href = `https://wa.me/?text=${encodeURIComponent(msg)}`;
+}
+form.addEventListener('input', update);
+form.addEventListener('submit', (e) => e.preventDefault());
+update();
+</script>
