@@ -1,0 +1,384 @@
+<title>Proposta Casa 6 Suítes</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Proposta de criação do site próprio da Casa 6 Suítes, em Porto de Galinhas, com reserva direta pelo WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: proposta com a identidade do site — parede branca, tinta azul-marinho das placas, cobalto da pastilha;
+   coluna de leitura e blocos de prova (telas, números, pacotes) em largura cheia */
+:root {
+  --paper: #f6f8fb;
+  --white: #ffffff;
+  --ink: #14204a;
+  --stone: #4f5b78;
+  --line: #d5dceb;
+  --tile: #1f56b0;
+  --tile-soft: #e6eefb;
+  --water: #7cc7ea;
+  --deep: #0d1838;
+  --display: 'Barlow Condensed', 'Arial Narrow', 'Roboto Condensed', sans-serif;
+  --body: 'Figtree', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.65 var(--body); -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--tile); }
+:focus-visible { outline: 2px solid var(--tile); outline-offset: 3px; }
+
+.wrap {
+  width: 100%; max-width: 1080px; margin-inline: auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+.eyebrow { margin: 0 0 14px; font: 600 .74rem/1.2 var(--body); letter-spacing: .2em; text-transform: uppercase; color: var(--tile); }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; margin: 0; letter-spacing: -0.005em; text-wrap: balance; }
+h1 { font-size: clamp(2.8rem, 6.4vw, 5rem); line-height: .95; }
+h1 em, h2 em { font-style: normal; color: var(--tile); }
+h2 { font-size: clamp(2.2rem, 4.4vw, 3.3rem); line-height: .98; }
+h3 { font-size: 1.55rem; line-height: 1.05; }
+p { margin: 0; }
+.lead { font-size: clamp(1.15rem, 2vw, 1.35rem); line-height: 1.5; max-width: 44ch; }
+.muted { color: var(--stone); }
+.section { padding-block: clamp(56px, 8vw, 96px); border-top: 1px solid var(--line); }
+.two { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(28px, 5vw, 72px); align-items: start; }
+.two > * { min-width: 0; }
+.stack { display: grid; gap: 18px; }
+
+/* placa de porta, como as das suítes */
+.plaque { display: inline-block; background: var(--white); padding: .28em; border-radius: 3px; box-shadow: 0 1px 1px rgb(13 24 56 / .18), 0 10px 24px -12px rgb(13 24 56 / .45); font: 700 1em/1 var(--display); letter-spacing: .02em; text-transform: uppercase; color: var(--ink); }
+.plaque span { display: block; border: 2px solid var(--ink); padding: .28em .55em .22em; }
+
+/* topo */
+.top { padding-block: clamp(36px, 6vw, 72px) clamp(36px, 5vw, 56px); display: grid; gap: 28px; }
+.brandline { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 16px; }
+.brandline .plaque { font-size: 1.05rem; }
+.brandline > span:last-child { font-weight: 600; letter-spacing: .18em; font-size: .72rem; text-transform: uppercase; color: var(--stone); }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 0; margin: 0; border-top: 2px solid var(--ink); }
+.meta div { padding: 14px 16px 14px 0; border-bottom: 1px solid var(--line); }
+.meta dt { font-size: .7rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--stone); }
+.meta dd { margin: 4px 0 0; font: 600 1.35rem/1.2 var(--display); }
+
+/* vitrine */
+.showcase { position: relative; padding-bottom: clamp(56px, 8vw, 96px); }
+.browser { background: var(--deep); border-radius: 10px; padding: 26px 8px 8px; position: relative; box-shadow: 0 30px 60px rgb(13 24 56 / .2); width: 86%; }
+.browser::before { content: ""; position: absolute; top: 10px; left: 12px; width: 8px; height: 8px; border-radius: 50%; background: #34416a; box-shadow: 14px 0 0 #34416a, 28px 0 0 #34416a; }
+.browser img { border-radius: 4px; width: 100%; }
+.phone { position: absolute; right: 0; bottom: clamp(20px, 4vw, 48px); width: 24%; min-width: 120px; background: var(--deep); border-radius: 26px; padding: 8px; box-shadow: 0 30px 60px rgb(13 24 56 / .3); }
+.phone img { border-radius: 19px; width: 100%; }
+.showcase-cap { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 24px; margin-top: 22px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 22px; border-radius: 4px;
+  background: var(--tile); color: var(--white); border: 2px solid var(--tile); text-decoration: none;
+  font: 600 .95rem/1 var(--body);
+}
+.btn:hover { background: var(--ink); border-color: var(--ink); }
+
+/* números */
+.stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; margin: 0; }
+.stats div { padding: 16px 0; border-top: 1px solid var(--line); }
+.stats dt { font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--stone); }
+.stats dd { margin: 2px 0 0; font: 600 2.8rem/1 var(--display); font-variant-numeric: tabular-nums; color: var(--tile); }
+
+/* comparação sobre a pastilha */
+.tiles {
+  background-color: var(--tile); color: var(--white);
+  background-image:
+    radial-gradient(120% 90% at 85% 0%, rgb(124 199 234 / .35), transparent 60%),
+    linear-gradient(rgb(255 255 255 / .1) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / .1) 1px, transparent 1px);
+  background-size: auto, 14px 14px, 14px 14px;
+}
+.tiles .eyebrow { color: var(--water); }
+.tiles h2 em { color: var(--water); }
+.versus { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 36px 0 24px; }
+.versus div { background: rgb(13 24 56 / .55); border-radius: 6px; padding: 22px 24px; }
+.versus div.site { background: var(--white); color: var(--ink); }
+.versus h3 { margin-bottom: 12px; }
+.versus ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.versus li { padding-left: 24px; position: relative; }
+.versus div:first-child li::before { content: "–"; position: absolute; left: 4px; color: var(--water); }
+.versus div.site li::before { content: "✓"; position: absolute; left: 0; color: var(--tile); font-weight: 600; }
+.tiles .foot { font-size: .88rem; color: rgb(255 255 255 / .85); max-width: 75ch; }
+
+/* benefícios */
+.benefits { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 48px; margin-top: 40px; }
+.benefits article { display: grid; gap: 10px; align-content: start; padding-top: 18px; border-top: 2px solid var(--ink); }
+.benefits p { color: var(--stone); }
+
+/* telas */
+.screens { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 36px; }
+.screens figure { margin: 0; }
+.screens img { border-radius: 14px; border: 6px solid var(--deep); width: 100%; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; }
+.screens figcaption { margin-top: 10px; font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--stone); }
+.checklist { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.checklist li { padding-left: 26px; position: relative; }
+.checklist li::before { content: ""; position: absolute; left: 0; top: .78em; width: 14px; height: 2px; background: var(--tile); }
+
+/* pacotes */
+.plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 40px; align-items: stretch; }
+.plan { background: var(--white); border: 1px solid var(--line); border-radius: 6px; padding: 28px 24px; display: grid; grid-template-rows: auto auto auto 1fr auto; gap: 14px; position: relative; }
+.plan.pick { border: 2px solid var(--tile); }
+.plan .tag { position: absolute; top: -13px; left: 24px; background: var(--tile); color: var(--white); font-size: .7rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; padding: 5px 10px; border-radius: 3px; }
+.plan h3 { font-size: 1.8rem; }
+.plan .price { font: 600 3rem/1 var(--display); font-variant-numeric: tabular-nums; }
+.plan .price small { display: block; margin-top: 8px; font: 600 .72rem/1.3 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--stone); }
+.plan .for { color: var(--stone); font-size: .95rem; }
+.plan ul { list-style: none; margin: 0; padding: 16px 0 0; border-top: 1px solid var(--line); display: grid; gap: 9px; font-size: .95rem; align-content: start; }
+.plan li { padding-left: 22px; position: relative; }
+.plan li::before { content: "✓"; position: absolute; left: 0; color: var(--tile); font-weight: 600; }
+.plan .when { font-size: .8rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--stone); padding-top: 14px; border-top: 1px solid var(--line); }
+.care { margin-top: 16px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 32px; padding: 22px 24px; background: var(--tile-soft); border-radius: 6px; }
+.care strong { font: 600 2rem/1 var(--display); }
+.care p { max-width: 60ch; }
+
+/* passos */
+.steps { list-style: none; margin: 32px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; counter-reset: s; }
+.steps li { counter-increment: s; display: grid; gap: 8px; align-content: start; padding-top: 16px; border-top: 2px solid var(--ink); }
+.steps li::before { content: counter(s, decimal-leading-zero); font: 600 .8rem/1 var(--body); letter-spacing: .12em; color: var(--tile); }
+.steps p { color: var(--stone); font-size: .95rem; }
+
+/* condições */
+.terms { margin: 0; display: grid; gap: 0; }
+.terms div { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 5fr); gap: 16px; padding: 16px 0; border-top: 1px solid var(--line); }
+.terms dt { font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--stone); padding-top: 3px; }
+.terms dd { margin: 0; }
+
+/* fechamento */
+.close { background: var(--deep); color: var(--white); }
+.close .eyebrow { color: var(--water); }
+.close h2 em { color: var(--water); }
+.contact { display: flex; flex-wrap: wrap; gap: 12px 40px; margin: 28px 0; font: 600 1.45rem/1.3 var(--display); }
+.btn-light { background: var(--white); color: var(--deep); border-color: var(--white); }
+.btn-light:hover { background: transparent; color: var(--white); border-color: var(--white); }
+.sources { font-size: .8rem; color: rgb(255 255 255 / .65); margin-top: 40px; }
+
+@media (max-width: 820px) {
+  .two { grid-template-columns: 1fr; }
+  .benefits { grid-template-columns: 1fr; }
+  .plans { grid-template-columns: 1fr; gap: 28px; }
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .screens { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .versus { grid-template-columns: 1fr; }
+  .browser { width: 100%; }
+  .phone { position: relative; right: auto; bottom: auto; width: 46%; margin: -80px 0 0 auto; }
+  .terms div { grid-template-columns: 1fr; gap: 4px; }
+}
+
+@page { size: A4; margin: 12mm 12mm; }
+@media print {
+  .wrap { max-width: none; padding-left: 0; padding-right: 0; }
+  .section { padding-block: 40px; }
+  .tiles .wrap, .close .wrap { padding-left: 40px; padding-right: 40px; }
+  .plans, .stats, .versus, .screens, .steps { break-inside: avoid; }
+  .plan, .benefits article, .steps li, .terms div, .versus div, .screens figure { break-inside: avoid; }
+  .two, .plans-section, .how, .keep { break-inside: avoid; }
+  h2, .eyebrow { break-after: avoid; }
+  .browser, .phone, .plaque { box-shadow: none; }
+}
+</style>
+
+<main>
+  <header class="wrap top">
+    <div class="brandline"><span class="plaque"><span>NEXO Websites</span></span><span>Proposta comercial · Casa 6 Suítes</span></div>
+    <div class="stack">
+      <p class="eyebrow">Para o anunciante da casa em Porto de Galinhas</p>
+      <h1>Um site próprio para a sua casa, com <em>reserva direta.</em></h1>
+    </div>
+    <dl class="meta">
+      <div><dt>Para</dt><dd>Luis, anunciante</dd></div>
+      <div><dt>De</dt><dd>Tiago Souto, NEXO Websites</dd></div>
+      <div><dt>Data</dt><dd>22 de outubro de 2026</dd></div>
+      <div><dt>Válida até</dt><dd>6 de novembro de 2026</dd></div>
+    </dl>
+  </header>
+
+  <section class="wrap showcase" aria-label="O site pronto">
+    <div class="browser"><img src="img/desk-cover.jpg" width="1200" height="750" alt="Capa do site Casa 6 Suítes no computador: o nome em uma placa sobre a pastilha azul, a foto da piscina e a consulta de datas."></div>
+    <div class="phone"><img src="img/mob-cover.jpg" width="390" height="844" alt="Capa do site Casa 6 Suítes no celular."></div>
+    <div class="showcase-cap">
+      <a class="btn" href="https://claude.ai/artifact/K7rTYKmJeCZcpCxTnURmXb" target="_blank" rel="noopener">Ver o site funcionando ↗</a>
+      <p class="muted">O site já está pronto, com as fotos e as informações do seu anúncio. O nome Casa 6 Suítes é uma sugestão.</p>
+    </div>
+  </section>
+
+  <section class="section wrap" aria-labelledby="partida">
+    <div class="two">
+      <div class="stack">
+        <p class="eyebrow">Ponto de partida</p>
+        <h2 id="partida">Uma casa feita para grupos.</h2>
+      </div>
+      <div class="stack">
+        <p class="lead">Seis suítes para 21 pessoas, piscina, duas churrasqueiras e sala para mais de 20 pessoas, num condomínio fechado na 2ª quadra da praia.</p>
+        <p class="muted">E há procura: em 22 de outubro, o seu anúncio mostrava 76 pessoas interessadas na casa na última semana.</p>
+        <dl class="stats">
+          <div><dt>Hóspedes</dt><dd>21</dd></div>
+          <div><dt>Suítes</dt><dd>6</dd></div>
+          <div><dt>Banheiros</dt><dd>8</dd></div>
+          <div><dt>Interessados em 7 dias</dt><dd>76</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="tiles section" aria-labelledby="compara">
+    <div class="wrap">
+      <p class="eyebrow">O anúncio e o site</p>
+      <h2 id="compara">Quem se interessa precisa de <em>um lugar para decidir.</em></h2>
+      <div class="versus">
+        <div>
+          <h3>No anúncio hoje</h3>
+          <ul>
+            <li>Nenhuma avaliação publicada ainda</li>
+            <li>Calendário de disponibilidade sem atualização há mais de um ano</li>
+            <li>Fotos com a marca d'água da plataforma</li>
+            <li>Contato pelo botão "Ver telefones"</li>
+          </ul>
+        </div>
+        <div class="site">
+          <h3>No seu site</h3>
+          <ul>
+            <li>Um nome e um endereço só seus, para divulgar</li>
+            <li>Galeria por ambiente e as suítes apresentadas uma a uma</li>
+            <li>Datas e número de hóspedes chegam prontos no seu WhatsApp</li>
+            <li>Um link para usar no Instagram, no Google e em indicações</li>
+          </ul>
+        </div>
+      </div>
+      <p class="foot">O anúncio atual continua no ar: o site soma um canal a ele. Dados do anúncio consultados em 22 de outubro de 2026.</p>
+    </div>
+  </section>
+
+  <section class="section wrap keep" aria-labelledby="resolve">
+    <p class="eyebrow">O que o site resolve</p>
+    <h2 id="resolve">Um canal seu, ao lado do anúncio.</h2>
+    <div class="benefits">
+      <article><h3>Reserva direta pelo WhatsApp</h3><p>Quem chega pelo Google, pelo Instagram ou por indicação escolhe as datas e o número de hóspedes, e a mensagem chega pronta para você.</p></article>
+      <article><h3>Uma marca para divulgar</h3><p>Um nome e um endereço fáceis de lembrar, para redes sociais, cartões e indicações. Casa 6 Suítes é uma sugestão; o nome final é seu.</p></article>
+      <article><h3>A casa apresentada como merece</h3><p>Galeria com foto ampliada, as suítes com a placa de praia de cada porta, a área de lazer e as comodidades, num site que abre bem no celular.</p></article>
+      <article><h3>Menos perguntas repetidas</h3><p>Capacidade, festas, pets, suíte no térreo e voltagem respondidos antes do primeiro contato.</p></article>
+    </div>
+  </section>
+
+  <section class="section wrap" aria-labelledby="site">
+    <div class="two">
+      <div class="stack">
+        <p class="eyebrow">O site</p>
+        <h2 id="site">Tudo que o grupo precisa para decidir.</h2>
+      </div>
+      <ul class="checklist">
+        <li>Capa com a piscina e a consulta de datas</li>
+        <li>As 15 fotos do anúncio por ambiente, com foto ampliada</li>
+        <li>As suítes com o nome de praia de cada porta e a distribuição das camas</li>
+        <li>Lazer: churrasqueiras, varandas e piscina</li>
+        <li>Comodidades completas e perguntas frequentes</li>
+        <li>Condomínio fechado na 2ª quadra da praia</li>
+        <li>Consulta de datas com mensagem pronta para o seu WhatsApp</li>
+      </ul>
+    </div>
+    <div class="screens">
+      <figure><img src="img/mob-cover.jpg" width="390" height="844" loading="lazy" alt="Capa do site no celular."><figcaption>Capa</figcaption></figure>
+      <figure><img src="img/mob-intro.jpg" width="390" height="844" loading="lazy" alt="Galeria de fotos por ambiente no celular."><figcaption>Galeria</figcaption></figure>
+      <figure><img src="img/mob-quartos.jpg" width="390" height="844" loading="lazy" alt="Suítes com as placas de praia no celular."><figcaption>Suítes</figcaption></figure>
+      <figure><img src="img/mob-lazer.jpg" width="390" height="844" loading="lazy" alt="Área de lazer com churrasqueira e varandas no celular."><figcaption>Lazer</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="section wrap plans-section" aria-labelledby="pacotes">
+    <p class="eyebrow">Investimento</p>
+    <h2 id="pacotes">Três formas de colocar no ar.</h2>
+    <div class="plans">
+      <article class="plan">
+        <h3>Essencial</h3>
+        <p class="price">R$ 800<small>pagamento único</small></p>
+        <p class="for">O site apresentado, publicado e pronto para receber pedidos.</p>
+        <ul>
+          <li>Site de página única no layout apresentado</li>
+          <li>Galeria com as fotos atuais</li>
+          <li>Suítes, comodidades e perguntas frequentes</li>
+          <li>Consulta de datas com mensagem pronta no WhatsApp</li>
+          <li>Publicação com HTTPS, sem custo de hospedagem</li>
+          <li>1 rodada de ajustes</li>
+        </ul>
+        <p class="when">Entrega em até 7 dias</p>
+      </article>
+      <article class="plan pick">
+        <span class="tag">Recomendado</span>
+        <h3>Completo</h3>
+        <p class="price">R$ 1.400<small>pagamento único</small></p>
+        <p class="for">Marca própria, fotos sem marca d'água e hóspedes estrangeiros.</p>
+        <ul>
+          <li>Tudo do Essencial</li>
+          <li>Domínio próprio (.com.br) no seu nome, 1º ano incluso</li>
+          <li>Fotos originais em alta resolução, sem marca d'água</li>
+          <li>Versão em inglês</li>
+          <li>Cadastro no Google Search Console</li>
+          <li>Medição de visitas e de cliques no WhatsApp</li>
+          <li>2 rodadas de ajustes</li>
+        </ul>
+        <p class="when">Entrega em até 10 dias</p>
+      </article>
+      <article class="plan">
+        <h3>Premium</h3>
+        <p class="price">R$ 2.200<small>pagamento único</small></p>
+        <p class="for">Disponibilidade à vista e experiência de visita.</p>
+        <ul>
+          <li>Tudo do Completo</li>
+          <li>Calendário de datas ocupadas no site</li>
+          <li>Versão em espanhol</li>
+          <li>Tour virtual cinematográfico pelas fotos da casa</li>
+          <li>3 meses de manutenção inclusos</li>
+          <li>3 rodadas de ajustes</li>
+        </ul>
+        <p class="when">Entrega em até 15 dias</p>
+      </article>
+    </div>
+    <div class="care">
+      <div><p class="eyebrow" style="margin-bottom:8px">Manutenção opcional</p><strong>R$ 79/mês</strong></div>
+      <p class="muted">Site e domínio monitorados, até 2 alterações por mês (fotos, textos, regras ou datas ocupadas) e suporte pelo WhatsApp. Sem fidelidade.</p>
+    </div>
+  </section>
+
+  <section class="section wrap how" aria-labelledby="passos">
+    <p class="eyebrow">Como funciona</p>
+    <h2 id="passos">Do sim ao site no ar.</h2>
+    <ol class="steps">
+      <li><h3>Escolha</h3><p>Você escolhe o pacote e confirma o nome da marca.</p></li>
+      <li><h3>Material</h3><p>Você envia o número de WhatsApp das reservas e, nos pacotes Completo e Premium, as fotos originais.</p></li>
+      <li><h3>Revisão</h3><p>Ajusto textos e fotos e envio o link para você revisar.</p></li>
+      <li><h3>Publicação</h3><p>O site vai ao ar no endereço definido e você recebe todos os acessos.</p></li>
+    </ol>
+  </section>
+
+  <section class="section wrap" aria-labelledby="condicoes">
+    <div class="two">
+      <div class="stack">
+        <p class="eyebrow">Condições</p>
+        <h2 id="condicoes">O que fica combinado.</h2>
+      </div>
+      <dl class="terms">
+        <div><dt>Pagamento</dt><dd>50% na aprovação e 50% na publicação, por Pix ou transferência.</dd></div>
+        <div><dt>Propriedade</dt><dd>Domínio, textos e site ficam em seu nome. Você recebe os acessos na entrega.</dd></div>
+        <div><dt>Não incluso</dt><dd>Sessão de fotos ou vídeo, anúncios pagos e renovação do domínio após o 1º ano (cerca de R$ 40 por ano no Registro.br) para quem não contratar a manutenção.</dd></div>
+        <div><dt>Anúncio atual</dt><dd>O anúncio continua como está. O site não acessa sua conta e não altera preços ou regras na plataforma.</dd></div>
+        <div><dt>Validade</dt><dd>15 dias, até 6 de novembro de 2026.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="close section" aria-labelledby="contato">
+    <div class="wrap">
+      <p class="eyebrow">Próximo passo</p>
+      <h2 id="contato">Responda com o pacote escolhido e o site vai ao ar <em>em até 15 dias.</em></h2>
+      <div class="contact">
+        <span>Tiago Souto · NEXO Websites</span>
+        <span>WhatsApp (17) 99733-0930</span>
+        <span>tmelob.souto@gmail.com</span>
+      </div>
+      <a class="btn btn-light" href="https://wa.me/5517997330930?text=Ol%C3%A1%2C%20Tiago!%20Vi%20a%20proposta%20do%20site%20da%20Casa%206%20Su%C3%ADtes%20e%20quero%20conversar." target="_blank" rel="noopener">Responder pelo WhatsApp ↗</a>
+      <p class="sources">Informações da casa e do anúncio consultadas em 22 de outubro de 2026.</p>
+    </div>
+  </section>
+</main>

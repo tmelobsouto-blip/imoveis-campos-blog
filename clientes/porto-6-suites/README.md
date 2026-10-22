@@ -1,7 +1,7 @@
 # Porto 6 Suítes (nome provisório) — Porto de Galinhas, PE
 
-**Status:** 3 mockups prontos para o usuário escolher a direção. Depois: site final, proposta (falta um
-valor de estadia com datas), fotos originais sem marca d'água e confirmar com o anunciante os pontos
+**Status:** site final "Casa 6 Suítes" e proposta prontos (direção Placas e pastilha). Falta compartilhar os
+links pelo menu Share, pedir as fotos originais sem marca d'água e confirmar com o anunciante os pontos
 marcados em `dados.md`.
 
 - Fonte das informações: anúncio #126200 no TemporadaLivre (anunciante: Luis Calado). É só a fonte: o nome
@@ -10,13 +10,14 @@ marcados em `dados.md`.
 
 ## Links publicados (Artifacts claude.ai)
 
-Republicar sempre com o `url` abaixo. Mockups em HTML: `root = clientes/porto-6-suites` e `files` = as fotos
-que a página usa. Mockup React: `root = clientes/porto-6-suites/mockup-placas/dist` e `files` = `app.js`,
+Republicar sempre com o `url` abaixo. Páginas HTML: `root = clientes/porto-6-suites` e `files` = as fotos ou
+imagens que a página usa. Site React: `root = clientes/porto-6-suites/site/dist` e `files` = `app.js`,
 `app.css` e `dist/fotos/`.
 
 | Arquivo | Artifact | Observação |
 |---|---|---|
-| `mockup-placas/` (`npm --prefix clientes/porto-6-suites/mockup-placas run build`) | https://claude.ai/artifact/K7rTYKmJeCZcpCxTnURmXb | Placas e pastilha · "Casa 6 Suítes" · React + shadcn/ui |
+| `site/` (`npm --prefix clientes/porto-6-suites/site run build`) | https://claude.ai/artifact/K7rTYKmJeCZcpCxTnURmXb | site final "Casa 6 Suítes" (era o mockup Placas e pastilha) · React + shadcn/ui |
+| `proposta.html` + `Proposta-Casa-6-Suites.pdf` | https://claude.ai/artifact/6trukqhmp4BTq1L2kcavrQ | usa `img/`; telas com `npm run telas -- clientes/porto-6-suites/site/dist/index.html clientes/porto-6-suites/img` |
 | `mockup-cinema.html` | https://claude.ai/artifact/KPDPNvxnZxApSqPCiUEavM | Cinematográfico · "Casa em Porto de Galinhas" |
 | `mockup-tropical.html` | https://claude.ai/artifact/8DWrYG2sXYPdQLgf1FHHyn | Tropical artesanal · "Casa de Praia PG" |
 
@@ -33,6 +34,11 @@ Privados até o usuário compartilhar pelo menu Share.
      ficha técnica, elenco de suítes e ingresso de reserva.
   3. **Tropical artesanal**: verde de coqueiro, barro das argolas da varanda (uma argola balança na capa),
      fotos com moldura em arco, um dia na casa em fotos grandes.
+- Escolhida a direção **Placas e pastilha**, nome sugerido **Casa 6 Suítes**. No site final: foto ampliada na
+  galeria, menu lateral no celular e botão para copiar a mensagem da reserva.
+- Proposta com a tabela nova de `docs/precos.md` (Essencial R$ 800, Completo R$ 1.400, Premium R$ 2.200,
+  manutenção R$ 79/mês). Sem a conta da taxa do Airbnb (o anúncio não é do Airbnb): no lugar, comparação do
+  anúncio atual com o site, só com fatos dos prints.
 - Público: grupos e famílias grandes (21 pessoas, festas permitidas, aceita animais).
 - Sem avaliações (o anúncio não tem nenhuma) e sem preço. Só português.
 

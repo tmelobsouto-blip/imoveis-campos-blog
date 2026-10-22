@@ -17,10 +17,10 @@ await writeFile(tmp, wrapPage(await readFile(src, 'utf8')));
 await mkdir(outDir, { recursive: true });
 
 // Seções procuradas pelo id; as que não existirem na página são ignoradas.
-const SECTIONS = { intro: '#a-casa', quartos: '#quartos', reserva: '#reservar' };
+const SECTIONS = { intro: '#a-casa, #galeria', quartos: '#quartos, #suites-secao', lazer: '#lazer-secao', reserva: '#reservar' };
 const SETUPS = [
   { tag: 'desk', viewport: { width: 1440, height: 900 }, dpr: 1, size: [1200, 750], sections: ['intro', 'quartos'] },
-  { tag: 'mob', viewport: { width: 390, height: 844 }, dpr: 2, size: [390, 844], sections: ['intro', 'quartos', 'reserva'], mobile: true },
+  { tag: 'mob', viewport: { width: 390, height: 844 }, dpr: 2, size: [390, 844], sections: ['intro', 'quartos', 'lazer', 'reserva'], mobile: true },
 ];
 
 const browser = await launchChromium();
