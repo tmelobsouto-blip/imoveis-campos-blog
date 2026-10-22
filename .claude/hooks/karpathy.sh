@@ -1,5 +1,5 @@
 #!/bin/bash
-# Lembra, a cada pedido, de aplicar a skill karpathy-guidelines (pedido do usuário, ver CLAUDE.md).
+# Lembra, a cada pedido, das skills e ferramentas padrão do projeto (pedido do usuário, ver CLAUDE.md).
 cat <<'JSON'
-{"hookSpecificOutput":{"hookEventName":"UserPromptSubmit","additionalContext":"Aplique a skill karpathy-guidelines (.claude/skills/karpathy-guidelines/SKILL.md) neste pedido: pense antes e explicite suposições, faça o mínimo que resolve, mude só o necessário e defina como verificar o resultado."}}
+{"hookSpecificOutput":{"hookEventName":"UserPromptSubmit","additionalContext":"Padrão do projeto (CLAUDE.md): aplique karpathy-guidelines; use Context7 se houver biblioteca/framework e shadcn MCP se houver componentes de interface; responda no chat em caveman ultra, em português (nunca em sites, propostas, mensagens, docs ou commits)."}}
 JSON

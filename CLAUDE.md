@@ -8,17 +8,24 @@ Cada imóvel é um cliente em `clientes/<slug>/`. Clientes: **Casa Dez** e **Por
 2. Para um imóvel novo, use a skill `novo-cliente`. Para orçamento/proposta, `proposta-comercial`.
 3. Dependências: `npm install` na raiz (o hook de sessão já faz isso na nuvem).
 
-## Modelos e skill padrão (pedido do usuário)
+## Modelos e skills padrão (pedido do usuário)
 - **Advisor: Opus** (`advisorModel` em `.claude/settings.json`). **Subagentes: Haiku**
   (`CLAUDE_CODE_SUBAGENT_MODEL`); ao chamar o Agent, passar `model: "haiku"`.
 - **Em toda solicitação**, aplicar a skill `karpathy-guidelines` (`.claude/skills/karpathy-guidelines/`):
   pensar antes e explicitar suposições, fazer o mínimo que resolve, mudar só o necessário e definir como
-  verificar. O hook `UserPromptSubmit` (`.claude/hooks/karpathy.sh`) lembra disso a cada pedido.
+  verificar. O hook `UserPromptSubmit` (`.claude/hooks/karpathy.sh`) lembra disso e das regras abaixo a cada pedido.
+- **Context7** (MCP) sempre que o pedido envolver biblioteca, framework, SDK ou CLI: consultar a documentação
+  atual antes de escrever código.
+- **shadcn** (MCP em `.mcp.json`) sempre que o pedido envolver componentes de interface. Na nuvem precisa de
+  `ui.shadcn.com` liberado na rede do ambiente; sem ele, usar o código oficial do registro (GitHub).
+- **Caveman ultra** (`.claude/skills/caveman/`) nas respostas de chat ao usuário, em português. **Nunca** em
+  textos de site ou mockup, propostas, `mensagens.md`, documentação, comentários de código ou commits:
+  esses seguem escrita normal. Avisos de segurança e confirmações de ação irreversível também em texto normal.
 
 ## Estrutura
 ```
 CLAUDE.md, README.md
-.claude/                 settings.json, hooks/ (session-start, karpathy), skills/
+.claude/                 settings.json, hooks/ (session-start, karpathy = lembrete por pedido), skills/
 docs/                    processo.md (fluxo de venda), precos.md (pacotes), publicacao.md (domínio próprio)
 scripts/                 ferramentas (recorte de fotos, preview, checagem, PDF, build do site)
 web/                     página da NEXO (raiz do domínio), 404 e favicon
@@ -87,4 +94,5 @@ Dois canais:
 - Commits: `feat|fix|docs|chore(escopo): mensagem`. Nunca commitar `.env*`, `node_modules`, `.screens/` ou builds.
 
 ## Estilo de resposta
-Curto, direto, em português. Mostrar links e próximos passos; detalhes técnicos só quando pedidos.
+Chat em caveman ultra, em português (ver "Modelos e skills padrão"). Mostrar links e próximos passos;
+detalhes técnicos só quando pedidos.
