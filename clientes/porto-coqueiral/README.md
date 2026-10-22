@@ -26,6 +26,10 @@ Republicar sempre com o `url` abaixo. Mockup atual: rodar o build e publicar `si
 Todos são privados até o usuário compartilhar pelo menu Share. Os descartados continuam no ar até o usuário
 pedir para apagar.
 
+No domínio próprio (`npm run build:web` → Netlify, ver [docs/publicacao.md](../../docs/publicacao.md)):
+`/porto-coqueiral/` (site), `/porto-coqueiral/proposta/` e `/porto-coqueiral/Proposta-Casa-em-Porto-de-Galinhas.pdf`.
+Os mockups descartados não entram.
+
 ## Decisões
 - Objetivo: reserva direta pelo WhatsApp (sem número até o proprietário fornecer).
 - Nome: **Casa em Porto de Galinhas** (sugestão nossa; depende da aprovação do proprietário).

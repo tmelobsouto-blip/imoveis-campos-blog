@@ -65,7 +65,7 @@ Como este site foi construído, pedido a pedido. Status, links publicados e deci
 
 - O pacote Essencial promete "galeria com as fotos atuais", que hoje têm marca d'água: exigir as fotos
   originais em todos os pacotes ou só no Completo e no Premium?
-- `npm run build:web` só publica clientes com `site.html`: o site React e a proposta deste cliente ainda não
-  saem no domínio próprio, só nos links claude.ai.
+- Resolvido em 22/10/2026: `npm run build:web` passou a incluir o site React; no domínio, `/porto-6-suites/` e
+  `/porto-6-suites/proposta/`.
 - "Ponytail", citado pelo usuário entre as ferramentas padrão, não foi identificado.
 - Confirmar com o anunciante: nome do condomínio ("Culpe"/"Cupe") e se a piscina é privativa.

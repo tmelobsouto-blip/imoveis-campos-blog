@@ -1,10 +1,11 @@
-// Monta o site estático da NEXO em dist/ para publicar com endereço próprio (ex.: Cloudflare Pages).
+// Monta o site estático da NEXO em dist/ para publicar com endereço próprio (Netlify, Cloudflare Pages).
 // Uso: npm run build:web
 //   /                      web/index.html (página da NEXO)
-//   /<cliente>/            site.html
+//   /<cliente>/            site.html, ou o build do site React em site/ (app.js + app.css)
 //   /<cliente>/proposta/   proposta.html
-//   /<cliente>/mockup-x/   mockup-x.html
+//   /<cliente>/mockup-x/   mockup-x.html (menos os marcados como "descartado" no README do cliente)
 // Links claude.ai/artifact listados no README do cliente viram caminhos do próprio domínio.
+import { execSync } from 'node:child_process';
 import { cp, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
@@ -44,7 +45,22 @@ function artifactLinks(readme, slug) {
   for (const [, file, url] of readme.matchAll(/\|\s*`([\w-]+\.html)`\s*\|\s*(https:\/\/claude\.ai\/artifact\/\w+)/g)) {
     links.set(url, pagePath(slug, file));
   }
+  // Linha do site React na tabela: | `site/` ou `site/dist/` (...) | https://claude.ai/artifact/... |
+  for (const [, url] of readme.matchAll(/\|\s*`site\/(?:dist\/)?`[^|]*\|\s*(https:\/\/claude\.ai\/artifact\/\w+)/g)) {
+    links.set(url, `/${slug}/`);
+  }
   return links;
+}
+
+function discarded(readme) {
+  return new Set([...readme.matchAll(/\|\s*`([\w-]+\.html)`\s*\|[^|]*\|[^|\n]*descartad/gi)].map((m) => m[1]));
+}
+
+// Na nuvem (Netlify) só a raiz tem npm install: o site React instala as próprias dependências antes do build.
+function buildReactSite(app) {
+  if (!existsSync(join(app, 'node_modules'))) execSync(`npm ci --prefix ${app} --no-audit --no-fund`, { stdio: 'inherit' });
+  execSync(`npm --prefix ${app} run build`, { stdio: 'inherit' });
+  return join(app, 'dist');
 }
 
 function pagePath(slug, file) {
@@ -68,9 +84,11 @@ for (const file of await readdir('web')) {
 
 for (const slug of await readdir('clientes')) {
   const dir = join('clientes', slug);
-  if (!existsSync(join(dir, 'site.html'))) continue;
+  const reactApp = !existsSync(join(dir, 'site.html')) && existsSync(join(dir, 'site', 'package.json')) ? join(dir, 'site') : null;
+  if (!existsSync(join(dir, 'site.html')) && !reactApp) continue;
   const readme = existsSync(join(dir, 'README.md')) ? await readFile(join(dir, 'README.md'), 'utf8') : '';
   const links = artifactLinks(readme, slug);
+  const skip = discarded(readme);
 
   for (const asset of ['fotos', 'img']) {
     if (existsSync(join(dir, asset))) await cp(join(dir, asset), join(OUT, slug, asset), { recursive: true });
@@ -79,7 +97,14 @@ for (const slug of await readdir('clientes')) {
     if (f.endsWith('.pdf')) await cp(join(dir, f), join(OUT, slug, f));
   }
 
-  const pages = (await readdir(dir)).filter((f) => f.endsWith('.html'));
+  if (reactApp) {
+    const built = buildReactSite(reactApp);
+    await cp(built, join(OUT, slug), { recursive: true, filter: (src) => !src.endsWith('index.html') });
+    await writePage(`/${slug}/`, toDocument(await readFile(join(built, 'index.html'), 'utf8'), { noindex: true }));
+    console.log(`/${slug}/  ←  ${built}/`);
+  }
+
+  const pages = (await readdir(dir)).filter((f) => f.endsWith('.html') && !skip.has(f));
   for (const file of pages) {
     let html = await readFile(join(dir, file), 'utf8');
     for (const [url, path] of links) html = html.replaceAll(url, path);

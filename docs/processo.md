@@ -19,7 +19,7 @@
    de `mensagens.md`.
 9. **Fechamento.** Proprietário escolhe pacote, envia número de WhatsApp, fotos originais e aprova o nome.
 10. **Publicação.** Domínio no nome do proprietário, hospedagem com uso comercial permitido
-    (ex.: Cloudflare Pages), WhatsApp real no botão, entrega dos acessos.
+    (ex.: Netlify ou Cloudflare Pages), WhatsApp real no botão, entrega dos acessos.
 11. **Registro.** Status e links no `README.md` do cliente; como foi feito em `historico.md`.
 
 ## Skills e ferramentas

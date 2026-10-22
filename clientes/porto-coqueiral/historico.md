@@ -108,9 +108,28 @@ mockup mais moderno, elegante, com mais fotos".
   foto 22 não foi usado; o contato é pelo anúncio.
 - `npm run build:web` ainda não publica sites React: os links enviados são os do claude.ai.
 
+## 5. Formato para o Netlify
+
+**Pedido:** "Coloque em formato que irei publicar no Netlify".
+
+- Pesquisa: o plano gratuito do Netlify permite uso comercial (cobrar pela criação e manutenção, sem revender
+  a hospedagem), então não esbarra na regra que proíbe a Vercel gratuita. O arrastar e soltar aceita pasta,
+  não .zip.
+- `npm run build:web` passou a incluir os sites React (`site/`, com build automático e `npm ci` quando falta
+  `node_modules`, como no Netlify), a trocar o link claude.ai do site React pelo caminho do domínio e a deixar
+  de fora os mockups marcados "descartado" no README.
+- `netlify.toml` na raiz (build `npm run build:web`, pasta `dist`) para publicar ligado ao GitHub; para arrastar,
+  o .zip `nexo-websites-netlify.zip` com a pasta pronta (21 MB, 253 arquivos, nenhum acima de 10 MB).
+- Verificação: `dist/` servida localmente como site estático; todas as páginas abrem sem erro nem rolagem
+  lateral no celular e no computador, sem links claude.ai sobrando, e o botão "Ver o site" da proposta aponta
+  para `/porto-coqueiral/`.
+- `docs/publicacao.md` reescrito com o passo a passo do Netlify; `mensagens.md` com os links no formato do
+  Netlify.
+
 ## Em aberto
 
-- Enviar a proposta (compartilhar os links pelo menu Share antes).
+- Publicar no Netlify e trocar os links da mensagem pelo endereço escolhido.
+- Enviar a proposta.
 - Aprovar o mockup no estilo da Casa 6 (ou pedir ajustes) para virar o site final.
 - Pedir ao proprietário fotos originais e fotos das suítes, da cozinha e dos banheiros.
 - Confirmar as camas da suíte 1 e os ar-condicionados por suíte.

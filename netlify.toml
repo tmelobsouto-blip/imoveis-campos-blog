@@ -1,0 +1,5 @@
+# Publicação no Netlify ligado ao GitHub (passo a passo em docs/publicacao.md).
+# O build monta dist/ com a página da NEXO e os clientes; a versão do Node vem de .node-version.
+[build]
+  command = "npm run build:web"
+  publish = "dist"

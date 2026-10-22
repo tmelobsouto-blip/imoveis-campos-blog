@@ -7,6 +7,13 @@ Antes de enviar: compartilhar os dois links como públicos no menu **Share** e a
 - Proposta: https://claude.ai/artifact/6PERsmh3xYu1TQAzVPTZ8y
 - PDF: `Proposta-Casa-em-Porto-de-Galinhas.pdf` (anexar)
 
+Depois de publicar no Netlify ([docs/publicacao.md](../../docs/publicacao.md)), troque os dois links da mensagem
+pelos do Netlify (`<seu-site>` é o nome do projeto):
+
+- Site: `https://<seu-site>.netlify.app/porto-coqueiral/`
+- Proposta: `https://<seu-site>.netlify.app/porto-coqueiral/proposta/`
+- PDF online: `https://<seu-site>.netlify.app/porto-coqueiral/Proposta-Casa-em-Porto-de-Galinhas.pdf`
+
 ## WhatsApp
 
 Olá, Francisco! Tudo bem? Aqui é o Tiago Souto, da NEXO Websites.

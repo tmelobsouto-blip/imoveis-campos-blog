@@ -27,6 +27,6 @@ Chrome instalado.
 - Como cada site foi feito: [Casa Dez](clientes/casa-dez/historico.md) ·
   [Casa 6 Suítes](clientes/porto-6-suites/historico.md) ·
   [Casa em Porto de Galinhas](clientes/porto-coqueiral/historico.md)
-- Endereço próprio (Cloudflare Pages + domínio): [docs/publicacao.md](docs/publicacao.md) — `npm run build:web`
+- Endereço próprio (Netlify ou Cloudflare Pages + domínio): [docs/publicacao.md](docs/publicacao.md) — `npm run build:web`
 - Pacotes e preços: [docs/precos.md](docs/precos.md)
 - Regras para o Claude: [CLAUDE.md](CLAUDE.md) e skills em `.claude/skills/`

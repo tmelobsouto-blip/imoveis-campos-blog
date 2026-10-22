@@ -69,7 +69,7 @@ clientes/<slug>/
 - **Avaliações**: citação literal, com nome e mês. Trecho cortado vira `[…]`. Não "corrigir" o texto do hóspede.
 - **Nome da marca**: é sugestão até o proprietário aprovar. Diga isso na proposta.
 - **Airbnb**: o site soma um canal ao anúncio. Nunca sugerir desviar hóspedes ou reservas vindos do Airbnb (regra de pagamentos fora da plataforma). Taxas do Airbnb: citar a fonte e pedir confirmação no painel do anfitrião.
-- **Não oferecer**: Perfil da Empresa no Google (casas de temporada são inelegíveis) e hospedagem gratuita da Vercel (plano Hobby é só para uso não comercial). Para hospedagem sem custo, usar Cloudflare Pages ou similar que permita uso comercial.
+- **Não oferecer**: Perfil da Empresa no Google (casas de temporada são inelegíveis) e hospedagem gratuita da Vercel (plano Hobby é só para uso não comercial). Para hospedagem sem custo, usar Netlify ou Cloudflare Pages (permitem uso comercial; não revender a hospedagem).
 - **WhatsApp**: sem número real até o proprietário fornecer. Na fase de apresentação, `https://wa.me/?text=` sem número.
 
 ## Páginas HTML (publicadas como Artifact do claude.ai)
@@ -83,9 +83,10 @@ clientes/<slug>/
 
 ## Publicação
 Dois canais:
-- **Domínio próprio (para enviar ao proprietário)**: `npm run build:web` → Cloudflare Pages
-  (`docs/publicacao.md`). Links `claude.ai/artifact` listados no README do cliente viram caminhos do domínio;
-  páginas de clientes saem com `noindex`. Só entram clientes com `site.html` (sites React em `site/` ainda não).
+- **Domínio próprio (para enviar ao proprietário)**: `npm run build:web` → Netlify (`netlify.toml`, ou arrastar a
+  pasta `dist/`) ou Cloudflare Pages (`docs/publicacao.md`). Links `claude.ai/artifact` listados no README do
+  cliente viram caminhos do domínio; páginas de clientes saem com `noindex`. Entram `site.html` ou o site React
+  em `site/` (build automático); mockups marcados "descartado" no README ficam de fora.
 - **Artifact do claude.ai (prévia)**:
 - Publicar com `root = clientes/<slug>` e `files` = só as fotos/imagens que a página usa.
 - **Republicar sempre com o `url` do Artifact existente** (tabela no README do cliente), senão nasce um link novo.
