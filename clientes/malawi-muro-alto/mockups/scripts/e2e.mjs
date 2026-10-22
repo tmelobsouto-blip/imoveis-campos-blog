@@ -69,6 +69,11 @@ for (const style of styles) {
     await page.keyboard.press("Escape")
     await dialog.waitFor({ state: "detached" })
 
+    // Fundo de luz em WebGL: só no computador, com movimento permitido, e só no estilo Noite.
+    const canvases = await page.locator("canvas").count()
+    const expected = label === "computador" && style === "noite" ? 1 : 0
+    check(canvases === expected, `${tag} ${expected} canvas WebGL (achou ${canvases})`)
+
     if (label === "celular") {
       await page.getByRole("button", { name: "Abrir menu" }).click()
       const menu = page.getByRole("dialog")
@@ -81,6 +86,25 @@ for (const style of styles) {
     check(errors.length === 0, `${tag} sem erros no console${errors.length ? `: ${errors.join(" | ")}` : ""}`)
     await ctx.close()
   }
+  // "Reduzir movimento": nenhum canvas e todos os títulos visíveis, sem esperar animação.
+  const ctx = await browser.newContext({ ...VIEWPORTS.computador, locale: "pt-BR", reducedMotion: "reduce" })
+  const page = await ctx.newPage()
+  await page.goto(url, { waitUntil: "load" })
+  await page.waitForTimeout(1500)
+  check((await page.locator("canvas").count()) === 0, `${style} [reduzir movimento] sem canvas`)
+  const hidden = await page.evaluate(() =>
+    [...document.querySelectorAll("h1, h2")]
+      .filter((el) => {
+        for (let n = el; n; n = n.parentElement) {
+          const cs = getComputedStyle(n)
+          if (cs.opacity !== "1" || cs.visibility === "hidden") return true
+        }
+        return false
+      })
+      .map((el) => el.textContent),
+  )
+  check(hidden.length === 0, `${style} [reduzir movimento] títulos visíveis${hidden.length ? `: ${hidden.join(" | ")}` : ""}`)
+  await ctx.close()
   await rm(tmp, { force: true })
 }
 await browser.close()

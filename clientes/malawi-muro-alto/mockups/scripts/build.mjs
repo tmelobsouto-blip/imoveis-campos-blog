@@ -13,7 +13,7 @@ const fotos = join(root, "..", "fotos")
 const STYLES = {
   noite: {
     theme: "#0a0f24",
-    fonts: "family=Cormorant+Garamond:ital,wght@0,300..600;1,300..600&family=Sora:wght@300..600",
+    fonts: "family=Playfair+Display:ital,wght@0,400..600;1,400..600&family=Sora:wght@300..600",
   },
   azulejo: {
     theme: "#f6f1e7",

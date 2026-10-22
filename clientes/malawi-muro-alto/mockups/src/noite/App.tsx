@@ -2,12 +2,17 @@ import * as React from "react"
 import { ArrowUpRight, CalendarDays, Check, MapPin, Quote, Star } from "lucide-react"
 
 import { Button } from "../components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card"
+import { Card, CardDescription, CardHeader, CardTitle } from "../components/ui/card"
 import { BookingBar, BookingCard, BookingProvider, DateRangePicker, GuestsStepper, useBooking } from "../shared/booking"
 import { CONDO, DISTANCES, HOUSE, MAP_URL, NAME, PHOTOS, REVIEW, SUITES, photoSrc } from "../shared/data"
 import { Faq } from "../shared/faq"
 import { PhotoViewer } from "../shared/gallery"
 import { Nav } from "../shared/nav"
+import { useWebGL } from "../shared/motion"
+import CountUp from "../bits/CountUp"
+import LightRays from "../bits/LightRays"
+import SpotlightCard from "../bits/SpotlightCard"
+import SplitText from "../bits/SplitText"
 import { cn } from "../lib/utils"
 
 const LINKS: [string, string][] = [
@@ -45,8 +50,23 @@ function SectionHead({ id, eyebrow, title, children }: { id: string; eyebrow: st
 
 function Hero() {
   const { openBooking } = useBooking()
+  const webgl = useWebGL()
   return (
     <section id="topo" className="night-glow relative isolate grid min-h-[100svh] overflow-hidden md:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
+      {webgl && (
+        <LightRays
+          raysOrigin="top-left"
+          raysColor="#ffcf8a"
+          raysSpeed={0.6}
+          lightSpread={0.9}
+          rayLength={1.6}
+          intensity={0.7}
+          opacity={0.55}
+          followMouse
+          mouseInfluence={0.08}
+          className="absolute! inset-0 -z-10"
+        />
+      )}
       {/* Celular: a foto ocupa a capa inteira, com o texto por cima. */}
       <div className="absolute inset-0 -z-10 md:hidden">
         <img src={photoSrc("55a-piscina-noite")} alt="Redes e piscina iluminada à noite" width={860} height={1068} className="size-full object-cover" />
@@ -56,7 +76,9 @@ function Hero() {
       <div className="gutter grid content-end gap-6 pt-28 pb-36 md:content-center md:py-28 md:pr-10 md:pl-[max(20px,calc((100vw-72rem)/2))]">
         <Eyebrow className="text-white/85 md:text-amber">Muro Alto · Porto de Galinhas</Eyebrow>
         <h1 className="text-[clamp(3.4rem,11vw,6.6rem)] leading-[0.92]">
-          Bangalô <em className="text-amber">Muro Alto</em>
+          <SplitText text="Bangalô" tag="span" effect="blur" trigger="load" delay={60} />
+          <br />
+          <SplitText text="Muro Alto" tag="span" effect="blur" trigger="load" delay={60} className="text-amber italic" />
         </h1>
         <p className="max-w-[36ch] text-[clamp(1.02rem,1.6vw,1.2rem)] leading-relaxed text-white/85">
           5 suítes para 10 pessoas, piscina privativa e empregada todos os dias, a 30 segundos do mar no condomínio
@@ -92,6 +114,14 @@ function Hero() {
   )
 }
 
+// Cartões que acendem sob o dedo ou o mouse, na cor das luzes da varanda.
+const SPOTLIGHT = {
+  spotlightColor: "#ffb547",
+  intensity: 0.22,
+  spotlightSize: 260,
+  style: { "--spotlight-card-surface": "var(--card)", "--spotlight-card-border": "var(--border)" } as React.CSSProperties,
+}
+
 function Facts() {
   return (
     <div className="gutter">
@@ -99,8 +129,8 @@ function Facts() {
         {FACTS.map((fact) => (
           <div key={fact.label} className="grid gap-2">
             <dt className="order-2 text-sm text-muted-foreground">{fact.label}</dt>
-            <dd className="order-1 font-display text-[3.4rem] leading-[0.85] text-foreground tabular-nums">
-              {fact.value}
+            <dd className="order-1 font-display text-[3.4rem] leading-[0.85] text-foreground">
+              <CountUp to={fact.value} duration={1.6} style={{ fontVariantNumeric: "lining-nums proportional-nums" }} />
               {fact.suffix && <span className="text-[0.5em] text-amber">{fact.suffix}</span>}
             </dd>
           </div>
@@ -117,7 +147,7 @@ function Gallery({ onOpen }: { onOpen: (i: number) => void }) {
         Bangalô de frente para o mar, com piscina privativa, bar na varanda, redes no jardim e salas abertas para a
         piscina. Toque numa foto para ampliar.
       </SectionHead>
-      <div className="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-3">
+      <div className="grid grid-flow-dense grid-cols-2 gap-2 md:grid-cols-4 md:gap-3">
         {PHOTOS.map((p, i) => (
           <button
             key={p.id}
@@ -127,7 +157,7 @@ function Gallery({ onOpen }: { onOpen: (i: number) => void }) {
             aria-label={`Ampliar: ${p.caption}`}
             className={cn(
               "group relative overflow-hidden rounded-xl bg-card",
-              i === 0 ? "col-span-2 row-span-2 aspect-square md:aspect-auto" : "aspect-[4/3]",
+              i === 0 || i === 5 ? "col-span-2 row-span-2 aspect-square md:aspect-auto" : "aspect-[4/3]",
             )}
           >
             <img
@@ -154,14 +184,6 @@ function Service() {
           Limpeza e cozinha incluídas, com roupa de cama e toalhas. A churrasqueira e o bar da varanda ficam a
           poucos passos da piscina.
         </SectionHead>
-        <ul className="grid gap-3 text-[0.95rem]">
-          {HOUSE.slice(0, 6).map((item) => (
-            <li key={item} className="flex gap-3">
-              <Check className="mt-0.5 size-4 shrink-0 text-amber" aria-hidden="true" />
-              {item}
-            </li>
-          ))}
-        </ul>
       </div>
     </section>
   )
@@ -201,31 +223,27 @@ function Condo() {
       <ul className="grid grid-cols-2 gap-3 md:grid-cols-4">
         {CONDO.map((item) => (
           <li key={item}>
-            <Card className="h-full gap-0 py-5">
-              <CardContent className="flex items-start gap-3 px-5">
-                <span className="mt-2 size-1.5 shrink-0 rounded-full bg-amber" aria-hidden="true" />
-                <span className="text-[0.95rem] leading-snug">{item}</span>
-              </CardContent>
-            </Card>
+            <SpotlightCard {...SPOTLIGHT} className="flex h-full items-start gap-3 rounded-2xl p-5!">
+              <span className="mt-2 size-1.5 shrink-0 rounded-full bg-amber" aria-hidden="true" />
+              <span className="text-[0.95rem] leading-snug">{item}</span>
+            </SpotlightCard>
           </li>
         ))}
       </ul>
-      <Card className="gap-4">
-        <CardHeader>
-          <CardTitle>Na casa</CardTitle>
-          <CardDescription>Tudo o que o anúncio lista para o bangalô.</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <ul className="grid gap-x-8 gap-y-3 text-[0.95rem] md:grid-cols-2">
-            {HOUSE.map((item) => (
-              <li key={item} className="flex gap-3">
-                <Check className="mt-0.5 size-4 shrink-0 text-amber" aria-hidden="true" />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </CardContent>
-      </Card>
+      <SpotlightCard {...SPOTLIGHT} spotlightSize={420} className="grid gap-5 p-6! md:p-8!">
+        <div className="grid gap-1.5">
+          <h3 className="text-3xl">Na casa</h3>
+          <p className="text-sm text-muted-foreground">Tudo o que o anúncio lista para o bangalô.</p>
+        </div>
+        <ul className="grid gap-x-8 gap-y-3 text-[0.95rem] md:grid-cols-2">
+          {HOUSE.map((item) => (
+            <li key={item} className="flex gap-3">
+              <Check className="mt-0.5 size-4 shrink-0 text-amber" aria-hidden="true" />
+              {item}
+            </li>
+          ))}
+        </ul>
+      </SpotlightCard>
     </section>
   )
 }
