@@ -8,10 +8,17 @@ Cada imóvel é um cliente em `clientes/<slug>/`. Clientes: **Casa Dez** e **Por
 2. Para um imóvel novo, use a skill `novo-cliente`. Para orçamento/proposta, `proposta-comercial`.
 3. Dependências: `npm install` na raiz (o hook de sessão já faz isso na nuvem).
 
+## Modelos e skill padrão (pedido do usuário)
+- **Advisor: Opus** (`advisorModel` em `.claude/settings.json`). **Subagentes: Haiku**
+  (`CLAUDE_CODE_SUBAGENT_MODEL`); ao chamar o Agent, passar `model: "haiku"`.
+- **Em toda solicitação**, aplicar a skill `karpathy-guidelines` (`.claude/skills/karpathy-guidelines/`):
+  pensar antes e explicitar suposições, fazer o mínimo que resolve, mudar só o necessário e definir como
+  verificar. O hook `UserPromptSubmit` (`.claude/hooks/karpathy.sh`) lembra disso a cada pedido.
+
 ## Estrutura
 ```
 CLAUDE.md, README.md
-.claude/                 settings.json, hooks/session-start.sh, skills/
+.claude/                 settings.json, hooks/ (session-start, karpathy), skills/
 docs/                    processo.md (fluxo de venda), precos.md (pacotes), publicacao.md (domínio próprio)
 scripts/                 ferramentas (recorte de fotos, preview, checagem, PDF, build do site)
 web/                     página da NEXO (raiz do domínio), 404 e favicon
