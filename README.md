@@ -22,7 +22,9 @@ npm run pdf -- clientes/casa-dez/proposta.html clientes/casa-dez/Proposta-Casa-D
 Os scripts de navegador usam o Chromium em `/opt/pw-browsers/chromium` (nuvem), `CHROME_PATH` ou o Google
 Chrome instalado.
 
-- Fluxo de venda, do primeiro contato à publicação: [docs/processo.md](docs/processo.md)
+- Fluxo de venda, do primeiro contato à publicação, skills e MCPs: [docs/processo.md](docs/processo.md)
+- Como cada site foi feito: [Casa Dez](clientes/casa-dez/historico.md) ·
+  [Casa 6 Suítes](clientes/porto-6-suites/historico.md)
 - Endereço próprio (Cloudflare Pages + domínio): [docs/publicacao.md](docs/publicacao.md) — `npm run build:web`
 - Pacotes e preços: [docs/precos.md](docs/precos.md)
 - Regras para o Claude: [CLAUDE.md](CLAUDE.md) e skills em `.claude/skills/`

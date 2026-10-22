@@ -60,6 +60,8 @@ Siga a skill `proposta-comercial`.
 
 ## 8. Fechar a etapa
 - `clientes/<slug>/README.md`: status, links publicados, decisões.
+- `clientes/<slug>/historico.md`: os pedidos em ordem, skills e MCPs usados em cada um, problemas resolvidos
+  e o que ficou em aberto (modelos: `clientes/casa-dez/historico.md`, `clientes/porto-6-suites/historico.md`).
 - Linha do cliente na tabela de `README.md` da raiz.
 - Commit `feat(<slug>): …` e push.
 - Lembre o usuário de compartilhar os links pelo menu Share antes de enviar ao proprietário.

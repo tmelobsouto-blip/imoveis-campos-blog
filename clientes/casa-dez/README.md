@@ -5,6 +5,7 @@ envio em [mensagens.md](mensagens.md). Falta compartilhar os links como público
 
 - Anúncio: https://www.airbnb.com/l/4AhFnWmJ
 - Fatos usados nos textos: [dados.md](dados.md)
+- Como o site foi feito: [historico.md](historico.md)
 
 ## Links publicados (Artifacts claude.ai)
 

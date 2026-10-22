@@ -1,4 +1,4 @@
-# Dados do anúncio — Porto 6 Suítes (nome provisório)
+# Dados do anúncio — Casa 6 Suítes (nome sugerido)
 
 Fonte: prints do anúncio no TemporadaLivre enviados em 22/10/2026 (Anúncio #126200,
 temporadalivre.com, "Linda casa em Porto de Galinhas"). Prints em `fonte/` (galeria) e `fonte/anuncio/`.

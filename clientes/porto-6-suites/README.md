@@ -1,4 +1,4 @@
-# Porto 6 Suítes (nome provisório) — Porto de Galinhas, PE
+# Casa 6 Suítes (nome sugerido; pasta `porto-6-suites`) — Porto de Galinhas, PE
 
 **Status:** site final "Casa 6 Suítes" e proposta prontos (direção Placas e pastilha). Mensagem de envio em
 [mensagens.md](mensagens.md). Falta compartilhar os links pelo menu Share, pedir as fotos originais sem marca d'água e confirmar com o anunciante os pontos
@@ -7,6 +7,7 @@ marcados em `dados.md`.
 - Fonte das informações: anúncio #126200 no TemporadaLivre (anunciante: Luis Calado). É só a fonte: o nome
   da plataforma não aparece nos mockups.
 - Fatos usados nos textos: [dados.md](dados.md)
+- Como o site foi feito: [historico.md](historico.md)
 
 ## Links publicados (Artifacts claude.ai)
 

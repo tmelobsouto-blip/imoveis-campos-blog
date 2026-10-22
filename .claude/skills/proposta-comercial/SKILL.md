@@ -5,23 +5,26 @@ description: Cria ou atualiza a proposta comercial da NEXO Websites para um prop
 
 # Proposta comercial
 
-Base: `clientes/casa-dez/proposta.html` (mesma identidade visual do site do cliente). Preços e condições
+Base: `clientes/casa-dez/proposta.html` (anúncio do Airbnb) ou `clientes/porto-6-suites/proposta.html`
+(anúncio fora do Airbnb, site React), sempre com a identidade visual do site do cliente. Preços e condições
 vêm de `docs/precos.md`, salvo pedido do usuário; se mudar o preço, atualize `docs/precos.md` também.
 
 ## Antes de escrever
 Confirme que existem (senão pergunte ou use marcador amarelo `<span class="ph">[…]</span>`):
 - Nome, WhatsApp e e-mail do vendedor.
 - Primeiro nome do anfitrião (está em `dados.md`).
-- Um valor total de estadia com datas, tirado do próprio anúncio.
+- Só se o anúncio for do Airbnb: um valor total de estadia com datas, tirado do próprio anúncio.
 - Link publicado do `site.html` do cliente (README do cliente).
 
 ## Conteúdo
 1. Cabeçalho: para quem, de quem, data de hoje, validade de 15 dias (data por extenso em pt-BR).
 2. Vitrine: captura do site no desktop e no celular + botão "Ver o site funcionando" com o link do Artifact.
-3. Ponto de partida: nota, selo, nº de avaliações — o que a casa já tem.
+3. Ponto de partida: nota, selo, nº de avaliações — o que a casa já tem (sem avaliações: capacidade e procura).
 4. O que o site resolve: reserva direta, marca própria, apresentação, menos perguntas repetidas.
-5. A conta: total da estadia × taxa do Airbnb (15,5%, até 16% no Brasil) ≈ valor que fica na plataforma;
+5. A conta (só anúncio do Airbnb): total da estadia × taxa do Airbnb (15,5%, até 16% no Brasil) ≈ valor que fica na plataforma;
    comparar com o pacote recomendado. Nota de rodapé com as fontes e "confira no seu painel".
+   Anúncio de outra plataforma: sem conta de taxa; comparar o anúncio atual com o site, só com fatos dos
+   prints (avaliações, calendário, fotos, forma de contato), em tom respeitoso.
 6. O que está no site: checklist + 4 telas de celular.
 7. Pacotes: Essencial, Completo (Recomendado), Premium + manutenção opcional.
 8. Como funciona (4 passos), condições, contato do vendedor.
@@ -31,7 +34,8 @@ Google ou hospedagem grátis da Vercel.
 
 ## Telas, PDF e checagem
 ```bash
-npm run telas -- clientes/<slug>/site.html clientes/<slug>/img
+npm run telas -- clientes/<slug>/site.html clientes/<slug>/img            # site em HTML
+npm run telas -- clientes/<slug>/site/dist/index.html clientes/<slug>/img  # site React (build antes)
 npm run check -- clientes/<slug>
 npm run pdf -- clientes/<slug>/proposta.html clientes/<slug>/Proposta-<Nome>.pdf
 ```

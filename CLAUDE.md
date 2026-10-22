@@ -1,7 +1,8 @@
 # NEXO Websites
 
 Estúdio que cria **sites próprios de reserva direta para imóveis de temporada** e vende ao proprietário.
-Cada imóvel é um cliente em `clientes/<slug>/`. Clientes: **Casa Dez** e **Porto 6 Suítes** (nome provisório), ambos em Porto de Galinhas, PE.
+Cada imóvel é um cliente em `clientes/<slug>/`. Clientes: **Casa Dez** e **Casa 6 Suítes** (nome sugerido, pasta `porto-6-suites`), ambos em Porto de Galinhas, PE.
+Como cada site foi feito: `clientes/<slug>/historico.md`; fluxo geral, skills e MCPs: `docs/processo.md`.
 
 ## Antes de começar
 1. Leia `clientes/<slug>/README.md` do cliente em questão (status, links publicados, decisões).
@@ -32,6 +33,7 @@ web/                     página da NEXO (raiz do domínio), 404 e favicon
 dist/                    gerado por npm run build:web (não vai para o git)
 clientes/<slug>/
   README.md              status, links publicados, decisões do cliente
+  historico.md           como o site foi feito: pedidos em ordem, skills/MCPs, problemas, pendências
   dados.md               fatos do anúncio (fonte única para textos)
   fonte/                 prints originais da galeria (não editar); recorte.json se a galeria não tem moldura branca
   fotos/                 fotos recortadas (<id>.webp + <id>-thumb.webp)
@@ -40,7 +42,7 @@ clientes/<slug>/
   proposta.html + Proposta-<Nome>.pdf + img/   proposta comercial
   tour/                  (opcional, Premium) tour imersivo Next.js
   site-v2/               (Casa Dez) versão React + shadcn/ui; build em site-v2/dist/
-  site/                  (Porto 6 Suítes) site final em React + shadcn/ui no lugar de site.html; build em site/dist/
+  site/                  (Casa 6 Suítes) site final em React + shadcn/ui no lugar de site.html; build em site/dist/
 ```
 
 ## Comandos
@@ -79,7 +81,7 @@ clientes/<slug>/
 Dois canais:
 - **Domínio próprio (para enviar ao proprietário)**: `npm run build:web` → Cloudflare Pages
   (`docs/publicacao.md`). Links `claude.ai/artifact` listados no README do cliente viram caminhos do domínio;
-  páginas de clientes saem com `noindex`.
+  páginas de clientes saem com `noindex`. Só entram clientes com `site.html` (sites React em `site/` ainda não).
 - **Artifact do claude.ai (prévia)**:
 - Publicar com `root = clientes/<slug>` e `files` = só as fotos/imagens que a página usa.
 - **Republicar sempre com o `url` do Artifact existente** (tabela no README do cliente), senão nasce um link novo.
