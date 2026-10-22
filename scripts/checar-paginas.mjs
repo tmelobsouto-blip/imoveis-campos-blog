@@ -24,7 +24,8 @@ for (const name of pages) {
     page.on('console', (m) => m.type() === 'error' && !/favicon/.test(m.text()) && errors.push(m.text()));
     await page.goto(pathToFileURL(tmp).href, { waitUntil: 'networkidle' });
     await page.waitForTimeout(1200);
-    const overflow = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
+    // No celular, conteúdo largo demais faz o navegador afastar o zoom: innerWidth passa da largura da tela.
+    const overflow = await page.evaluate((w) => Math.max(document.documentElement.scrollWidth, innerWidth) - w, vp.width);
     await page.screenshot({ path: join(shots, `${name.replace('.html', '')}-${label}.png`) });
     const ok = overflow <= 0 && errors.length === 0;
     if (!ok) problems++;

@@ -1,0 +1,93 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Tema shadcn/ui com a identidade da Casa Dez: papel de pedra, tinta, azul porcelana do vaso das fotos. */
+:root {
+  --radius: 0.375rem;
+  --background: #f3f3f0;
+  --foreground: #1c1d1f;
+  --card: #fbfbf9;
+  --card-foreground: #1c1d1f;
+  --popover: #fbfbf9;
+  --popover-foreground: #1c1d1f;
+  --primary: #233f8c;
+  --primary-foreground: #fbfbf9;
+  --secondary: #e3e8f4;
+  --secondary-foreground: #1c1d1f;
+  --muted: #e9e9e4;
+  --muted-foreground: #5f5f58;
+  --accent: #e3e8f4;
+  --accent-foreground: #233f8c;
+  --destructive: #b42318;
+  --border: #d6d6cf;
+  --input: #cfcfc7;
+  --ring: #233f8c;
+  --night: #0b1116;
+  --bone: #f3f3f0;
+  color-scheme: light;
+}
+
+@theme inline {
+  --font-sans: "Jost", "Futura", system-ui, sans-serif;
+  --font-serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-night: var(--night);
+  --color-bone: var(--bone);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 6px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-weight: 300;
+  }
+  h1, h2, h3 {
+    @apply font-serif;
+    font-weight: 300;
+    text-wrap: balance;
+    letter-spacing: -0.015em;
+  }
+}
+
+@keyframes settle {
+  from { transform: scale(1.1); }
+  to { transform: scale(1); }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+.animate-settle { animation: settle 9s cubic-bezier(.2,.7,.2,1) both; }
+.animate-rise { animation: rise 1.4s ease both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+@utility gutter {
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}

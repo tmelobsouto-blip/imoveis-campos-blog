@@ -1,5 +1,5 @@
 #!/bin/bash
-# Prepara sessões do Claude Code na nuvem: ferramentas da raiz e apps de tour dos clientes.
+# Prepara sessões do Claude Code na nuvem: ferramentas da raiz e apps dos clientes (tour, site-v2).
 set -euo pipefail
 
 if [ "${CLAUDE_CODE_REMOTE:-}" != "true" ]; then
@@ -10,9 +10,9 @@ cd "${CLAUDE_PROJECT_DIR:-$(dirname "$0")/../..}"
 
 npm install --no-audit --no-fund
 
-for app in clientes/*/tour; do
-  if [ -f "$app/package.json" ]; then
-    npm install --prefix "$app" --no-audit --no-fund
+for manifest in clientes/*/*/package.json; do
+  if [ -f "$manifest" ]; then
+    npm install --prefix "$(dirname "$manifest")" --no-audit --no-fund
   fi
 done
 

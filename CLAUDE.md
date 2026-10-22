@@ -25,6 +25,7 @@ clientes/<slug>/
   mockup-*.html          direções visuais apresentadas
   proposta.html + Proposta-<Nome>.pdf + img/   proposta comercial
   tour/                  (opcional, Premium) tour imersivo Next.js
+  site-v2/               (Casa Dez) versão React + shadcn/ui; build em site-v2/dist/
 ```
 
 ## Comandos
@@ -37,7 +38,8 @@ clientes/<slug>/
 | `npm run pdf -- clientes/<slug>/proposta.html clientes/<slug>/Proposta-<Nome>.pdf` | gera o PDF A4 da proposta |
 | `npm run build:web` | monta `dist/` para o domínio próprio: `/`, `/<slug>/`, `/<slug>/proposta/`, mockups e PDF |
 | `npm run tour -- validate` | typecheck + testes + build do tour da Casa Dez |
-| `npm run validate` | checa os scripts e valida o tour |
+| `npm run site-v2 -- build` | gera `clientes/casa-dez/site-v2/dist/` (página + app.js + app.css + fotos usadas) |
+| `npm run validate` | checa os scripts, valida o tour e faz o typecheck do site-v2 |
 
 ## Regras de conteúdo (não negociáveis)
 - **Fotos reais**: só as do anúncio ou do proprietário. Pode recortar e redimensionar. Nunca retocar, gerar com IA, usar banco de imagens ou inventar ambientes.
@@ -70,6 +72,9 @@ Dois canais:
 ## Código e git
 - Textos de interface e documentação em português do Brasil. Código e comentários seguem o padrão do arquivo; comentar só o porquê não óbvio.
 - Tour imersivo: Next.js + React + TypeScript + Tailwind 4, WebGL2 próprio, testes com vitest.
+- site-v2: React 19 + Tailwind 4 + componentes shadcn/ui copiados do registro oficial (new-york-v4) em
+  `src/components/ui/`, empacotados com esbuild. Publicar com `root = clientes/casa-dez/site-v2/dist`.
+  O MCP do shadcn está em `.mcp.json`; precisa de `ui.shadcn.com` liberado na rede do ambiente.
 - Commits: `feat|fix|docs|chore(escopo): mensagem`. Nunca commitar `.env*`, `node_modules`, `.screens/` ou builds.
 
 ## Estilo de resposta

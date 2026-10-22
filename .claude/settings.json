@@ -10,6 +10,7 @@
       "Bash(npm run pdf:*)",
       "Bash(npm run build:web)",
       "Bash(npm run tour:*)",
+      "Bash(npm run site-v2:*)",
       "Bash(npm run validate)",
       "Bash(git status:*)",
       "Bash(git diff:*)",

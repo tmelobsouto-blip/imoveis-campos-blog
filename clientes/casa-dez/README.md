@@ -18,6 +18,7 @@ Republicar sempre com o `url` abaixo, `root = clientes/casa-dez` e só as fotos 
 | `mockup-cinema.html` | https://claude.ai/artifact/NcCHPpF6iWVFmg5RL99NtA | Villa Maré |
 | `mockup-boutique.html` | — | substituído pelo `site.html` no mesmo link |
 | `tour/` (bundle `npm run tour -- artifact`) | https://claude.ai/artifact/XSt1k9qcTRXoWp6sjCPeey | tour imersivo, item do pacote Premium |
+| `site-v2/dist/` (`npm run site-v2 -- build`) | https://claude.ai/artifact/3tHRyx4xKLQQ9rPo7gCkSS | mockup v2 com shadcn/ui; `root = site-v2/dist` |
 
 Todos são privados até o usuário compartilhar pelo menu Share.
 
@@ -32,6 +33,12 @@ No domínio próprio (`npm run build:web`, ver [docs/publicacao.md](../../docs/p
 - Visual final: capa cinematográfica em tela cheia (foto aérea 34) + restante boutique minimal
   (Newsreader + Jost, papel `#f3f3f0`, azul porcelana `#233f8c` do vaso das fotos).
 - Só português. Preço da diária não aparece no site.
+- Site v2 (mockup, mesmo visual e mesmos fatos): três referências do shadcn/ui para levar à reserva.
+  1. **Date Range Picker** (Popover + Calendar em período, pt-BR): escolha de datas e hóspedes já na capa.
+  2. **Carousel com API** (Embla): galeria com contador, categorias e miniaturas.
+  3. **Drawer/Dialog responsivo**: consulta de datas em gaveta no celular e em janela no desktop,
+     com resumo das noites e mensagem pronta para o WhatsApp (sem número até o proprietário fornecer).
+  Mobbin não foi usado (exige plano pago).
 - Pacotes ofertados: ver [docs/precos.md](../../docs/precos.md). Conta da proposta: estadia de R$ 25.250
   (23–28/out/2026) × 15,5% ≈ R$ 3.900.
 
