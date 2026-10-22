@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* Cal e madeira: tijolinho branco, muro de madeira e o azul-marinho do sofá, tirados das fotos da casa.
+/* Cal e madeira: tijolinho branco, muro amadeirado e o azul-marinho do sofá, tirados das fotos da casa.
    Layout da Casa 6 (capa dividida, galeria com miniaturas, reserva fixa ao lado) com acabamento editorial. */
 :root {
   --radius: 0.75rem;

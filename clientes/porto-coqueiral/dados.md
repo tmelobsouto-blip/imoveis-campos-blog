@@ -80,7 +80,7 @@ Toalhas não aparecem na lista (só roupa de cama); "cama, mesa e banho" só den
   guarda-sóis azuis.
 - Piscina e jardim iluminados à noite.
 - Sala de estar e jantar integradas: sofá azul com almofadas amarelas e laranja, parede de tijolinho branco
-  com pratos de palha, quadro com jangadas, mesa de jantar de madeira com cadeiras, TV na sala.
+  com pratos de palha, quadro com jangadas, mesa de jantar branca com cadeiras de madeira, TV na sala.
 - Não há fotos das suítes, da cozinha nem dos banheiros entre as 28 enviadas (o anúncio tem 86).
 
 ## Regras e observações
@@ -129,7 +129,7 @@ Por cima de algumas fotos havia avisos do navegador e da plataforma: as fotos 02
 
 | Foto | Ambiente (legenda da galeria quando havia) |
 |---|---|
-| 02 | Piscina com cascata e muro de madeira |
+| 02 | Piscina com cascata e muro amadeirado |
 | 03 | Cascata e piscina |
 | 04 | Piscina com cascata e terraço com rede |
 | 05 | Piscina, terraço e churrasqueira ao fundo |

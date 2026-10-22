@@ -436,7 +436,7 @@ function Mosaic({ onShowAll }: { onShowAll: () => void }) {
               className="absolute inset-0 hidden place-content-center gap-1 bg-deep/55 text-center text-white backdrop-blur-[1px] transition-colors hover:bg-deep/70 md:grid"
             >
               <LayoutGrid className="mx-auto size-5" />
-              <span className="font-display text-2xl">+{PHOTOS.length} fotos</span>
+              <span className="font-display text-2xl">Ver as {PHOTOS.length} fotos</span>
             </button>
           )}
         </div>
@@ -630,7 +630,7 @@ function Living() {
   return (
     <section aria-labelledby="sala" className="grid grid-cols-1 gap-8 scroll-mt-24" id="sala-secao">
       <SectionHead id="sala" eyebrow="Por dentro" title={<>Sala de estar <em>e jantar</em></>}>
-        Integradas, com tijolinho branco, pratos de palha na parede, sofá azul, mesa de jantar de madeira e TV.
+        Integradas, com tijolinho branco, pratos de palha na parede, sofá azul, mesa de jantar com cadeiras de madeira e TV.
       </SectionHead>
       <div className="grid grid-cols-2 gap-2 md:grid-cols-[0.8fr_1.2fr] md:gap-3">
         <div className="row-span-2 overflow-hidden rounded-lg">
@@ -663,10 +663,10 @@ function Night() {
         <h2 id="noite" className="text-[2.2rem] leading-[1.02] md:text-[2.8rem]">
           A piscina <em>acende</em>
         </h2>
-        <p className="max-w-[52ch] text-white/75">A piscina e o jardim ficam iluminados, e a frente da casa ganha luz no muro de madeira.</p>
+        <p className="max-w-[52ch] text-white/75">A piscina e o jardim ficam iluminados, e a frente da casa ganha luz no muro amadeirado.</p>
       </div>
       <img src={photoSrc("23b-piscina-noite")} alt="Piscina iluminada de azul à noite, com o deck de madeira e o terraço ao fundo." width={1600} height={331} loading="lazy" className="aspect-[3/1] w-full rounded-lg object-cover object-[50%_60%] md:aspect-[4.8/1]" />
-      <img src={photoSrc("22a-fachada-noite")} alt="Muro de madeira da frente da casa com luminárias acesas e plantas, à noite." width={1600} height={451} loading="lazy" className="aspect-[3/1] w-full rounded-lg object-cover md:aspect-[3.5/1]" />
+      <img src={photoSrc("22a-fachada-noite")} alt="Muro amadeirado da frente da casa com luminárias acesas e plantas, à noite." width={1600} height={451} loading="lazy" className="aspect-[3/1] w-full rounded-lg object-cover md:aspect-[3.5/1]" />
     </section>
   )
 }

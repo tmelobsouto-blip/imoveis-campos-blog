@@ -17,7 +17,7 @@ export interface Photo {
 export const PHOTOS: Photo[] = [
   { id: "04-piscina", category: "Piscina", caption: "Piscina com cascata e terraço com rede", height: 732 },
   { id: "12-piscina", category: "Piscina", caption: "Piscina, guarda-sóis e churrasqueira", height: 732 },
-  { id: "02-piscina", category: "Piscina", caption: "Piscina com cascata e muro de madeira", height: 732 },
+  { id: "02-piscina", category: "Piscina", caption: "Piscina com cascata e muro amadeirado", height: 732 },
   { id: "03-cascata", category: "Piscina", caption: "Cascata e piscina", height: 732 },
   { id: "05-piscina", category: "Piscina", caption: "Piscina, terraço e churrasqueira ao fundo", height: 732 },
   { id: "06-piscina", category: "Piscina", caption: "Piscina e gramado", height: 732 },
@@ -56,14 +56,14 @@ export interface Crop {
 
 // Recortes fora da marca d'água (fonte/recorte.json), para capa e destaques.
 export const HERO: Crop[] = [
-  { id: "04a-piscina", width: 860, height: 970, alt: "Cascata caindo na piscina, ao lado do muro revestido de madeira." },
+  { id: "04a-piscina", width: 860, height: 970, alt: "Cascata caindo na piscina, ao lado do muro amadeirado." },
   { id: "23c-piscina-noite", width: 880, height: 1068, alt: "Terraço com rede e poltronas amarelas e a piscina iluminada à noite." },
   { id: "33a-terraco-balanco", width: 890, height: 1068, alt: "Balanço suspenso em forma de ovo no terraço coberto, ao lado do gramado." },
 ]
 
 export const MOSAIC: Crop[] = [
   { id: "12b-piscina", width: 880, height: 970, alt: "Churrasqueira de tijolos com azulejos, guarda-sóis azuis e mesas brancas no gramado, à beira da piscina." },
-  { id: "10a-lazer", width: 861, height: 970, alt: "Piscina com cascata, muro de madeira e coqueiros." },
+  { id: "10a-lazer", width: 861, height: 970, alt: "Piscina com cascata, muro amadeirado e coqueiros." },
   { id: "14b-sala", width: 874, height: 970, alt: "Sala com sofá azul, poltrona de madeira, pratos de palha e plantas na parede de tijolinho branco." },
   { id: "30a-piscina", width: 861, height: 1068, alt: "Terraço com rede e poltronas, visto de cima, ao lado da piscina." },
   { id: "26a-churrasqueira-noite", width: 880, height: 1068, alt: "Churrasqueira de tijolos acesa, com parede de azulejos estampados, à noite." },
