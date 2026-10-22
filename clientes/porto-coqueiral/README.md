@@ -1,7 +1,8 @@
 # Casa em Porto de Galinhas (pasta `porto-coqueiral`) — Porto de Galinhas, PE
 
-**Status:** mockup no estilo da Casa 6 (React + shadcn/ui) pronto, aguardando aprovação do usuário. Os 3
-mockups por perfil foram descartados a pedido do usuário. Falta compartilhar o link como público (menu Share).
+**Status:** mockup no estilo da Casa 6 (React + shadcn/ui) e proposta prontos para envio ao anfitrião
+(Francisco). Mensagem de envio em [mensagens.md](mensagens.md). Falta compartilhar os links como públicos
+(menu Share). Os 3 mockups por perfil foram descartados a pedido do usuário.
 
 - Anúncio de origem: TemporadaLivre, Ref. 75328, "Casa com 5 suítes em Porto de galinhas" (a plataforma é
   só a fonte e não aparece no site)
@@ -17,6 +18,7 @@ Republicar sempre com o `url` abaixo. Mockup atual: rodar o build e publicar `si
 | Arquivo | Artifact | Observação |
 |---|---|---|
 | `site/dist/` (`npm --prefix clientes/porto-coqueiral/site run build`) | https://claude.ai/artifact/CxDr8RPpgiEcK4Ds6kHfNM | **mockup atual**, estilo Casa 6; `root = site/dist` |
+| `proposta.html` | https://claude.ai/artifact/6PERsmh3xYu1TQAzVPTZ8y | usa `img/`; PDF em `Proposta-Casa-em-Porto-de-Galinhas.pdf` |
 | `mockup-familias.html` | https://claude.ai/artifact/WeyRNhzmnsq8gnto2smbyc | descartado · famílias, caderno de férias |
 | `mockup-amigos.html` | https://claude.ai/artifact/MT9FVVzU3btQGh9rhDdM9k | descartado · amigos, azulejo à noite |
 | `mockup-casais.html` | https://claude.ai/artifact/SSkB3qDDkDcFsX5iHrchMW | descartado · casais, linho e palha |

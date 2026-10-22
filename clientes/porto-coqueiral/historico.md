@@ -92,9 +92,25 @@ mockup mais moderno, elegante, com mais fotos".
 - Verificação: `npm run check` em `site/dist` sem erros; clique real repetido (menu, gaveta e janela de reserva,
   limite de 17, Copiar, ambientes como `radio` que não desmarcam, foto ampliada, grade, capa).
 
+## 4. Proposta e mensagem de envio
+
+**Pedido:** "Mande tudo para enviar a proposta".
+
+- Skill `proposta-comercial`, com base na proposta da Casa 6 Suítes (anúncio fora do Airbnb, site React) e a
+  identidade do mockup (cal e madeira, Fraunces + Plus Jakarta Sans).
+- Telas com `npm run telas` sobre `site/dist/index.html` (os ids `#a-casa`, `#suites-secao`, `#lazer-secao` e
+  `#reservar` do site foram mantidos para isso).
+- Sem conta de taxa (não é Airbnb): comparação do anúncio com o site só com fatos dos prints. Ponto de partida
+  com nota 4,8 em 12 avaliações, 17 hóspedes e o aviso de 62 interessados na última semana.
+- Tabela de preços atual de [docs/precos.md](../../docs/precos.md); validade de 15 dias (até 6/11/2026).
+- PDF A4 com 5 páginas. Problema: a legenda da vitrine passava por baixo do celular; ganhou largura máxima.
+- `mensagens.md`: texto de WhatsApp para o Francisco com os dois links e o PDF anexo. O telefone da placa da
+  foto 22 não foi usado; o contato é pelo anúncio.
+- `npm run build:web` ainda não publica sites React: os links enviados são os do claude.ai.
+
 ## Em aberto
 
+- Enviar a proposta (compartilhar os links pelo menu Share antes).
 - Aprovar o mockup no estilo da Casa 6 (ou pedir ajustes) para virar o site final.
 - Pedir ao proprietário fotos originais e fotos das suítes, da cozinha e dos banheiros.
 - Confirmar as camas da suíte 1 e os ar-condicionados por suíte.
-- Proposta comercial ainda não feita (anúncio fora do Airbnb: sem conta de taxa, como na Casa 6 Suítes).
