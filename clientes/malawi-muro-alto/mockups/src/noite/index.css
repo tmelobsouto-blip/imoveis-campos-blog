@@ -1,0 +1,48 @@
+@import "../shared/base.css";
+
+/* Noite no Malawi: o azul elétrico da piscina iluminada e o âmbar das luzes da varanda, tirados das fotos 52 e 55. */
+:root {
+  --sans: "Sora", "Segoe UI", system-ui, sans-serif;
+  --display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+  --radius: 0.9rem;
+  --background: #0a0f24;
+  --foreground: #f3efe7;
+  --card: #121a3a;
+  --card-foreground: #f3efe7;
+  --popover: #121a3a;
+  --popover-foreground: #f3efe7;
+  --primary: #ffb547;
+  --primary-foreground: #0a0f24;
+  --secondary: #1b2550;
+  --secondary-foreground: #f3efe7;
+  --muted: #1b2550;
+  --muted-foreground: #a9aec8;
+  --accent: #1b2550;
+  --accent-foreground: #ffb547;
+  --destructive: #ff6b5e;
+  --border: #252e57;
+  --input: #2f3a6b;
+  --ring: #2f5bff;
+  --pool: #2f5bff;
+  --amber: #ffb547;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-pool: var(--pool);
+  --color-amber: var(--amber);
+}
+
+@layer base {
+  h1, h2, h3 {
+    font-weight: 400;
+    letter-spacing: -0.015em;
+  }
+}
+
+/* Gradiente parado no lugar do fundo de luz em WebGL (celular, sem WebGL ou com "reduzir movimento"). */
+@utility night-glow {
+  background:
+    radial-gradient(60% 50% at 18% 0%, rgb(47 91 255 / 0.28), transparent 70%),
+    radial-gradient(40% 40% at 90% 10%, rgb(255 181 71 / 0.12), transparent 70%);
+}

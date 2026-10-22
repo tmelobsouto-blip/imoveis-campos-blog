@@ -13,7 +13,7 @@
     "build:web": "node scripts/build-web.mjs",
     "tour": "npm --prefix clientes/casa-dez/tour run",
     "site-v2": "npm --prefix clientes/casa-dez/site-v2 run",
-    "validate": "node --check scripts/recortar-galeria.mjs && node --check scripts/preview.mjs && node --check scripts/checar-paginas.mjs && node --check scripts/capturar-telas.mjs && node --check scripts/gerar-pdf.mjs && node --check scripts/build-web.mjs && npm run tour -- validate && npm run site-v2 -- typecheck && npm --prefix clientes/porto-6-suites/site run typecheck && npm --prefix clientes/porto-coqueiral/site run typecheck"
+    "validate": "node --check scripts/recortar-galeria.mjs && node --check scripts/preview.mjs && node --check scripts/checar-paginas.mjs && node --check scripts/capturar-telas.mjs && node --check scripts/gerar-pdf.mjs && node --check scripts/build-web.mjs && npm run tour -- validate && npm run site-v2 -- typecheck && npm --prefix clientes/porto-6-suites/site run typecheck && npm --prefix clientes/porto-coqueiral/site run typecheck && npm --prefix clientes/malawi-muro-alto/mockups run typecheck"
   },
   "devDependencies": {
     "playwright-core": "^1.64.1",
