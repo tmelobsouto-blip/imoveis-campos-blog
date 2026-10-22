@@ -28,7 +28,7 @@
 |---|---|
 | Todo pedido | `karpathy-guidelines`; chat em `caveman` ultra (nunca em sites, propostas ou docs) |
 | Imóvel novo, mockups, site | `novo-cliente`, `frontend-design`, `artifact-design` |
-| Componentes de interface | MCP do shadcn (precisa de `ui.shadcn.com` liberado; sem ele, código do registro no GitHub) |
+| Componentes de interface | skill `shadcn` (oficial, `pnpm dlx skills add shadcn/ui`) e MCP do shadcn (precisa de `ui.shadcn.com` liberado; sem ele, código do registro no GitHub) |
 | Bibliotecas e frameworks | Context7, antes de escrever código |
 | Proposta e PDF | `proposta-comercial` (`npm run telas`, `npm run pdf`) |
 | Configuração do Claude | `update-config`, `session-start-hook` |

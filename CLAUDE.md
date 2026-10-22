@@ -18,8 +18,10 @@ Como cada site foi feito: `clientes/<slug>/historico.md`; fluxo geral, skills e 
   verificar. O hook `UserPromptSubmit` (`.claude/hooks/karpathy.sh`) lembra disso e das regras abaixo a cada pedido.
 - **Context7** (MCP) sempre que o pedido envolver biblioteca, framework, SDK ou CLI: consultar a documentação
   atual antes de escrever código.
-- **shadcn** (MCP em `.mcp.json`) sempre que o pedido envolver componentes de interface. Na nuvem precisa de
-  `ui.shadcn.com` liberado na rede do ambiente; sem ele, usar o código oficial do registro (GitHub).
+- **shadcn** sempre que o pedido envolver componentes de interface: skill oficial `shadcn` (regras de composição,
+  estilo e formulários; instalada com `pnpm dlx skills add shadcn/ui`, versões em `skills-lock.json`) e MCP em
+  `.mcp.json`. Na nuvem o MCP e a CLI precisam de `ui.shadcn.com` liberado na rede do ambiente; sem ele, usar o
+  código oficial do registro (GitHub). Os sites React não têm `components.json`: a CLI não reconhece o projeto.
 - **Caveman ultra** (`.claude/skills/caveman/`) nas respostas de chat ao usuário, em português. **Nunca** em
   textos de site ou mockup, propostas, `mensagens.md`, documentação, comentários de código ou commits:
   esses seguem escrita normal. Avisos de segurança e confirmações de ação irreversível também em texto normal.
