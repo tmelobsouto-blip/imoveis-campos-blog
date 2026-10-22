@@ -123,13 +123,6 @@
         "top": 276,
         "width": 940,
         "height": 970
-      },
-      {
-        "id": "12d-piscina",
-        "left": 92,
-        "top": 276,
-        "width": 2120,
-        "height": 480
       }
     ],
     "17-sala": [
@@ -191,11 +184,11 @@
     ],
     "31-terraco-redes": [
       {
-        "id": "31b-terraco-redes",
+        "id": "31a-terraco-redes",
         "left": 92,
-        "top": 276,
-        "width": 880,
-        "height": 1068
+        "top": 806,
+        "width": 2120,
+        "height": 538
       }
     ],
     "33-terraco-balanco": [
@@ -225,18 +218,11 @@
         "height": 1068
       },
       {
-        "id": "35b-terraco",
-        "left": 92,
+        "id": "35d-terraco",
+        "left": 652,
         "top": 276,
-        "width": 2120,
+        "width": 960,
         "height": 565
-      },
-      {
-        "id": "35c-terraco",
-        "left": 1312,
-        "top": 276,
-        "width": 900,
-        "height": 1068
       }
     ]
   }

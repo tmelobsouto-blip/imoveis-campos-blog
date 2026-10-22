@@ -121,16 +121,16 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .canto figcaption span { grid-row: span 2; font: italic 400 2.6rem/1 var(--display); color: var(--palha); }
 .canto figcaption b { font: 400 1.9rem/1.05 var(--display); }
 .canto figcaption small { color: var(--muted); font-size: 1rem; font-weight: 300; }
-.c1 img { aspect-ratio: 1600 / 426; min-height: 220px; object-position: 45% 50%; }
+.c1 img { aspect-ratio: 1600 / 406; min-height: 220px; object-position: 45% 50%; }
 .c2 img, .c4 img { aspect-ratio: 4 / 5; }
 .c3 img { aspect-ratio: 1600 / 410; min-height: 220px; }
 @media (min-width: 900px) {
   .cantos { grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: start; }
   .c1 { grid-column: 1 / -1; }
   .c2 { grid-column: 1 / span 5; }
-  .c3 { grid-column: 7 / -1; margin-top: 120px; }
-  .c4 { grid-column: 8 / span 5; margin-top: -40px; }
-  .c3 img { aspect-ratio: 3 / 2; }
+  .c3 { grid-column: 7 / -1; align-self: end; }
+  .c4 { grid-column: 4 / span 6; }
+  .c3 img, .c4 img { aspect-ratio: 3 / 2; }
 }
 
 /* frase */
@@ -248,7 +248,7 @@ dialog::backdrop { background: rgb(26 22 16 / .95); }
       <div class="roda">
         <div class="prato palha">
           <div class="janela" id="janela">
-            <img class="on" src="fotos/31b-terraco-redes.webp" width="880" height="1068" alt="Rede e poltronas de fibra no terraço coberto, de frente para a piscina." data-nome="a rede">
+            <img class="on" src="fotos/35d-terraco.webp" width="960" height="565" alt="Rede verde com franjas pendurada no terraço coberto." data-nome="a rede" style="object-position: 62% 50%">
             <img src="fotos/33a-terraco-balanco.webp" width="890" height="1068" alt="Balanço suspenso em forma de ovo no terraço, ao lado do gramado." data-nome="o balanço">
             <img src="fotos/18b-sala-estar.webp" width="870" height="1068" alt="Pratos de palha na parede de tijolinho branco e poltrona de madeira da sala." data-nome="a sala">
           </div>
@@ -289,7 +289,7 @@ dialog::backdrop { background: rgb(26 22 16 / .95); }
       </div>
       <div class="cantos">
         <figure class="canto c1">
-          <img src="fotos/35b-terraco.webp" width="1600" height="426" loading="lazy" alt="Rede verde com franjas pendurada no terraço coberto, ao lado da janela.">
+          <img src="fotos/31a-terraco-redes.webp" width="1600" height="406" loading="lazy" alt="Rede verde atravessando o terraço, poltronas de fibra com almofadas amarelas e a piscina ao fundo.">
           <figcaption><span>01</span><b>A rede</b><small>Terraço coberto com duas redes e poltronas de fibra.</small></figcaption>
         </figure>
         <figure class="canto c2">
