@@ -22,6 +22,9 @@ Como cada site foi feito: `clientes/<slug>/historico.md`; fluxo geral, skills e 
   estilo e formulários; instalada com `pnpm dlx skills add shadcn/ui`, versões em `skills-lock.json`) e MCP em
   `.mcp.json`. Na nuvem o MCP e a CLI precisam de `ui.shadcn.com` liberado na rede do ambiente; sem ele, usar o
   código oficial do registro (GitHub). Os sites React não têm `components.json`: a CLI não reconhece o projeto.
+- **Ponytail** (`.claude/skills/ponytail/`, DietrichGebert/ponytail) em toda tarefa de código: a menor mudança que
+  resolve. **Superpowers** (obra/superpowers: `brainstorming`, `writing-plans`, `verification-before-completion`…)
+  quando o usuário pedir. Ambas instaladas com `pnpm dlx skills add`, versões em `skills-lock.json`.
 - **Caveman ultra** (`.claude/skills/caveman/`) nas respostas de chat ao usuário, em português. **Nunca** em
   textos de site ou mockup, propostas, `mensagens.md`, documentação, comentários de código ou commits:
   esses seguem escrita normal. Avisos de segurança e confirmações de ação irreversível também em texto normal.

@@ -67,5 +67,6 @@ Como este site foi construído, pedido a pedido. Status, links publicados e deci
   originais em todos os pacotes ou só no Completo e no Premium?
 - Resolvido em 22/10/2026: `npm run build:web` passou a incluir o site React; no domínio, `/porto-6-suites/` e
   `/porto-6-suites/proposta/`.
-- "Ponytail", citado pelo usuário entre as ferramentas padrão, não foi identificado.
+- "Ponytail", citado pelo usuário entre as ferramentas padrão: identificado depois (DietrichGebert/ponytail) e
+  instalado em `.claude/skills/ponytail/`.
 - Confirmar com o anunciante: nome do condomínio ("Culpe"/"Cupe") e se a piscina é privativa.
