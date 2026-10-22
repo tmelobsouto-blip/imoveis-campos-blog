@@ -40,7 +40,7 @@ clientes/<slug>/
   proposta.html + Proposta-<Nome>.pdf + img/   proposta comercial
   tour/                  (opcional, Premium) tour imersivo Next.js
   site-v2/               (Casa Dez) versão React + shadcn/ui; build em site-v2/dist/
-  mockup-placas/         (Porto 6 Suítes) mockup em React + shadcn/ui; build em mockup-placas/dist/
+  site/                  (Porto 6 Suítes) site final em React + shadcn/ui no lugar de site.html; build em site/dist/
 ```
 
 ## Comandos

@@ -1,9 +1,9 @@
 {
-  "name": "porto-6-suites-placas",
+  "name": "porto-6-suites-site",
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Porto 6 Suítes — mockup Placas e pastilha, com componentes shadcn/ui",
+  "description": "Casa 6 Suítes — site de reserva direta com componentes shadcn/ui",
   "scripts": {
     "build": "node scripts/build.mjs",
     "typecheck": "tsc --noEmit"

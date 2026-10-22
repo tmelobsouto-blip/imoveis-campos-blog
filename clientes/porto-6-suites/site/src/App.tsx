@@ -6,9 +6,12 @@ import {
   ArrowUpRight,
   BedDouble,
   CalendarDays,
+  Check,
+  Copy,
   Fence,
   Flame,
   MapPin,
+  Menu,
   MessageCircle,
   Minus,
   PartyPopper,
@@ -53,6 +56,7 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerTitle,
+  DrawerTrigger,
 } from "./components/ui/drawer"
 import { Popover, PopoverContent, PopoverTrigger } from "./components/ui/popover"
 import { Separator } from "./components/ui/separator"
@@ -195,20 +199,39 @@ function GuestsStepper({ className }: { className?: string }) {
 
 function BookingSummary() {
   const { range, guests } = useBooking()
+  const [copied, setCopied] = React.useState(false)
+  const messageRef = React.useRef<HTMLParagraphElement>(null)
   const nights = nightsOf(range)
   if (!range?.from || !range.to || nights < 1) {
     return <p className="text-sm text-muted-foreground">Escolha a entrada e a saída no calendário.</p>
   }
   const message = bookingMessage(range, guests)
+
+  // Alguns visualizadores recusam a área de transferência: aí a mensagem fica selecionada para copiar à mão.
+  async function copyMessage() {
+    try {
+      await navigator.clipboard.writeText(message)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch {
+      if (messageRef.current) window.getSelection()?.selectAllChildren(messageRef.current)
+    }
+  }
+
   return (
     <div className="grid gap-3">
       <p className="text-sm text-muted-foreground">{plural(nights, "noite", "noites")} · até {MAX_GUESTS} pessoas em cama</p>
-      <p className="whitespace-pre-line rounded-md bg-secondary p-3 text-sm text-secondary-foreground">{message}</p>
-      <Button asChild size="lg" className="w-full">
-        <a href={`https://wa.me/?text=${encodeURIComponent(message)}`} target="_blank" rel="noopener">
-          <MessageCircle /> Enviar pelo WhatsApp
-        </a>
-      </Button>
+      <p ref={messageRef} className="whitespace-pre-line rounded-md bg-secondary p-3 text-sm text-secondary-foreground">{message}</p>
+      <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-2">
+        <Button asChild size="lg">
+          <a href={`https://wa.me/?text=${encodeURIComponent(message)}`} target="_blank" rel="noopener">
+            <MessageCircle /> Enviar pelo WhatsApp
+          </a>
+        </Button>
+        <Button size="lg" variant="outline" onClick={copyMessage} aria-live="polite">
+          {copied ? <Check /> : <Copy />} {copied ? "Copiado" : "Copiar"}
+        </Button>
+      </div>
       <p className="text-xs text-muted-foreground">
         Versão de apresentação: na publicação, a mensagem vai direto para o WhatsApp do anfitrião.
       </p>
@@ -288,10 +311,61 @@ function SectionHead({ id, eyebrow, title, children }: { id: string; eyebrow: st
   )
 }
 
-/* shadcn Carousel com API: contador "Foto n de N", atalhos por ambiente e miniaturas. */
+/* Foto ampliada: Dialog do shadcn com o mesmo Carousel, aberto na foto clicada (startIndex do Embla). */
+function PhotoViewer({ index, onClose }: { index: number | null; onClose: () => void }) {
+  const [api, setApi] = React.useState<CarouselApi>()
+  const [current, setCurrent] = React.useState(0)
+
+  React.useEffect(() => {
+    if (!api) return
+    const update = () => setCurrent(api.selectedScrollSnap())
+    update()
+    api.on("select", update)
+    return () => {
+      api.off("select", update)
+    }
+  }, [api])
+
+  return (
+    <Dialog open={index !== null} onOpenChange={(open) => !open && onClose()}>
+      <DialogContent
+        className="w-[min(96vw,1200px)] max-w-none gap-3 border-0 bg-deep p-3 pt-12 text-white sm:max-w-none"
+        onKeyDown={(e) => {
+          if (e.key === "ArrowLeft") api?.scrollPrev()
+          if (e.key === "ArrowRight") api?.scrollNext()
+        }}
+      >
+        <DialogTitle className="sr-only">Fotos da casa</DialogTitle>
+        <DialogDescription className="sr-only">Use as setas ou deslize para passar as fotos.</DialogDescription>
+        {index !== null && (
+          <Carousel setApi={setApi} opts={{ loop: true, startIndex: index }}>
+            <CarouselContent>
+              {PHOTOS.map((p) => (
+                <CarouselItem key={p.id} className="grid place-items-center">
+                  <img src={photoSrc(p.id)} alt={p.caption} width={1300} height={746} className="max-h-[76svh] w-auto rounded" />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-2 size-10 border-0 bg-white/90 text-foreground" />
+            <CarouselNext className="right-2 size-10 border-0 bg-white/90 text-foreground" />
+          </Carousel>
+        )}
+        <p className="flex items-baseline justify-between gap-4 px-1 text-sm text-white/80">
+          <span>{PHOTOS[current].caption}</span>
+          <span className="shrink-0 tabular-nums">
+            {current + 1} de {PHOTOS.length}
+          </span>
+        </p>
+      </DialogContent>
+    </Dialog>
+  )
+}
+
+/* shadcn Carousel com API: contador "Foto n de N", atalhos por ambiente, miniaturas e foto ampliada. */
 function Gallery() {
   const [api, setApi] = React.useState<CarouselApi>()
   const [current, setCurrent] = React.useState(0)
+  const [zoom, setZoom] = React.useState<number | null>(null)
   const thumbs = React.useRef<HTMLDivElement>(null)
 
   React.useEffect(() => {
@@ -332,14 +406,16 @@ function Gallery() {
         <CarouselContent>
           {PHOTOS.map((p, i) => (
             <CarouselItem key={p.id}>
-              <img
-                src={photoSrc(p.id)}
-                alt={p.caption}
-                width={1300}
-                height={746}
-                loading={i < 2 ? "eager" : "lazy"}
-                className="aspect-[1300/746] w-full rounded-md bg-muted object-cover"
-              />
+              <button type="button" onClick={() => setZoom(i)} aria-label={`Ampliar foto ${i + 1}: ${p.caption}`} className="block w-full cursor-zoom-in rounded-md">
+                <img
+                  src={photoSrc(p.id)}
+                  alt={p.caption}
+                  width={1300}
+                  height={746}
+                  loading={i < 2 ? "eager" : "lazy"}
+                  className="aspect-[1300/746] w-full rounded-md bg-muted object-cover"
+                />
+              </button>
             </CarouselItem>
           ))}
         </CarouselContent>
@@ -347,7 +423,7 @@ function Gallery() {
         <CarouselNext className="right-3 size-10 border-0 bg-card/90 shadow" />
       </Carousel>
       <div className="flex items-baseline justify-between gap-4 text-sm text-muted-foreground">
-        <span>{photo.caption}</span>
+        <span>{photo.caption} · toque para ampliar</span>
         <span className="shrink-0 tabular-nums">
           Foto {current + 1} de {PHOTOS.length}
         </span>
@@ -369,6 +445,7 @@ function Gallery() {
           </button>
         ))}
       </div>
+      <PhotoViewer index={zoom} onClose={() => setZoom(null)} />
     </section>
   )
 }
@@ -525,6 +602,55 @@ function Amenities() {
   )
 }
 
+const SECTIONS: [string, string][] = [
+  ["#galeria", "Fotos"],
+  ["#suites-secao", "Suítes"],
+  ["#lazer-secao", "Lazer"],
+  ["#comodidades-secao", "Comodidades"],
+  ["#local-secao", "Localização"],
+]
+
+/* Menu do celular: Drawer lateral do shadcn (vaul, direction="right"). Cada item fecha a gaveta pelo
+   DrawerClose e só rola até a seção no fim da animação, porque a gaveta trava a rolagem enquanto aberta. */
+function MobileMenu({ className }: { className?: string }) {
+  const target = React.useRef<string | null>(null)
+  return (
+    <Drawer
+      direction="right"
+      onAnimationEnd={(isOpen) => {
+        if (isOpen || !target.current) return
+        document.querySelector(target.current)?.scrollIntoView({ behavior: "smooth" })
+        target.current = null
+      }}
+    >
+      <DrawerTrigger asChild>
+        <Button variant="ghost" size="icon" aria-label="Abrir menu" className={className}>
+          <Menu className="size-5" />
+        </Button>
+      </DrawerTrigger>
+      <DrawerContent>
+        <DrawerHeader className="text-left">
+          <DrawerTitle className="text-2xl">{NAME}</DrawerTitle>
+          <DrawerDescription>Porto de Galinhas · Pernambuco</DrawerDescription>
+        </DrawerHeader>
+        <nav aria-label="Seções" className="grid px-4">
+          {SECTIONS.map(([href, label]) => (
+            <DrawerClose asChild key={href}>
+              <button
+                type="button"
+                onClick={() => (target.current = href)}
+                className="border-b py-4 text-left font-display text-2xl font-semibold"
+              >
+                {label}
+              </button>
+            </DrawerClose>
+          ))}
+        </nav>
+      </DrawerContent>
+    </Drawer>
+  )
+}
+
 function useSolidHeader(target: React.RefObject<HTMLElement | null>) {
   const [solid, setSolid] = React.useState(false)
   React.useEffect(() => {
@@ -562,18 +688,12 @@ export function App() {
           solid ? "border-b bg-background/95 text-foreground backdrop-blur" : "text-white",
         )}
       >
-        <div className="mx-auto flex h-16 max-w-6xl items-center gap-8">
+        <div className="mx-auto flex h-16 max-w-6xl items-center gap-3 md:gap-8">
           <a href="#topo" className="mr-auto font-display text-lg font-bold uppercase tracking-[0.08em] no-underline">
             {NAME}
           </a>
           <nav className="hidden gap-7 text-sm font-medium md:flex" aria-label="Seções">
-            {[
-              ["#galeria", "Fotos"],
-              ["#suites-secao", "Suítes"],
-              ["#lazer-secao", "Lazer"],
-              ["#comodidades-secao", "Comodidades"],
-              ["#local-secao", "Localização"],
-            ].map(([href, label]) => (
+            {SECTIONS.map(([href, label]) => (
               <a key={href} href={href} className="no-underline opacity-80 hover:opacity-100">
                 {label}
               </a>
@@ -586,6 +706,7 @@ export function App() {
           >
             Reservar
           </Button>
+          <MobileMenu className="-mr-2 md:hidden" />
         </div>
       </header>
 
