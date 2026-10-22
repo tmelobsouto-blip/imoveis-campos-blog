@@ -1,7 +1,7 @@
 # Casa em Porto de Galinhas (pasta `porto-coqueiral`) — Porto de Galinhas, PE
 
-**Status:** 3 mockups prontos, um por perfil de hóspede; esperando o usuário escolher a direção para o site
-final. Falta compartilhar os links como públicos (menu Share).
+**Status:** mockup no estilo da Casa 6 (React + shadcn/ui) pronto, aguardando aprovação do usuário. Os 3
+mockups por perfil foram descartados a pedido do usuário. Falta compartilhar o link como público (menu Share).
 
 - Anúncio de origem: TemporadaLivre, Ref. 75328, "Casa com 5 suítes em Porto de galinhas" (a plataforma é
   só a fonte e não aparece no site)
@@ -10,20 +10,31 @@ final. Falta compartilhar os links como públicos (menu Share).
 
 ## Links publicados (Artifacts claude.ai)
 
-Republicar sempre com o `url` abaixo, `root = clientes/porto-coqueiral` e só as fotos que a página usa.
+Republicar sempre com o `url` abaixo. Mockup atual: rodar o build e publicar `site/dist/index.html` com
+`root = clientes/porto-coqueiral/site/dist` e `files` = `app.js`, `app.css` e `fotos/*`. Mockups HTML:
+`root = clientes/porto-coqueiral` e só as fotos que a página usa.
 
-| Arquivo | Artifact | Perfil · direção |
+| Arquivo | Artifact | Observação |
 |---|---|---|
-| `mockup-familias.html` | https://claude.ai/artifact/WeyRNhzmnsq8gnto2smbyc | Famílias com crianças · caderno de férias |
-| `mockup-amigos.html` | https://claude.ai/artifact/MT9FVVzU3btQGh9rhDdM9k | Grupos de amigos · azulejo à noite |
-| `mockup-casais.html` | https://claude.ai/artifact/SSkB3qDDkDcFsX5iHrchMW | Casais e descanso · linho e palha |
+| `site/dist/` (`npm --prefix clientes/porto-coqueiral/site run build`) | https://claude.ai/artifact/CxDr8RPpgiEcK4Ds6kHfNM | **mockup atual**, estilo Casa 6; `root = site/dist` |
+| `mockup-familias.html` | https://claude.ai/artifact/WeyRNhzmnsq8gnto2smbyc | descartado · famílias, caderno de férias |
+| `mockup-amigos.html` | https://claude.ai/artifact/MT9FVVzU3btQGh9rhDdM9k | descartado · amigos, azulejo à noite |
+| `mockup-casais.html` | https://claude.ai/artifact/SSkB3qDDkDcFsX5iHrchMW | descartado · casais, linho e palha |
 
-Todos são privados até o usuário compartilhar pelo menu Share.
+Todos são privados até o usuário compartilhar pelo menu Share. Os descartados continuam no ar até o usuário
+pedir para apagar.
 
 ## Decisões
 - Objetivo: reserva direta pelo WhatsApp (sem número até o proprietário fornecer).
-- Nome nos 3 mockups: **Casa em Porto de Galinhas** (sugestão nossa; depende da aprovação do proprietário).
-- Um mockup por perfil, com o mesmo conteúdo real e visuais diferentes:
+- Nome: **Casa em Porto de Galinhas** (sugestão nossa; depende da aprovação do proprietário).
+- **Mockup atual (estilo Casa 6, mais moderno e elegante, com mais fotos).** Mesma estrutura do site da
+  Casa 6: capa dividida com reserva no computador, faixa de números, galeria com atalhos por ambiente,
+  miniaturas e foto ampliada, reserva fixa ao lado, gaveta de reserva no celular e perguntas em acordeão.
+  Identidade própria "cal e madeira" (off-white, azul-marinho do sofá, madeira do muro), Fraunces +
+  Plus Jakarta Sans. A mais: capa com três fotos trocando, mosaico de abertura, grade com as 28 fotos por
+  ambiente e seções com fotos de lazer, sala e noite. Sem as placas e a pastilha da Casa 6 (eram daquela
+  casa).
+- Descartados: um mockup por perfil, com o mesmo conteúdo real e visuais diferentes:
   1. **Famílias com crianças — caderno de férias.** Papel quadriculado, fotos coladas com fita e anotações à
      mão; suítes com ícones de cama; reserva conta adultos, crianças e pet (17 bolinhas = 17 lugares).
      Fredoka + Lexend + Caveat.

@@ -44,6 +44,7 @@ clientes/<slug>/
   tour/                  (opcional, Premium) tour imersivo Next.js
   site-v2/               (Casa Dez) versão React + shadcn/ui; build em site-v2/dist/
   site/                  (Casa 6 Suítes) site final em React + shadcn/ui no lugar de site.html; build em site/dist/
+                         (Casa em Porto de Galinhas) mockup no mesmo estilo, ainda sem site final
 ```
 
 ## Comandos

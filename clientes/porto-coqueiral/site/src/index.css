@@ -1,0 +1,102 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Cal e madeira: tijolinho branco, muro de madeira e o azul-marinho do sofá, tirados das fotos da casa.
+   Layout da Casa 6 (capa dividida, galeria com miniaturas, reserva fixa ao lado) com acabamento editorial. */
+:root {
+  --radius: 0.75rem;
+  --background: #f8f6f2;
+  --foreground: #1a2133;
+  --card: #ffffff;
+  --card-foreground: #1a2133;
+  --popover: #ffffff;
+  --popover-foreground: #1a2133;
+  --primary: #1f2f5c;
+  --primary-foreground: #ffffff;
+  --secondary: #efebe4;
+  --secondary-foreground: #1a2133;
+  --muted: #efebe4;
+  --muted-foreground: #5d6475;
+  --accent: #efebe4;
+  --accent-foreground: #1f2f5c;
+  --destructive: #b42318;
+  --border: #e2ddd3;
+  --input: #d6d0c4;
+  --ring: #1f2f5c;
+  --deep: #121826;
+  --wood: #a8774a;
+  --water: #7fcfe8;
+  color-scheme: light;
+}
+
+@theme inline {
+  --font-sans: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-deep: var(--deep);
+  --color-wood: var(--wood);
+  --color-water: var(--water);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  h1, h2, h3 {
+    @apply font-display;
+    font-weight: 400;
+    font-optical-sizing: auto;
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Fotos que se aproximam devagar ao passar o mouse. */
+@utility photo-zoom {
+  transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  &:hover { transform: scale(1.04); }
+}
+
+@keyframes settle {
+  from { transform: scale(1.06); }
+  to { transform: scale(1); }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+.animate-settle { animation: settle 9s cubic-bezier(.2,.7,.2,1) both; }
+.animate-rise { animation: rise 1s cubic-bezier(.2,.7,.2,1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+@utility gutter {
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}

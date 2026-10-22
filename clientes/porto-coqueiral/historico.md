@@ -44,9 +44,31 @@ Como este site foi construído, pedido a pedido. Status, links publicados e deci
 - Verificação: `npm run check` sem erros; clique real em cada página (galeria abre, avança e fecha; mensagem
   do WhatsApp com datas, pessoas e pet; limite de 17; botão Dia/Noite; pontos da capa).
 
+## 2. Mockup no estilo da Casa 6
+
+**Pedido:** "Faça um mockup mais elegante, moderno. Aborte esse mockup e faça um no estilo casa 6. Quero um
+mockup mais moderno, elegante, com mais fotos".
+
+- Os 3 mockups por perfil ficaram como descartados (links continuam no ar até o usuário pedir para apagar).
+- `site/` copiado do site da Casa 6 (`porto-6-suites/site`): React 19 + Tailwind 4 + shadcn/ui (Carousel,
+  Dialog, Drawer, Popover + Calendar, Accordion), build com esbuild em `site/dist/`. Mantida a estrutura da
+  Casa 6; trocada a identidade (paleta "cal e madeira", Fraunces + Plus Jakarta Sans) e tiradas as placas de
+  porta e a pastilha, que eram daquela casa.
+- Mais fotos: 8 recortes novos sem marca d'água (`08b`, `09a`, `10a`, `14b`, `19a`, `20a`, `22a`, `30a`;
+  23 no total), capa com três fotos trocando, mosaico de abertura, grade com as 28 fotos por ambiente (Dialog
+  com a foto ampliada por cima) e seções com fotos de lazer, sala e noite.
+- MCP do shadcn: conectou, mas o registro (`ui.shadcn.com`) segue bloqueado na rede; componentes vieram do
+  código já copiado na Casa 6. Context7 não foi consultado: as bibliotecas e APIs são as mesmas já
+  conferidas no site da Casa 6.
+- Advisor antes de começar (o que manter da Casa 6, restos do modelo, ids que `npm run telas` usa) e na
+  revisão final.
+- Verificação: `npm run check` em `site/dist` sem erros; clique real no celular (menu lateral fecha e rola
+  até a seção, gaveta de reserva, limite de 17, botão Copiar) e no computador (janela de reserva, atalhos da
+  galeria, foto ampliada abrindo na foto clicada, grade com zoom por cima, troca de foto da capa).
+
 ## Em aberto
 
-- Escolher a direção (ou a mistura) para o site final.
+- Aprovar o mockup no estilo da Casa 6 (ou pedir ajustes) para virar o site final.
 - Pedir ao proprietário fotos originais e fotos das suítes, da cozinha e dos banheiros.
 - Confirmar as camas da suíte 1 e os ar-condicionados por suíte.
 - Proposta comercial ainda não feita (anúncio fora do Airbnb: sem conta de taxa, como na Casa 6 Suítes).

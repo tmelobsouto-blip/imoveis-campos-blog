@@ -109,6 +109,33 @@
         "height": 970
       }
     ],
+    "08-lazer": [
+      {
+        "id": "08b-lazer",
+        "left": 1338,
+        "top": 276,
+        "width": 874,
+        "height": 970
+      }
+    ],
+    "09-piscina": [
+      {
+        "id": "09a-piscina",
+        "left": 92,
+        "top": 276,
+        "width": 861,
+        "height": 970
+      }
+    ],
+    "10-lazer": [
+      {
+        "id": "10a-lazer",
+        "left": 92,
+        "top": 276,
+        "width": 861,
+        "height": 970
+      }
+    ],
     "12-piscina": [
       {
         "id": "12b-piscina",
@@ -122,6 +149,15 @@
         "left": 1272,
         "top": 276,
         "width": 940,
+        "height": 970
+      }
+    ],
+    "14-sala": [
+      {
+        "id": "14b-sala",
+        "left": 1338,
+        "top": 276,
+        "width": 874,
         "height": 970
       }
     ],
@@ -148,6 +184,33 @@
         "top": 276,
         "width": 870,
         "height": 1068
+      }
+    ],
+    "19-sala-jantar": [
+      {
+        "id": "19a-sala-jantar",
+        "left": 92,
+        "top": 806,
+        "width": 2120,
+        "height": 538
+      }
+    ],
+    "20-sala-tv": [
+      {
+        "id": "20a-sala-tv",
+        "left": 92,
+        "top": 806,
+        "width": 2120,
+        "height": 538
+      }
+    ],
+    "22-fachada-noite": [
+      {
+        "id": "22a-fachada-noite",
+        "left": 92,
+        "top": 797,
+        "width": 1940,
+        "height": 547
       }
     ],
     "23-piscina-noite": [
@@ -179,6 +242,15 @@
         "left": 92,
         "top": 276,
         "width": 880,
+        "height": 1068
+      }
+    ],
+    "30-piscina": [
+      {
+        "id": "30a-piscina",
+        "left": 92,
+        "top": 276,
+        "width": 861,
         "height": 1068
       }
     ],
