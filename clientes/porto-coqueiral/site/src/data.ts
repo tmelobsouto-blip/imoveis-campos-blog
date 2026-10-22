@@ -1,5 +1,7 @@
 // Fatos de clientes/porto-coqueiral/dados.md. Não acrescentar nada que não esteja lá.
 
+import { BedDouble, BedSingle, type LucideIcon } from "lucide-react"
+
 export const NAME = "Casa em Porto de Galinhas"
 export const MAX_GUESTS = 17
 export const MAP_URL = "https://www.google.com/maps/search/?api=1&query=Porto+de+Galinhas+Ipojuca+PE"
@@ -70,12 +72,21 @@ export const MOSAIC: Crop[] = [
   { id: "09a-piscina", width: 861, height: 970, alt: "Piscina com o balanço e guarda-sóis azuis ao fundo." },
 ]
 
-export const SUITES: { n: number; beds: ("casal" | "solteiro" | "bicama")[]; label: string }[] = [
-  { n: 1, beds: ["casal", "solteiro", "bicama"], label: "1 cama de casal, 1 de solteiro e 1 bicama" },
-  { n: 2, beds: ["casal", "solteiro", "solteiro"], label: "1 cama de casal e 2 de solteiro" },
-  { n: 3, beds: ["casal", "solteiro", "solteiro"], label: "1 cama de casal e 2 de solteiro" },
-  { n: 4, beds: ["casal", "bicama"], label: "1 cama de casal e 1 bicama" },
-  { n: 5, beds: ["casal"], label: "1 cama de casal" },
+export interface Bed {
+  icon: LucideIcon
+  name: "casal" | "solteiro" | "bicama"
+}
+
+const CASAL: Bed = { icon: BedDouble, name: "casal" }
+const SOLTEIRO: Bed = { icon: BedSingle, name: "solteiro" }
+const BICAMA: Bed = { icon: BedSingle, name: "bicama" }
+
+export const SUITES: { n: number; beds: Bed[]; label: string }[] = [
+  { n: 1, beds: [CASAL, SOLTEIRO, BICAMA], label: "1 cama de casal, 1 de solteiro e 1 bicama" },
+  { n: 2, beds: [CASAL, SOLTEIRO, SOLTEIRO], label: "1 cama de casal e 2 de solteiro" },
+  { n: 3, beds: [CASAL, SOLTEIRO, SOLTEIRO], label: "1 cama de casal e 2 de solteiro" },
+  { n: 4, beds: [CASAL, BICAMA], label: "1 cama de casal e 1 bicama" },
+  { n: 5, beds: [CASAL], label: "1 cama de casal" },
 ]
 
 export const AMENITY_GROUPS: { title: string; items: string[] }[] = [

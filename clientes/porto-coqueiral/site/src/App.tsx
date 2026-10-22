@@ -6,7 +6,6 @@ import {
   Armchair,
   ArrowUpRight,
   BedDouble,
-  BedSingle,
   CalendarDays,
   Car,
   Check,
@@ -35,7 +34,7 @@ import {
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./components/ui/accordion"
 import { Button } from "./components/ui/button"
 import { Calendar } from "./components/ui/calendar"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./components/ui/card"
+import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./components/ui/card"
 import {
   Carousel,
   CarouselContent,
@@ -64,6 +63,7 @@ import {
 } from "./components/ui/drawer"
 import { Popover, PopoverContent, PopoverTrigger } from "./components/ui/popover"
 import { Separator } from "./components/ui/separator"
+import { ToggleGroup, ToggleGroupItem } from "./components/ui/toggle-group"
 import {
   AMENITY_GROUPS,
   CATEGORIES,
@@ -176,8 +176,8 @@ function DateRangePicker({ className }: { className?: string }) {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="ghost" className={cn("h-auto justify-start gap-3 px-3 py-2 text-left font-normal", className)}>
-          <CalendarDays className="size-5 text-wood" />
+        <Button variant="ghost" className={cn("h-auto justify-start gap-3 px-3 py-2 text-left", className)}>
+          <CalendarDays data-icon="inline-start" />
           <span className="grid leading-tight">
             <FieldLabel>Entrada — saída</FieldLabel>
             <span className="text-base">{rangeLabel(range)}</span>
@@ -200,10 +200,10 @@ function GuestsStepper({ className }: { className?: string }) {
         <span className="text-base tabular-nums">{plural(guests, "pessoa", "pessoas")}</span>
       </span>
       <span className="flex items-center gap-2">
-        <Button size="icon" variant="outline" className="rounded-full" aria-label="Menos um hóspede" disabled={guests <= 1} onClick={() => setGuests(guests - 1)}>
+        <Button size="icon" variant="outline" aria-label="Menos um hóspede" disabled={guests <= 1} onClick={() => setGuests(guests - 1)}>
           <Minus />
         </Button>
-        <Button size="icon" variant="outline" className="rounded-full" aria-label="Mais um hóspede" disabled={guests >= MAX_GUESTS} onClick={() => setGuests(guests + 1)}>
+        <Button size="icon" variant="outline" aria-label="Mais um hóspede" disabled={guests >= MAX_GUESTS} onClick={() => setGuests(guests + 1)}>
           <Plus />
         </Button>
       </span>
@@ -239,11 +239,11 @@ function BookingSummary() {
       <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-2">
         <Button asChild size="lg">
           <a href={`https://wa.me/?text=${encodeURIComponent(message)}`} target="_blank" rel="noopener">
-            <MessageCircle /> Enviar pelo WhatsApp
+            <MessageCircle data-icon="inline-start" /> Enviar pelo WhatsApp
           </a>
         </Button>
         <Button size="lg" variant="outline" onClick={copyMessage} aria-live="polite">
-          {copied ? <Check /> : <Copy />} {copied ? "Copiado" : "Copiar"}
+          {copied ? <Check data-icon="inline-start" /> : <Copy data-icon="inline-start" />} {copied ? "Copiado" : "Copiar"}
         </Button>
       </div>
       <p className="text-xs text-muted-foreground">
@@ -263,7 +263,7 @@ function BookingFlow({ open, onOpenChange }: { open: boolean; onOpenChange: (ope
       <Dialog open={open} onOpenChange={onOpenChange}>
         <DialogContent className="max-h-[92svh] overflow-y-auto sm:max-w-[680px]">
           <DialogHeader>
-            <DialogTitle className="text-3xl">Consultar disponibilidade</DialogTitle>
+            <DialogTitle>Consultar disponibilidade</DialogTitle>
             <DialogDescription>{description}</DialogDescription>
           </DialogHeader>
           <RangeCalendar months={2} className="mx-auto p-0 [--cell-size:--spacing(10)]" />
@@ -279,7 +279,7 @@ function BookingFlow({ open, onOpenChange }: { open: boolean; onOpenChange: (ope
     <Drawer open={open} onOpenChange={onOpenChange}>
       <DrawerContent className="data-[vaul-drawer-direction=bottom]:max-h-[92svh]">
         <DrawerHeader className="text-left">
-          <DrawerTitle className="text-2xl">Consultar disponibilidade</DrawerTitle>
+          <DrawerTitle>Consultar disponibilidade</DrawerTitle>
           <DrawerDescription>{description}</DrawerDescription>
         </DrawerHeader>
         <div className="grid gap-4 overflow-y-auto px-4">
@@ -300,9 +300,9 @@ function BookingFlow({ open, onOpenChange }: { open: boolean; onOpenChange: (ope
 
 function BookingCard() {
   return (
-    <Card className="gap-5 rounded-xl shadow-[0_24px_48px_-28px_rgb(26_33_51/0.35)]">
+    <Card className="gap-5">
       <CardHeader>
-        <CardTitle className="font-display text-2xl font-normal">Consulte suas datas</CardTitle>
+        <CardTitle>Consulte suas datas</CardTitle>
         <CardDescription>Reserva direta com o anfitrião, pelo WhatsApp.</CardDescription>
       </CardHeader>
       <CardContent className="grid gap-4">
@@ -363,8 +363,8 @@ function PhotoViewer({ index, onClose }: { index: number | null; onClose: () => 
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="left-2 size-10 border-0 bg-white/90 text-foreground" />
-            <CarouselNext className="right-2 size-10 border-0 bg-white/90 text-foreground" />
+            <CarouselPrevious variant="secondary" className="left-2 size-10" />
+            <CarouselNext variant="secondary" className="right-2 size-10" />
           </Carousel>
         )}
         <p className="flex items-baseline justify-between gap-4 px-1 text-sm text-white/80">
@@ -385,7 +385,7 @@ function PhotoTour({ open, onOpenChange }: { open: boolean; onOpenChange: (open:
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-h-[92svh] w-[min(96vw,1100px)] max-w-none overflow-y-auto p-5 sm:max-w-none md:p-8">
         <DialogHeader>
-          <DialogTitle className="font-display text-3xl font-normal">Todas as fotos</DialogTitle>
+          <DialogTitle>Todas as fotos</DialogTitle>
           <DialogDescription>
             {PHOTOS.length} fotos do anúncio, por ambiente. Toque numa foto para ampliar.
           </DialogDescription>
@@ -442,7 +442,7 @@ function Mosaic({ onShowAll }: { onShowAll: () => void }) {
         </div>
       ))}
       <Button variant="outline" className="col-span-2 md:hidden" onClick={onShowAll}>
-        <LayoutGrid /> Ver as {PHOTOS.length} fotos
+        <LayoutGrid data-icon="inline-start" /> Ver as {PHOTOS.length} fotos
       </Button>
     </div>
   )
@@ -477,19 +477,25 @@ function Gallery({ onShowAll }: { onShowAll: () => void }) {
   return (
     <section aria-labelledby="fotos" className="grid grid-cols-1 gap-5 scroll-mt-24" id="galeria">
       <SectionHead id="fotos" eyebrow="Galeria" title="Cada canto da casa" />
-      <div className="flex flex-wrap gap-2">
+      <ToggleGroup
+        type="single"
+        variant="outline"
+        size="sm"
+        spacing={2}
+        value={photo.category}
+        onValueChange={(category) => {
+          // No modo único, tocar no ambiente ativo manda "": a galeria continua nele.
+          if (category) api?.scrollTo(PHOTOS.findIndex((p) => p.category === category))
+        }}
+        aria-label="Ambientes"
+        className="flex-wrap"
+      >
         {CATEGORIES.map((category) => (
-          <Button
-            key={category}
-            size="sm"
-            className="rounded-full"
-            variant={photo.category === category ? "default" : "outline"}
-            onClick={() => api?.scrollTo(PHOTOS.findIndex((p) => p.category === category))}
-          >
+          <ToggleGroupItem key={category} value={category}>
             {category}
-          </Button>
+          </ToggleGroupItem>
         ))}
-      </div>
+      </ToggleGroup>
       <Carousel setApi={setApi} opts={{ loop: true }} className="w-full">
         <CarouselContent>
           {PHOTOS.map((p, i) => (
@@ -507,8 +513,8 @@ function Gallery({ onShowAll }: { onShowAll: () => void }) {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="left-3 size-10 border-0 bg-card/90 shadow" />
-        <CarouselNext className="right-3 size-10 border-0 bg-card/90 shadow" />
+        <CarouselPrevious variant="secondary" className="left-3 size-10" />
+        <CarouselNext variant="secondary" className="right-3 size-10" />
       </Carousel>
       <div className="flex items-baseline justify-between gap-4 text-sm text-muted-foreground">
         <span>{photo.caption} · toque para ampliar</span>
@@ -533,15 +539,13 @@ function Gallery({ onShowAll }: { onShowAll: () => void }) {
           </button>
         ))}
       </div>
-      <Button variant="ghost" className="justify-self-start px-0 text-primary hover:bg-transparent hover:underline" onClick={onShowAll}>
-        <LayoutGrid /> Ver todas em grade
+      <Button variant="link" className="justify-self-start px-0" onClick={onShowAll}>
+        <LayoutGrid data-icon="inline-start" /> Ver todas em grade
       </Button>
       <PhotoViewer index={zoom} onClose={() => setZoom(null)} />
     </section>
   )
 }
-
-const BED_ICON = { casal: BedDouble, solteiro: BedSingle, bicama: BedSingle }
 
 function Suites() {
   return (
@@ -551,22 +555,24 @@ function Suites() {
       </SectionHead>
       <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
         {SUITES.map((suite) => (
-          <li key={suite.n} className="grid gap-4 rounded-lg border bg-card p-5">
-            <div className="flex items-baseline justify-between gap-3">
-              <p className="font-display text-[1.7rem] leading-none">Suíte {suite.n}</p>
-              <span className="flex items-end gap-1.5 text-primary" aria-hidden="true">
-                {suite.beds.map((bed, i) => {
-                  const Icon = BED_ICON[bed]
-                  return <Icon key={i} className={cn(bed === "casal" ? "size-6" : "size-5", bed === "bicama" && "opacity-60")} strokeWidth={1.6} />
-                })}
-              </span>
-            </div>
-            <p className="text-sm text-muted-foreground">{suite.label}</p>
+          <li key={suite.n}>
+            <Card className="h-full gap-0 py-5">
+              <CardHeader className="px-5">
+                <CardTitle>Suíte {suite.n}</CardTitle>
+                {/* Ícones só na linha do título: a descrição ocupa a largura toda do cartão. */}
+                <CardDescription className="col-span-2">{suite.label}</CardDescription>
+                <CardAction className="row-span-1 flex items-end gap-1.5 text-primary" aria-hidden="true">
+                  {suite.beds.map(({ icon: Icon, name }, i) => (
+                    <Icon key={i} className={cn(name === "casal" ? "size-6" : "size-5", name === "bicama" && "opacity-60")} strokeWidth={1.6} />
+                  ))}
+                </CardAction>
+              </CardHeader>
+            </Card>
           </li>
         ))}
-        <li className="grid content-center gap-1 rounded-lg bg-deep p-5 text-white">
+        <li className="grid content-center gap-1 rounded-xl bg-primary p-5 text-primary-foreground">
           <p className="font-display text-[3rem] leading-[0.9]">17</p>
-          <p className="text-sm text-white/75">pessoas · 5 camas de casal e 7 de solteiro, duas delas bicamas</p>
+          <p className="text-sm text-primary-foreground/75">pessoas · 5 camas de casal e 7 de solteiro, duas delas bicamas</p>
         </li>
       </ul>
       <ul className="grid gap-x-8 gap-y-3 sm:grid-cols-2">
@@ -688,13 +694,15 @@ function Reviews() {
         <CarouselContent>
           {REVIEWS.map((review) => (
             <CarouselItem key={review.name} className="basis-[88%] sm:basis-1/2">
-              <figure className="grid h-full content-between gap-6 rounded-lg border bg-card p-6">
-                <blockquote className="font-display text-[1.15rem] leading-snug">“{review.text}”</blockquote>
-                <figcaption className="text-sm">
+              <Card className="h-full justify-between">
+                <CardContent>
+                  <blockquote className="font-display text-[1.15rem] leading-snug">“{review.text}”</blockquote>
+                </CardContent>
+                <CardFooter className="flex-col items-start text-sm">
                   <span className="font-semibold">{review.name}</span>
-                  <span className="block text-muted-foreground">{review.month}</span>
-                </figcaption>
-              </figure>
+                  <span className="text-muted-foreground">{review.month}</span>
+                </CardFooter>
+              </Card>
             </CarouselItem>
           ))}
         </CarouselContent>
@@ -734,13 +742,13 @@ function Amenities() {
       </ul>
       <Dialog>
         <DialogTrigger asChild>
-          <Button variant="outline" className="justify-self-start rounded-full">
+          <Button variant="outline" className="justify-self-start">
             Ver a lista completa
           </Button>
         </DialogTrigger>
         <DialogContent className="max-h-[85svh] overflow-y-auto sm:max-w-lg">
           <DialogHeader>
-            <DialogTitle className="font-display text-3xl font-normal">Tudo o que a casa tem</DialogTitle>
+            <DialogTitle>Tudo o que a casa tem</DialogTitle>
             <DialogDescription>Lista completa do anúncio.</DialogDescription>
           </DialogHeader>
           <div className="grid gap-6">
@@ -784,12 +792,12 @@ function MobileMenu({ className }: { className?: string }) {
     >
       <DrawerTrigger asChild>
         <Button variant="ghost" size="icon" aria-label="Abrir menu" className={className}>
-          <Menu className="size-5" />
+          <Menu />
         </Button>
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader className="text-left">
-          <DrawerTitle className="font-display text-2xl font-normal">{NAME}</DrawerTitle>
+          <DrawerTitle>{NAME}</DrawerTitle>
           <DrawerDescription>Porto de Galinhas · Pernambuco</DrawerDescription>
         </DrawerHeader>
         <nav aria-label="Seções" className="grid px-4">
@@ -905,11 +913,7 @@ export function App() {
               </a>
             ))}
           </nav>
-          <Button
-            variant={solid ? "default" : "outline"}
-            className={cn("hidden rounded-full sm:inline-flex", !solid && "border-white/70 bg-transparent text-white hover:bg-white hover:text-foreground")}
-            onClick={booking.openBooking}
-          >
+          <Button variant={solid ? "default" : "inverse"} className="hidden sm:inline-flex" onClick={booking.openBooking}>
             Reservar
           </Button>
           <MobileMenu className="-mr-2 lg:hidden" />
@@ -943,7 +947,7 @@ export function App() {
           <div className="mt-2 hidden w-full max-w-[34rem] grid-cols-[minmax(0,1fr)_auto] items-center gap-2 rounded-xl bg-card p-2 text-foreground shadow-2xl md:grid">
             <DateRangePicker />
             <GuestsStepper className="px-3" />
-            <Button size="lg" className="col-span-2 h-12 rounded-lg" onClick={booking.openBooking}>
+            <Button size="lg" className="col-span-2" onClick={booking.openBooking}>
               Consultar disponibilidade
             </Button>
           </div>
@@ -951,7 +955,8 @@ export function App() {
       </section>
 
       <div className="gutter bg-deep text-white">
-        <dl className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-6 border-t border-white/12 py-9 md:grid-cols-4">
+        <Separator className="mx-auto max-w-6xl bg-primary-foreground/15" />
+        <dl className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-6 py-9 md:grid-cols-4">
           {FACTS.map((fact) => (
             <div key={fact.label} className="grid gap-1.5">
               <dt className="order-2 text-sm text-white/65">{fact.label}</dt>
@@ -987,18 +992,22 @@ export function App() {
               </SectionHead>
               <ul className="grid gap-3 sm:grid-cols-2">
                 {DISTANCES.map((d) => (
-                  <li key={d.place} className="flex items-center gap-4 rounded-lg border bg-card p-4">
-                    <Car className="size-5 shrink-0 text-wood" strokeWidth={1.6} />
-                    <span className="grid leading-tight">
-                      <span className="font-display text-2xl">{d.time}</span>
-                      <span className="text-sm text-muted-foreground">{d.place}</span>
-                    </span>
+                  <li key={d.place}>
+                    <Card className="h-full gap-0 py-4">
+                      <CardHeader className="px-4">
+                        <CardTitle>{d.time}</CardTitle>
+                        <CardDescription className="col-span-2">{d.place}</CardDescription>
+                        <CardAction className="row-span-1">
+                          <Car className="size-5 text-wood" strokeWidth={1.6} aria-hidden="true" />
+                        </CardAction>
+                      </CardHeader>
+                    </Card>
                   </li>
                 ))}
               </ul>
-              <Button asChild variant="outline" className="justify-self-start rounded-full">
+              <Button asChild variant="outline" className="justify-self-start">
                 <a href={MAP_URL} target="_blank" rel="noopener">
-                  <MapPin /> Ver Porto de Galinhas no mapa <ArrowUpRight />
+                  <MapPin data-icon="inline-start" /> Ver Porto de Galinhas no mapa <ArrowUpRight data-icon="inline-end" />
                 </a>
               </Button>
             </section>
@@ -1008,7 +1017,7 @@ export function App() {
               <Accordion type="single" collapsible defaultValue="item-0">
                 {FAQ.map(([question, answer], i) => (
                   <AccordionItem key={question} value={`item-${i}`}>
-                    <AccordionTrigger className="font-sans text-base font-semibold">{question}</AccordionTrigger>
+                    <AccordionTrigger>{question}</AccordionTrigger>
                     <AccordionContent className="text-muted-foreground">{answer}</AccordionContent>
                   </AccordionItem>
                 ))}
@@ -1036,8 +1045,8 @@ export function App() {
             <h2 id="fechamento" className="max-w-[18ch] text-[2.6rem] leading-[1.02] md:text-[3.4rem]">
               Escolha as datas e <em>fale com o anfitrião</em>
             </h2>
-            <Button size="lg" variant="secondary" className="h-12 rounded-full px-6" onClick={booking.openBooking}>
-              <CalendarDays /> Consultar disponibilidade
+            <Button size="lg" variant="secondary" onClick={booking.openBooking}>
+              <CalendarDays data-icon="inline-start" /> Consultar disponibilidade
             </Button>
           </div>
         </div>
@@ -1059,7 +1068,7 @@ export function App() {
             <span className="font-medium">{rangeLabel(range)}</span>
             <span className="text-muted-foreground">{plural(guests, "hóspede", "hóspedes")} · até {MAX_GUESTS}</span>
           </p>
-          <Button size="lg" className="rounded-full" onClick={booking.openBooking}>
+          <Button size="lg" onClick={booking.openBooking}>
             Consultar datas
           </Button>
         </div>

@@ -66,6 +66,32 @@ mockup mais moderno, elegante, com mais fotos".
   até a seção, gaveta de reserva, limite de 17, botão Copiar) e no computador (janela de reserva, atalhos da
   galeria, foto ampliada abrindo na foto clicada, grade com zoom por cima, troca de foto da capa).
 
+## 3. Skill shadcn no mockup
+
+**Pedidos:** "pnpm dlx skills add shadcn/ui" e "Use a skill shadcn no mockup da Casa em Porto de Galinhas".
+
+- Instaladas as skills oficiais `shadcn` e `migrate-radix-to-base` (`.claude/skills/`, versões em
+  `skills-lock.json`); a segunda veio junto e não foi usada.
+- Skill `shadcn` aplicada ao `site/`. A CLI (`pnpm dlx shadcn@latest`) e o MCP falham porque o registro
+  `ui.shadcn.com` está bloqueado na rede; `toggle` e `toggle-group` vieram do registro oficial no GitHub
+  (new-york-v4). A skill pede só a CLI, mas o CLAUDE.md permite o GitHub quando o registro está bloqueado.
+- Context7 (documentação do Radix) consultado para o ToggleGroup controlado: no modo único, tocar no item ativo
+  manda valor vazio, que é ignorado.
+- Mudanças, sem alterar o visual aprovado:
+  - estilo do site movido para as cópias dos componentes: botões arredondados e `lg` mais alto, variante
+    `inverse` para a capa escura, títulos de Card, Dialog e Drawer em Fraunces, pergunta do acordeão em
+    texto normal;
+  - atalhos da galeria viraram `ToggleGroup` (antes, botões com estado ativo feito à mão);
+  - suítes, avaliações e distâncias viraram `Card` (`CardHeader`, `CardAction`, `CardFooter`); a linha da faixa
+    de números virou `Separator`;
+  - ícones dentro de botões com `data-icon` e sem classe de tamanho; ícones das camas passados como objetos
+    (em `data.ts`), não por nome.
+- Exceções mantidas de propósito: fundo escuro da foto ampliada (visualizador precisa dele), traços da capa
+  (paginação, não escolha) e o quadro "Ver as 28 fotos" do mosaico (sobreposição na foto). A reserva não tem
+  campos de texto, então Field/FieldGroup não se aplica.
+- Verificação: `npm run check` em `site/dist` sem erros; clique real repetido (menu, gaveta e janela de reserva,
+  limite de 17, Copiar, ambientes como `radio` que não desmarcam, foto ampliada, grade, capa).
+
 ## Em aberto
 
 - Aprovar o mockup no estilo da Casa 6 (ou pedir ajustes) para virar o site final.
