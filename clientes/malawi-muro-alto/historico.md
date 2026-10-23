@@ -69,6 +69,11 @@ https://github.com/DavidHDev/react-bits.git."
 - Problemas resolvidos:
   - A pilha de fotos do Pé na areia passava 9 px da tela no celular: ficou menor.
   - No Noite, a lista da casa aparecia duas vezes: saiu da seção de serviço.
+  - Com "reduzir movimento", o mosaico do Azulejo só mostrava cada foto quando ela entrava na tela (e uma
+    rolagem rápida podia pular fotos): agora aparece inteiro de uma vez. Achado na revisão final; o teste
+    passou a conferir as fotos, não só os títulos.
+  - A frase da capa do Pé na areia dizia "Pé na areia", que o anúncio não diz: virou "De frente para o mar,
+    com piscina privativa · empregada diária · 3 redes". O nome do estilo continua o mesmo.
 - Verificação:
   - `node scripts/e2e.mjs noite azulejo rede`, no celular e no computador, confere título, fatos, ausência de
     dados do anunciante, galeria abrindo e passando, limite de 10 hóspedes, link do WhatsApp, aviso sem a data

@@ -65,7 +65,14 @@ function Hero() {
           <p className="flex flex-wrap items-baseline gap-x-2 text-[clamp(1.3rem,2.6vw,1.8rem)] leading-snug">
             <span>De frente para o mar, com</span>
             {reduced ? (
-              <span className="text-sea">{PHRASES.join(" · ")}</span>
+              <span className="text-sea">
+                {PHRASES.map((phrase, i) => (
+                  <span key={phrase} className="whitespace-nowrap">
+                    {i ? " · " : ""}
+                    {phrase}
+                  </span>
+                ))}
+              </span>
             ) : (
               <RotatingText
                 texts={PHRASES}
