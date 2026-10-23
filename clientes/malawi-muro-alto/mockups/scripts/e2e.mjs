@@ -81,6 +81,16 @@ for (const style of styles) {
       await menu.getByRole("button", { name: "Fotos" }).click()
       await menu.waitFor({ state: "detached", timeout: 3000 }).catch(() => {})
       check((await page.getByRole("dialog").count()) === 0, `${tag} menu fecha ao tocar num item`)
+      // "Reservar" do menu fecha a gaveta e só então abre a reserva.
+      await page.getByRole("button", { name: "Abrir menu" }).click()
+      await page.getByRole("dialog").getByRole("button", { name: "Reservar" }).click()
+      const opened = await page
+        .getByRole("dialog")
+        .getByRole("button", { name: "Mais um hóspede" })
+        .waitFor({ timeout: 4000 })
+        .then(() => true, () => false)
+      check(opened, `${tag} "Reservar" do menu abre a reserva`)
+      await page.keyboard.press("Escape")
     }
 
     check(errors.length === 0, `${tag} sem erros no console${errors.length ? `: ${errors.join(" | ")}` : ""}`)
@@ -104,6 +114,23 @@ for (const style of styles) {
       .map((el) => el.textContent),
   )
   check(hidden.length === 0, `${style} [reduzir movimento] títulos visíveis${hidden.length ? `: ${hidden.join(" | ")}` : ""}`)
+  // Fotos (mosaico, pilha, cartões) também prontas, sem esperar a rolagem. Miniatura apagada de propósito
+  // (opacidade 0,7) não conta; só o que está quase invisível.
+  const faded = await page.evaluate(() =>
+    [...document.querySelectorAll("main img, #topo img")]
+      .filter((el) => {
+        if (el.closest("[aria-hidden=true]")) return false
+        let opacity = 1
+        for (let n = el; n; n = n.parentElement) {
+          const cs = getComputedStyle(n)
+          if (cs.visibility === "hidden") return true
+          opacity *= Number(cs.opacity)
+        }
+        return opacity < 0.5
+      })
+      .map((el) => el.getAttribute("src")),
+  )
+  check(faded.length === 0, `${style} [reduzir movimento] fotos visíveis${faded.length ? `: ${faded.join(" | ")}` : ""}`)
   await ctx.close()
   await rm(tmp, { force: true })
 }

@@ -22,7 +22,7 @@ const LINKS: [string, string][] = [
   ["#local", "Localização"],
 ]
 
-const PHRASES = ["piscina privativa", "empregada diária", "30 s do mar"]
+const PHRASES = ["piscina privativa", "empregada diária", "3 redes"]
 
 // Recortes sem marca d'água para a pilha da capa.
 const STACK: [string, string][] = [
@@ -63,7 +63,7 @@ function Hero() {
           <Eyebrow>Muro Alto · Porto de Galinhas</Eyebrow>
           <h1 className="text-[clamp(3.1rem,9vw,5.8rem)] leading-[0.98]">{NAME}</h1>
           <p className="flex flex-wrap items-baseline gap-x-2 text-[clamp(1.3rem,2.6vw,1.8rem)] leading-snug">
-            <span>Pé na areia, com</span>
+            <span>De frente para o mar, com</span>
             {reduced ? (
               <span className="text-sea">{PHRASES.join(" · ")}</span>
             ) : (

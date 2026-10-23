@@ -9,6 +9,7 @@ import { BookingBar, BookingCard, BookingProvider, useBooking } from "../shared/
 import { CONDO, DISTANCES, HOUSE, MAP_URL, NAME, PHOTOS, REVIEW, SUITES, photoSrc } from "../shared/data"
 import { Faq } from "../shared/faq"
 import { PhotoViewer } from "../shared/gallery"
+import { useReducedMotion } from "../shared/motion"
 import { Nav } from "../shared/nav"
 
 const LINKS: [string, string][] = [
@@ -209,6 +210,8 @@ function Lists() {
 
 export function App() {
   const [zoom, setZoom] = React.useState<number | null>(null)
+  // Com "reduzir movimento", o mosaico aparece inteiro de uma vez, sem esperar a rolagem.
+  const reduced = useReducedMotion()
   return (
     <BookingProvider>
       <Nav links={LINKS} />
@@ -229,6 +232,7 @@ export function App() {
               radius={10}
               animateFrom="bottom"
               stagger={0.06}
+              revealOnScroll={!reduced}
               hoverEffect="zoom"
               captions="hover"
               lightbox={false}
