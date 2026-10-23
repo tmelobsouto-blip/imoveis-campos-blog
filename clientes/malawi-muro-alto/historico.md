@@ -89,3 +89,21 @@ https://github.com/DavidHDev/react-bits.git."
 - Pedir ao proprietário fotos originais, sem marca d'água, e fotos das outras suítes, dos banheiros e do
   condomínio.
 - Confirmar se o quarto 5 é "dependência".
+
+## 2. Contraste do Noite e publicação
+
+**Pedido:** "Utilize opus para revisão do noite no Malawi, pois o contraste está ocultando o texto. Após
+finalizar, mande tudo para publicação".
+
+- Revisão de contraste por um subagente Opus, que mediu 1103 textos no Artifact real. A causa era uma só:
+  o esqueleto do Artifact define `body{background:#fff;color:#000}` fora de camada CSS, e isso vencia o
+  `@layer base` do Tailwind. No Noite, apareciam texto preto sobre azul-marinho (calendário, menu, cartões) e
+  texto claro sobre fundo branco. No Azulejo e no Pé na areia, o fundo ficava branco em vez do tom do tema.
+- Correção: regra do `body` fora de camada em `mockups/src/shared/base.css`. Depois dela, nenhum texto abaixo
+  do mínimo WCAG AA.
+- `npm run check` não pegava o problema porque o esqueleto local (`scripts/_pagina.mjs`) não tinha o fundo
+  branco nem o texto preto do real. Ele passou a ser igual ao real, e o teste dos mockups confere se fundo e
+  texto do body são os do tema.
+- Os 3 Artifacts foram republicados nos mesmos links.
+- `npm run build:web` passou a incluir os mockups: `/malawi-muro-alto/noite/`, `/azulejo/` e `/rede/`.
+- Novo pacote para o Netlify gerado.
