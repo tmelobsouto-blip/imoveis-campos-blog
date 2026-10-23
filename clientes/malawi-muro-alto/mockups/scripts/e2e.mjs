@@ -11,6 +11,7 @@ const VIEWPORTS = {
   celular: { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true },
   computador: { viewport: { width: 1440, height: 900 } },
 }
+const TABLETS = [768, 1024]
 
 let failures = 0
 function check(ok, label) {
@@ -42,6 +43,7 @@ for (const style of styles) {
     check(/5 suítes/.test(text) && /10 pessoas/.test(text) && /Muro Alto/.test(text), `${tag} fatos: 5 suítes, 10 pessoas, Muro Alto`)
     const html = await page.content()
     check(!/98176|2641|Krauthamer|kraut_temporada|TemporadaLivre/i.test(html), `${tag} sem dados do anunciante nem da plataforma`)
+    check(!/poucos passos|Tudo o que o anúncio lista/.test(text), `${tag} sem frases que o anúncio não sustenta`)
 
     // Galeria: abre na foto clicada e passa com a seta.
     await page.locator("[data-gallery-item]:visible").first().click()
@@ -51,6 +53,12 @@ for (const style of styles) {
     await page.keyboard.press("ArrowRight")
     await page.waitForTimeout(400)
     check(/2 de \d+$/.test((await caption.innerText()).trim()), `${tag} galeria passa para a foto 2`)
+    // Seta do teclado depois de usar o botão "próxima": avança uma foto só.
+    await page.getByRole("dialog").getByRole("button", { name: "Next slide" }).click()
+    await page.waitForTimeout(400)
+    await page.keyboard.press("ArrowRight")
+    await page.waitForTimeout(400)
+    check(/4 de \d+$/.test((await caption.innerText()).trim()), `${tag} seta depois do botão avança uma foto (${(await caption.innerText()).trim().slice(-7)})`)
     await page.keyboard.press("Escape")
     await caption.waitFor({ state: "detached" })
 
@@ -96,6 +104,20 @@ for (const style of styles) {
     check(errors.length === 0, `${tag} sem erros no console${errors.length ? `: ${errors.join(" | ")}` : ""}`)
     await ctx.close()
   }
+  // Rolagem lateral também no tablet e no celular com "reduzir movimento".
+  for (const [label, options] of [
+    ...TABLETS.map((w) => [`tablet ${w}`, { viewport: { width: w, height: 1000 } }]),
+    ["celular, reduzir movimento", { ...VIEWPORTS.celular, reducedMotion: "reduce" }],
+  ]) {
+    const ctx = await browser.newContext({ ...options, locale: "pt-BR" })
+    const page = await ctx.newPage()
+    await page.goto(url, { waitUntil: "load" })
+    await page.waitForTimeout(1500)
+    const overflow = await page.evaluate((w) => Math.max(document.documentElement.scrollWidth, innerWidth) - w, options.viewport.width)
+    check(overflow <= 0, `${style} [${label}] sem rolagem lateral (${overflow}px)`)
+    await ctx.close()
+  }
+
   // "Reduzir movimento": nenhum canvas e todos os títulos visíveis, sem esperar animação.
   const ctx = await browser.newContext({ ...VIEWPORTS.computador, locale: "pt-BR", reducedMotion: "reduce" })
   const page = await ctx.newPage()

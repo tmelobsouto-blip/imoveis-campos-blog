@@ -181,8 +181,7 @@ function Service() {
       <img src={photoSrc("14b-varanda")} alt="Mesa rústica da varanda com louça de barro" width={872} height={970} loading="lazy" className="aspect-[4/5] w-full rounded-[1.6rem] object-cover" />
       <div className="grid gap-6">
         <SectionHead id="servico" eyebrow="Serviço" title={<>Empregada todos os dias, <em>das 8h às 16h</em></>}>
-          Limpeza e cozinha incluídas, com roupa de cama e toalhas. A churrasqueira e o bar da varanda ficam a
-          poucos passos da piscina.
+          Limpeza e cozinha incluídas, com roupa de cama e toalhas.
         </SectionHead>
       </div>
     </section>
@@ -233,7 +232,7 @@ function Condo() {
       <SpotlightCard {...SPOTLIGHT} spotlightSize={420} className="grid gap-5 p-6! md:p-8!">
         <div className="grid gap-1.5">
           <h3 className="text-3xl">Na casa</h3>
-          <p className="text-sm text-muted-foreground">Tudo o que o anúncio lista para o bangalô.</p>
+          <p className="text-sm text-muted-foreground">Itens que o anúncio lista para o bangalô.</p>
         </div>
         <ul className="grid gap-x-8 gap-y-3 text-[0.95rem] md:grid-cols-2">
           {HOUSE.map((item) => (

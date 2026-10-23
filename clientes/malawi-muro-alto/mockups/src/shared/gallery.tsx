@@ -24,6 +24,8 @@ export function PhotoViewer({ index, onClose }: { index: number | null; onClose:
       <DialogContent
         className="w-[min(96vw,1200px)] max-w-none gap-3 border-0 bg-[#05070d] p-3 pt-12 text-white sm:max-w-none"
         onKeyDown={(e) => {
+          // O Carousel já trata as setas quando o foco está nele (e marca o evento): não passar duas fotos.
+          if (e.defaultPrevented) return
           if (e.key === "ArrowLeft") api?.scrollPrev()
           if (e.key === "ArrowRight") api?.scrollNext()
         }}

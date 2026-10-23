@@ -57,7 +57,7 @@ function Hero() {
   const { openBooking } = useBooking()
   const reduced = useReducedMotion()
   return (
-    <section id="topo" className="gutter pt-24 pb-12 md:pt-32 md:pb-20">
+    <section id="topo" className="gutter overflow-x-clip pt-24 pb-12 md:pt-32 md:pb-20">
       <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
         <div className="grid justify-items-start gap-6">
           <Eyebrow>Muro Alto · Porto de Galinhas</Eyebrow>
@@ -67,10 +67,10 @@ function Hero() {
             {reduced ? (
               <span className="text-sea">
                 {PHRASES.map((phrase, i) => (
-                  <span key={phrase} className="whitespace-nowrap">
+                  <React.Fragment key={phrase}>
                     {i ? " · " : ""}
-                    {phrase}
-                  </span>
+                    <span className="whitespace-nowrap">{phrase}</span>
+                  </React.Fragment>
                 ))}
               </span>
             ) : (
@@ -97,7 +97,7 @@ function Hero() {
           </div>
         </div>
         <div className="grid justify-items-center gap-4">
-          <div className="aspect-[4/5] w-[min(68vw,24rem)]">
+          <div className="aspect-[4/5] w-[min(68vw,24rem,100%)]">
             <Stack
               layout="fan"
               visible={4}
@@ -236,8 +236,7 @@ export function App() {
           <section aria-labelledby="servico" className="grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-center">
             <div className="grid gap-6 md:order-2">
               <SectionHead id="servico" eyebrow="Serviço" title="Empregada todos os dias, das 8h às 16h">
-                Limpeza e cozinha incluídas, com roupa de cama e toalhas. A churrasqueira e o bar ficam na varanda, a
-                poucos passos da piscina.
+                Limpeza e cozinha incluídas, com roupa de cama e toalhas.
               </SectionHead>
             </div>
             <img src={photoSrc("08b-bar-piscina")} alt="Bar da varanda com banquetas e redes ao fundo" width={872} height={970} loading="lazy" className="aspect-[4/5] w-full rounded-[1.6rem] object-cover md:order-1" />
