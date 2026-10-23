@@ -1,0 +1,40 @@
+@import "../shared/base.css";
+
+/* Pé na areia, ritmo de rede: areia, o verde-mar da parede listrada da suíte e o coral das redes (fotos 05, 14 e 32). */
+:root {
+  --sans: "Outfit", "Segoe UI", system-ui, sans-serif;
+  --display: "Marcellus", "Iowan Old Style", Georgia, serif;
+  --radius: 1.25rem;
+  --background: #f4ead9;
+  --foreground: #1c2b2a;
+  --card: #fbf6ec;
+  --card-foreground: #1c2b2a;
+  --popover: #fbf6ec;
+  --popover-foreground: #1c2b2a;
+  --primary: #1f8a84;
+  --primary-foreground: #ffffff;
+  --secondary: #ebdcc3;
+  --secondary-foreground: #1c2b2a;
+  --muted: #ebdcc3;
+  --muted-foreground: #5b6a66;
+  --accent: #dcefe9;
+  --accent-foreground: #16625e;
+  --destructive: #b42318;
+  --border: #e2d2b6;
+  --input: #d6c3a3;
+  --ring: #1f8a84;
+  --sea: #1f8a84;
+  --coral: #e8735a;
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-sea: var(--sea);
+  --color-coral: var(--coral);
+}
+
+@layer base {
+  h1, h2, h3 {
+    letter-spacing: 0;
+  }
+}
