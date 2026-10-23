@@ -16,9 +16,9 @@ Republicar sempre com o `url` abaixo. Build: `npm --prefix clientes/malawi-muro-
 
 | Arquivo | Artifact | Observação |
 |---|---|---|
-| `mockups/dist/noite/` | LINK_NOITE | Noite no Malawi · luxo escuro, piscina iluminada |
-| `mockups/dist/azulejo/` | LINK_AZULEJO | Azulejo e madeira · editorial claro |
-| `mockups/dist/rede/` | LINK_REDE | Pé na areia · resort solar, areia e verde-mar |
+| `mockups/dist/noite/` | https://claude.ai/artifact/NHVcZ7tMua6xqA948Z9TPR | Noite no Malawi · luxo escuro, piscina iluminada |
+| `mockups/dist/azulejo/` | https://claude.ai/artifact/4mCmVcXNd29vBApsqwGcq3 | Azulejo e madeira · editorial claro |
+| `mockups/dist/rede/` | https://claude.ai/artifact/VkWUpJwy8xNBfm9yziCnPy | Pé na areia · resort solar, areia e verde-mar |
 
 Os mockups ficam fora do `npm run build:web` (não há `site.html` nem `site/`); o domínio próprio entra com o
 site final.
