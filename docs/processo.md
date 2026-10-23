@@ -45,3 +45,5 @@ Context7 funciona pelo conector do claude.ai). O Mobbin MCP exige plano pago.
   genéricos, site final React e proposta com a tabela nova.
 - [Casa em Porto de Galinhas](../clientes/porto-coqueiral/historico.md): prints de tablet com avisos por cima
   (caixas por foto), 3 mockups por perfil descartados e um mockup React no estilo da Casa 6, com mais fotos.
+- [Bangalô Muro Alto](../clientes/malawi-muro-alto/historico.md): processo superpowers (desenho, plano,
+  execução com testes), 3 mockups React num app só com componentes do React Bits e shadcn.

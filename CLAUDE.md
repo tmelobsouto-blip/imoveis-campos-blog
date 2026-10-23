@@ -1,8 +1,9 @@
 # NEXO Websites
 
 Estúdio que cria **sites próprios de reserva direta para imóveis de temporada** e vende ao proprietário.
-Cada imóvel é um cliente em `clientes/<slug>/`. Clientes: **Casa Dez**, **Casa 6 Suítes** (nome sugerido, pasta `porto-6-suites`) e **Casa em Porto de Galinhas**
-(nome sugerido, pasta `porto-coqueiral`), todos em Porto de Galinhas, PE.
+Cada imóvel é um cliente em `clientes/<slug>/`. Clientes: **Casa Dez**, **Casa 6 Suítes** (nome sugerido, pasta `porto-6-suites`),
+**Casa em Porto de Galinhas** (nome sugerido, pasta `porto-coqueiral`) e **Bangalô Muro Alto** (nome sugerido, pasta
+`malawi-muro-alto`), todos em Porto de Galinhas, PE.
 Como cada site foi feito: `clientes/<slug>/historico.md`; fluxo geral, skills e MCPs: `docs/processo.md`.
 
 ## Antes de começar
@@ -50,6 +51,8 @@ clientes/<slug>/
   site-v2/               (Casa Dez) versão React + shadcn/ui; build em site-v2/dist/
   site/                  (Casa 6 Suítes) site final em React + shadcn/ui no lugar de site.html; build em site/dist/
                          (Casa em Porto de Galinhas) mockup no mesmo estilo, ainda sem site final
+  mockups/               (Bangalô Muro Alto) 3 mockups React num app só: src/shared/ (fatos, reserva, galeria),
+                         src/<estilo>/, src/bits/ (React Bits, com a licença); build em mockups/dist/<estilo>/
 ```
 
 ## Comandos
