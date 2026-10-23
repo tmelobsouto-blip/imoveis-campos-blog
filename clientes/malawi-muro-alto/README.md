@@ -20,8 +20,9 @@ Republicar sempre com o `url` abaixo. Build: `npm --prefix clientes/malawi-muro-
 | `mockups/dist/azulejo/` | https://claude.ai/artifact/4mCmVcXNd29vBApsqwGcq3 | Azulejo e madeira · editorial claro |
 | `mockups/dist/rede/` | https://claude.ai/artifact/VkWUpJwy8xNBfm9yziCnPy | Pé na areia · resort solar, areia e verde-mar |
 
-Os mockups ficam fora do `npm run build:web` (não há `site.html` nem `site/`); o domínio próprio entra com o
-site final.
+No domínio próprio (`npm run build:web` → Netlify, ver [docs/publicacao.md](../../docs/publicacao.md)):
+`/malawi-muro-alto/noite/`, `/malawi-muro-alto/azulejo/` e `/malawi-muro-alto/rede/` (build automático de
+`mockups/`, com `noindex`).
 
 ## Decisões
 - Objetivo: reserva direta pelo WhatsApp (sem número até o proprietário fornecer).

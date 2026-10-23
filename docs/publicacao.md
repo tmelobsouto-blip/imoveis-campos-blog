@@ -9,6 +9,7 @@ publique a pasta `dist/`, gerada por `npm run build:web`:
 | Site do cliente | `https://<domínio>/porto-coqueiral/` |
 | Proposta | `https://<domínio>/porto-coqueiral/proposta/` |
 | PDF | `https://<domínio>/porto-coqueiral/Proposta-Casa-em-Porto-de-Galinhas.pdf` |
+| Mockups React (um por estilo) | `https://<domínio>/malawi-muro-alto/noite/` (também `azulejo/` e `rede/`) |
 | Mockups | `https://<domínio>/casa-dez/mockup-tropical/` etc. |
 
 O build inclui a página da NEXO e todos os clientes: `site.html` ou o site React em `site/` (o build dele roda

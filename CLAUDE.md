@@ -92,7 +92,8 @@ Dois canais:
 - **Domínio próprio (para enviar ao proprietário)**: `npm run build:web` → Netlify (`netlify.toml`, ou arrastar a
   pasta `dist/`) ou Cloudflare Pages (`docs/publicacao.md`). Links `claude.ai/artifact` listados no README do
   cliente viram caminhos do domínio; páginas de clientes saem com `noindex`. Entram `site.html` ou o site React
-  em `site/` (build automático); mockups marcados "descartado" no README ficam de fora.
+  em `site/` (build automático), os mockups React de `mockups/` (um caminho por estilo); mockups marcados
+  "descartado" no README ficam de fora.
 - **Artifact do claude.ai (prévia)**:
 - Publicar com `root = clientes/<slug>` e `files` = só as fotos/imagens que a página usa.
 - **Republicar sempre com o `url` do Artifact existente** (tabela no README do cliente), senão nasce um link novo.

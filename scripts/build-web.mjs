@@ -4,6 +4,7 @@
 //   /<cliente>/            site.html, ou o build do site React em site/ (app.js + app.css)
 //   /<cliente>/proposta/   proposta.html
 //   /<cliente>/mockup-x/   mockup-x.html (menos os marcados como "descartado" no README do cliente)
+//   /<cliente>/<estilo>/   mockups React em mockups/ (um build por estilo em mockups/dist/<estilo>/)
 // Links claude.ai/artifact listados no README do cliente viram caminhos do próprio domínio.
 import { execSync } from 'node:child_process';
 import { cp, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
@@ -85,7 +86,8 @@ for (const file of await readdir('web')) {
 for (const slug of await readdir('clientes')) {
   const dir = join('clientes', slug);
   const reactApp = !existsSync(join(dir, 'site.html')) && existsSync(join(dir, 'site', 'package.json')) ? join(dir, 'site') : null;
-  if (!existsSync(join(dir, 'site.html')) && !reactApp) continue;
+  const mockupsApp = existsSync(join(dir, 'mockups', 'package.json')) ? join(dir, 'mockups') : null;
+  if (!existsSync(join(dir, 'site.html')) && !reactApp && !mockupsApp) continue;
   const readme = existsSync(join(dir, 'README.md')) ? await readFile(join(dir, 'README.md'), 'utf8') : '';
   const links = artifactLinks(readme, slug);
   const skip = discarded(readme);
@@ -102,6 +104,15 @@ for (const slug of await readdir('clientes')) {
     await cp(built, join(OUT, slug), { recursive: true, filter: (src) => !src.endsWith('index.html') });
     await writePage(`/${slug}/`, toDocument(await readFile(join(built, 'index.html'), 'utf8'), { noindex: true }));
     console.log(`/${slug}/  ←  ${built}/`);
+  }
+
+  if (mockupsApp) {
+    const built = buildReactSite(mockupsApp);
+    for (const style of await readdir(built)) {
+      await cp(join(built, style), join(OUT, slug, style), { recursive: true, filter: (src) => !src.endsWith('index.html') });
+      await writePage(`/${slug}/${style}/`, toDocument(await readFile(join(built, style, 'index.html'), 'utf8'), { noindex: true }));
+      console.log(`/${slug}/${style}/  ←  ${built}/${style}/`);
+    }
   }
 
   const pages = (await readdir(dir)).filter((f) => f.endsWith('.html') && !skip.has(f));
