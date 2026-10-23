@@ -50,6 +50,13 @@
   }
 }
 
+/* O esqueleto do Artifact define body{background:#fff;color:#000} fora de camada, o que venceria o @layer base. */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--sans);
+}
+
 @utility gutter {
   padding-left: max(20px, env(safe-area-inset-left, 0px));
   padding-right: max(20px, env(safe-area-inset-right, 0px));

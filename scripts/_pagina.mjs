@@ -3,7 +3,7 @@ export function wrapPage(body) {
   return `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">` +
     `<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">` +
     `<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}` +
-    `body{margin:0;font:14px system-ui}img{max-width:100%}[hidden]{display:none!important}</style>` +
+    `body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]{display:none!important}</style>` +
     `</head><body>${body}</body></html>`;
 }
 

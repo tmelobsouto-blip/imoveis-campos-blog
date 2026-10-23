@@ -39,6 +39,18 @@ for (const style of styles) {
     const overflow = await page.evaluate((w) => Math.max(document.documentElement.scrollWidth, innerWidth) - w, options.viewport.width)
     check(overflow <= 0, `${tag} sem rolagem lateral (${overflow}px)`)
     check((await page.title()) === "Bangalô Muro Alto", `${tag} título`)
+    // O esqueleto do Artifact pinta o body de branco com texto preto: o tema do estilo precisa vencer.
+    const colors = await page.evaluate(() => {
+      const probe = document.createElement("div")
+      probe.style.cssText = "background:var(--background);color:var(--foreground)"
+      document.body.append(probe)
+      const want = getComputedStyle(probe)
+      const got = getComputedStyle(document.body)
+      const result = [got.backgroundColor === want.backgroundColor, got.color === want.color]
+      probe.remove()
+      return result
+    })
+    check(colors[0] && colors[1], `${tag} fundo e texto do tema no body`)
     const text = await page.locator("body").innerText()
     check(/5 suítes/.test(text) && /10 pessoas/.test(text) && /Muro Alto/.test(text), `${tag} fatos: 5 suítes, 10 pessoas, Muro Alto`)
     const html = await page.content()
