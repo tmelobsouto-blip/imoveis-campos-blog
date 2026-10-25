@@ -1,23 +1,26 @@
 import { loadFont } from '@remotion/fonts';
 import { staticFile } from 'remotion';
 
-const faces: Array<[family: string, file: string, weight: string]> = [
-  ['Inter', 'inter-latin-400-normal', '400'],
-  ['Inter', 'inter-latin-500-normal', '500'],
-  ['Inter', 'inter-latin-600-normal', '600'],
-  ['Inter', 'inter-latin-700-normal', '700'],
-  ['Inter', 'inter-latin-800-normal', '800'],
-  ['Inter Tight', 'inter-tight-latin-700-normal', '700'],
-  ['Inter Tight', 'inter-tight-latin-800-normal', '800'],
-  ['Inter Tight', 'inter-tight-latin-900-normal', '900'],
-  ['JetBrains Mono', 'jetbrains-mono-latin-400-normal', '400'],
-  ['JetBrains Mono', 'jetbrains-mono-latin-500-normal', '500'],
-  ['JetBrains Mono', 'jetbrains-mono-latin-700-normal', '700'],
+type Face = [family: string, file: string, weight: string, style?: 'normal' | 'italic'];
+
+const weights = (family: string, slug: string, list: number[], style: 'normal' | 'italic' = 'normal'): Face[] =>
+  list.map((w) => [family, `${slug}-latin-${w}-${style}`, String(w), style]);
+
+const faces: Face[] = [
+  ...weights('Inter', 'inter', [400, 500, 600, 700, 800]),
+  ...weights('Inter Tight', 'inter-tight', [700, 800, 900]),
+  ...weights('JetBrains Mono', 'jetbrains-mono', [400, 500, 700]),
+  ...weights('Fraunces', 'fraunces', [400, 500, 600, 700, 800, 900]),
+  ...weights('Fraunces', 'fraunces', [500, 600, 700, 800], 'italic'),
+  ...weights('Archivo Black', 'archivo-black', [400]),
+  ...weights('Space Grotesk', 'space-grotesk', [400, 500, 700]),
+  ...weights('VT323', 'vt323', [400]),
+  ...weights('Plus Jakarta Sans', 'plus-jakarta-sans', [400, 500, 600, 700, 800]),
 ];
 
 export const loadFonts = () =>
   Promise.all(
-    faces.map(([family, file, weight]) =>
-      loadFont({ family, url: staticFile(`fonts/${file}.woff2`), weight }),
+    faces.map(([family, file, weight, style = 'normal']) =>
+      loadFont({ family, url: staticFile(`fonts/${file}.woff2`), weight, style }),
     ),
   );
