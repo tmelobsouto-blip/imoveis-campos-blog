@@ -1,0 +1,122 @@
+{
+  "wpm": 165.0,
+  "target": 30.0,
+  "total_seconds": 27.64,
+  "total_words": 76,
+  "beats": [
+    {
+      "n": 1,
+      "start": 0.0,
+      "dur": 2.91,
+      "words": 8,
+      "text": "Ninguém te conta. R$ 400 mil pagam ITBI.",
+      "concrete": 1,
+      "label": "HOOK",
+      "flags": []
+    },
+    {
+      "n": 2,
+      "start": 2.91,
+      "dur": 1.45,
+      "words": 4,
+      "text": "Tema 796, sem juridiquês.",
+      "concrete": 1,
+      "label": "",
+      "flags": []
+    },
+    {
+      "n": 3,
+      "start": 4.36,
+      "dur": 4.0,
+      "words": 11,
+      "text": "O sócio integraliza na empresa um imóvel de R$ 1 milhão.",
+      "concrete": 1,
+      "label": "",
+      "flags": []
+    },
+    {
+      "n": 4,
+      "start": 8.36,
+      "dur": 2.18,
+      "words": 6,
+      "text": "R$ 600 mil viram quotas. Imunes.",
+      "concrete": 2,
+      "label": "",
+      "flags": []
+    },
+    {
+      "n": 5,
+      "start": 10.55,
+      "dur": 3.27,
+      "words": 9,
+      "text": "O resto vira reserva de capital, o famoso ágio.",
+      "concrete": 0,
+      "label": "MID",
+      "flags": []
+    },
+    {
+      "n": 6,
+      "start": 13.82,
+      "dur": 2.55,
+      "words": 7,
+      "text": "O STF fechou isso. RE 796.376.",
+      "concrete": 1,
+      "label": "",
+      "flags": []
+    },
+    {
+      "n": 7,
+      "start": 16.36,
+      "dur": 3.64,
+      "words": 10,
+      "text": "A imunidade não alcança o que exceder o capital social.",
+      "concrete": 0,
+      "label": "",
+      "flags": []
+    },
+    {
+      "n": 8,
+      "start": 20.0,
+      "dur": 1.09,
+      "words": 3,
+      "text": "Só a quota.",
+      "concrete": 0,
+      "label": "",
+      "flags": []
+    },
+    {
+      "n": 9,
+      "start": 21.09,
+      "dur": 2.91,
+      "words": 8,
+      "text": "Os R$ 400 mil que sobram pagam ITBI.",
+      "concrete": 1,
+      "label": "",
+      "flags": []
+    },
+    {
+      "n": 10,
+      "start": 24.0,
+      "dur": 2.18,
+      "words": 6,
+      "text": "Link na bio. 20 páginas grátis.",
+      "concrete": 1,
+      "label": "",
+      "flags": []
+    },
+    {
+      "n": 11,
+      "start": 26.18,
+      "dur": 1.45,
+      "words": 4,
+      "text": "Agora ninguém te pega.",
+      "concrete": 0,
+      "label": "CTA",
+      "flags": []
+    }
+  ],
+  "notes": [
+    "Loops: the last beat repeats \"ninguem, te\" from the hook. Second watches are free reach.",
+    "Length is on target (27.6s against 30.0s)."
+  ]
+}

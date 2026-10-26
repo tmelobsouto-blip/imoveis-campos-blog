@@ -1,5 +1,7 @@
 import React from 'react';
-import { Composition } from 'remotion';
+import { Composition, Still } from 'remotion';
+import { REEL_FRAMES, Reel796 } from './carousel01/Reel';
+import { CAROUSEL_SLIDES } from './carousel01/Slides';
 import { loadFonts } from './fonts';
 import { Story } from './Story';
 import { STYLES } from './styles';
@@ -19,6 +21,11 @@ export const RemotionRoot: React.FC = () => (
         <Composition id={`${id}-Mockup`} component={component} {...base} defaultProps={{ showInstagramUI: true }} />
         <Composition id={`${id}-Clean`} component={component} {...base} defaultProps={{ showInstagramUI: false }} />
       </React.Fragment>
+    ))}
+    <Composition id="Reel796-Mockup" component={Reel796} {...base} durationInFrames={REEL_FRAMES} defaultProps={{ showInstagramUI: true }} />
+    <Composition id="Reel796-Clean" component={Reel796} {...base} durationInFrames={REEL_FRAMES} defaultProps={{ showInstagramUI: false }} />
+    {CAROUSEL_SLIDES.map(({ id, component }) => (
+      <Still key={id} id={id} component={component} width={1080} height={1350} />
     ))}
   </>
 );

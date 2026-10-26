@@ -16,6 +16,7 @@ const faces: Face[] = [
   ...weights('Space Grotesk', 'space-grotesk', [400, 500, 700]),
   ...weights('VT323', 'vt323', [400]),
   ...weights('Plus Jakarta Sans', 'plus-jakarta-sans', [400, 500, 600, 700, 800]),
+  ...weights('Source Serif 4', 'source-serif-4', [400, 500, 600, 700]),
 ];
 
 export const loadFonts = () =>

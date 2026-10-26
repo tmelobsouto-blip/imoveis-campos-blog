@@ -6,7 +6,9 @@
     "studio": "remotion studio src/index.ts",
     "typecheck": "tsc --noEmit",
     "render:mockup": "remotion render src/index.ts StoryMockup out/v01-story-mockup.mp4",
-    "render:clean": "remotion render src/index.ts StoryClean out/v01-story-clean.mp4"
+    "render:clean": "remotion render src/index.ts StoryClean out/v01-story-clean.mp4",
+    "reel796:beats": "python3 -I scripts/beats_json.py reels/tema796/script.txt src/carousel01/beats.json --target 30",
+    "reel796:render": "remotion render src/index.ts Reel796-Clean out/carousel01/reel-tema796-Clean.mp4"
   },
   "dependencies": {
     "@fontsource/archivo-black": "5.3.0",
@@ -15,6 +17,7 @@
     "@fontsource/inter-tight": "5.3.0",
     "@fontsource/jetbrains-mono": "5.3.0",
     "@fontsource/plus-jakarta-sans": "5.3.0",
+    "@fontsource/source-serif-4": "5.3.1",
     "@fontsource/space-grotesk": "5.3.0",
     "@fontsource/vt323": "5.3.0",
     "@remotion/cli": "4.0.538",
